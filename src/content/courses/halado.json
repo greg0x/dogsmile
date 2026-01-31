@@ -2,34 +2,48 @@
   "title": "Haladó kurzus",
   "subtitle": "Következő szint",
   "description": "Kiscsoportos haladó képzés változatos helyszíneken, akik már elvégezték az alapkurzust.",
-  "fullDescription": "Ha már túl vagytok az alapokon és szeretnétek továbbfejleszteni a tudásotokat, ez a kurzus nektek szól. Kiscsoportban (3 gazdi-kutya pár) dolgozunk, változatos helyszíneken, aktivitásokkal fűszerezve.",
-  "image": "/images/courses/halado.jpg",
+  "fullDescription": "Ez a program azoknak a gazdiknak szól, akik az alapozó képzésen már túl vannak a \"láthatatlan póráz\" módszerrel és szeretnének továbblépni. A kurzus célja a készségek fejlesztése változatos környezetben.",
+  "image": "halado.png",
   "order": 2,
   "price": "80 000 Ft",
+  "priceNote": "Vagy 2 részletben: 2 x 40 000 Ft",
   "duration": "8 alkalom kiscsoportban",
   "includes": [
-    "Kiscsoportos foglalkozások (3 kutya/csoport)",
-    "Változatos helyszínek",
-    "Aktivitásokkal fűszerezett gyakorlatok",
-    "Írásos feladatleírások minden alkalom után",
-    "Haladó distrakciós gyakorlatok"
+    "Kiscsoportos foglalkozások (3 gazdi-kutya pár)",
+    "Változatos helyszíneken tartott gyakorlások",
+    "Aktivitásokkal fűszerezett foglalkozások",
+    "Írásos feladatleírások minden alkalom után"
   ],
   "requirements": [
-    "Alapkurzus elvégzése a Láthatatlan Póráz módszerrel",
-    "Minden alkalmon részvétel",
-    "Minimum napi 3x gyakorlás",
-    "5-10 perccel korábban érkezés",
-    "24 órás előzetes jelzés hiányzás esetén"
+    "Szeretnél túllépni az alapokon",
+    "Szeretnéd, hogy kutyád különböző helyszíneken is megbízhatóan teljesítsen",
+    "Minden alkalmon részt tudsz venni",
+    "Hetente gyakorolsz otthon",
+    "Kutyád nem reaktív"
   ],
   "notFor": [
-    "Alapparancsokat nem ismerő kutyák",
-    "Reaktív kutyák (egyéni képzés ajánlott)",
-    "Ha nem tudsz minden alkalmon részt venni"
+    "Nem tudsz minden alkalmon részt venni",
+    "Nincs időd gyakorolni",
+    "Kutyád reaktív más kutyákkal vagy emberekkel szemben"
   ],
   "benefits": [
-    "Megbízható engedelmesség zavarók mellett",
+    "Megbízható engedelmesség különböző helyszíneken",
+    "Magasabb szintű együttműködés kutyáddal",
     "Szocializáció más kutyákkal",
-    "Magasabb szintű együttműködés",
-    "Komplex feladatok végrehajtása"
-  ]
+    "Türelmes, következetes szakmai vezetés"
+  ],
+  "expectations": {
+    "instructor": [
+      "Pontos megjelenés",
+      "Írásos feladatleírások",
+      "Türelmes, következetes vezetés",
+      "Pozitív légkör"
+    ],
+    "participant": [
+      "5-10 perccel korábbi érkezés (WC szünet)",
+      "Felkészült felszerelés",
+      "24 órás előzetes jelzés hiányzás esetén",
+      "Minimum heti 3x gyakorlás"
+    ]
+  }
 }

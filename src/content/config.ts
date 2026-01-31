@@ -10,11 +10,16 @@ const courses = defineCollection({
     image: z.string(),
     order: z.number(),
     price: z.string().optional(),
+    priceNote: z.string().optional(),
     duration: z.string().optional(),
     includes: z.array(z.string()).optional(),
     requirements: z.array(z.string()).optional(),
     notFor: z.array(z.string()).optional(),
     benefits: z.array(z.string()).optional(),
+    expectations: z.object({
+      instructor: z.array(z.string()),
+      participant: z.array(z.string()),
+    }).optional(),
   }),
 });
 

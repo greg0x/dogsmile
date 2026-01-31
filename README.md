@@ -10,12 +10,7 @@
   - egyeni
   - csoportos alap
   - csoportos kolyok
-  - halado
   - trukk mester
-  - buszkeseg fal
-  - rolam
-  - kapcsolat
-    - responsivity
 - add decap admin
 - SEO optimasation
 
