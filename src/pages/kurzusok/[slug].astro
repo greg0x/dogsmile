@@ -107,8 +107,19 @@ const siteInfo = await getEntry('site-info', 'main');
             {course.data.duration && (
               <div class="duration">{course.data.duration}</div>
             )}
-            <a href="/kapcsolat" class="cta-button">Jelentkezés</a>
+            <a href="/jelentkezes" class="cta-button">Jelentkezem &raquo;</a>
             <p class="note">Kérdésed van? Írj bátran!</p>
+          </div>
+
+          <div class="other-courses">
+            <h3>Többi kurzus</h3>
+            <nav class="course-list">
+              <a href="/kurzusok/alap">Egyéni Alap kurzus</a>
+              <a href="/kurzusok/csoportos-alap">Csoportos Alap kurzus</a>
+              <a href="/kurzusok/csoportos-kolyok">Csoportos Kölyök kurzus</a>
+              <a href="/kurzusok/halado">Haladó kurzus</a>
+              <a href="/kurzusok/trukk">Trükk mester</a>
+            </nav>
           </div>
         </aside>
       </div>
@@ -264,6 +275,47 @@ const siteInfo = await getEntry('site-info', 'main');
     font-size: 0.875rem;
     opacity: 0.8;
     margin-top: 1rem;
+  }
+
+  .other-courses {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-top: 1.5rem;
+  }
+
+  .other-courses h3 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  .course-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .course-list a {
+    color: var(--color-text);
+    font-size: 0.9rem;
+    padding: 0.25rem 0;
+    padding-left: 1rem;
+    position: relative;
+    transition: color 0.2s;
+  }
+
+  .course-list a::before {
+    content: "○";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-size: 0.7rem;
+  }
+
+  .course-list a:hover {
+    color: var(--color-primary);
   }
 
   .back-link {

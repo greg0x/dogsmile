@@ -3,6 +3,7 @@ import { getEntry } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Sidebar from '../components/Sidebar.astro';
 
 const siteInfo = await getEntry('site-info', 'main');
 const graduatesData = await getEntry('graduates', 'all');
@@ -23,31 +24,41 @@ const graduates = graduatesData.data;
         <p>Gazdik és kutyáik, akik sikeresen elvégezték kurzusainkat</p>
       </header>
 
-      <div class="graduates-grid">
-        {graduates.map((grad) => (
-          <div class={`graduate-card ${grad.image ? 'has-image' : ''}`}>
-            {grad.image ? (
-              <div class="graduate-image">
-                <img src={grad.image} alt={`${grad.dogName} és ${grad.ownerName}`} loading="lazy" />
+      <div class="page-content">
+        <div class="main-content">
+          <div class="graduates-grid">
+            {graduates.map((grad) => (
+              <div class={`graduate-card ${grad.image ? 'has-image' : ''}`}>
+                {grad.image ? (
+                  <div class="graduate-image">
+                    <img src={grad.image} alt={`${grad.dogName} és ${grad.ownerName}`} loading="lazy" />
+                  </div>
+                ) : (
+                  <div class="graduate-avatar">
+                    <span>{grad.dogName.charAt(0)}</span>
+                  </div>
+                )}
+                <div class="graduate-info">
+                  <h3>{grad.dogName}</h3>
+                  <p class="owner">Gazdi: {grad.ownerName}</p>
+                  {grad.course && <span class="course-badge">{grad.course}</span>}
+                </div>
               </div>
-            ) : (
-              <div class="graduate-avatar">
-                <span>{grad.dogName.charAt(0)}</span>
-              </div>
-            )}
-            <div class="graduate-info">
-              <h3>{grad.dogName}</h3>
-              <p class="owner">Gazdi: {grad.ownerName}</p>
-              {grad.course && <span class="course-badge">{grad.course}</span>}
-            </div>
+            ))}
           </div>
-        ))}
-      </div>
 
-      <div class="cta-section">
-        <h2>Szeretnéd, ha ti is itt lennétek?</h2>
-        <p>Jelentkezz kurzusainkra és legyél te is a büszkeség falunk része!</p>
-        <a href="/#kurzusok" class="cta-button">Kurzusok megtekintése</a>
+          <div class="cta-section">
+            <h2>Szeretnéd, ha ti is itt lennétek?</h2>
+            <p>Jelentkezz kurzusainkra és legyél te is a büszkeség falunk része!</p>
+            <a href="/jelentkezes" class="cta-button">Jelentkezem &raquo;</a>
+          </div>
+        </div>
+
+        <Sidebar
+          email={siteInfo.data.email}
+          phone={siteInfo.data.phone}
+          instagram={siteInfo.data.instagram}
+        />
       </div>
     </div>
   </main>
@@ -88,11 +99,18 @@ const graduates = graduatesData.data;
     font-size: 1.15rem;
   }
 
+  .page-content {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 3rem;
+    align-items: start;
+  }
+
   .graduates-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     gap: 1rem;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
   }
 
   .graduate-card {
@@ -169,7 +187,7 @@ const graduates = graduatesData.data;
   .cta-section {
     text-align: center;
     background: white;
-    padding: 3rem;
+    padding: 2rem;
     border-radius: 16px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   }
@@ -177,6 +195,7 @@ const graduates = graduatesData.data;
   .cta-section h2 {
     color: var(--color-primary);
     margin-bottom: 0.5rem;
+    font-size: 1.25rem;
   }
 
   .cta-section p {
@@ -196,5 +215,11 @@ const graduates = graduatesData.data;
 
   .cta-button:hover {
     background: var(--color-primary-dark);
+  }
+
+  @media (max-width: 900px) {
+    .page-content {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
