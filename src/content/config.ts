@@ -66,6 +66,7 @@ const graduates = defineCollection({
   schema: z.array(z.object({
     ownerName: z.string(),
     dogName: z.string(),
+    image: z.string().optional(),
     course: z.string().optional(),
   })),
 });

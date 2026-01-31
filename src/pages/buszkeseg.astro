@@ -26,10 +26,16 @@ const graduates = graduatesData.data;
 
       <div class="graduates-grid">
         {graduates.map((grad) => (
-          <div class="graduate-card">
-            <div class="graduate-avatar">
-              <span>{grad.dogName.charAt(0)}</span>
-            </div>
+          <div class={`graduate-card ${grad.image ? 'has-image' : ''}`}>
+            {grad.image ? (
+              <div class="graduate-image">
+                <img src={grad.image} alt={`${grad.dogName} és ${grad.ownerName}`} loading="lazy" />
+              </div>
+            ) : (
+              <div class="graduate-avatar">
+                <span>{grad.dogName.charAt(0)}</span>
+              </div>
+            )}
             <div class="graduate-info">
               <h3>{grad.dogName}</h3>
               <p class="owner">Gazdi: {grad.ownerName}</p>
@@ -130,6 +136,24 @@ const graduates = graduatesData.data;
     font-size: 1.25rem;
     font-weight: 600;
     flex-shrink: 0;
+  }
+
+  .graduate-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .graduate-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .graduate-card.has-image {
+    padding: 0.75rem;
   }
 
   .graduate-info h3 {
