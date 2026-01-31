@@ -21,7 +21,6 @@ const graduates = graduatesData.data;
       <header class="page-header">
         <h1>Büszkeség Fal</h1>
         <p>Gazdik és kutyáik, akik sikeresen elvégezték kurzusainkat</p>
-        <p class="graduate-count">{graduates.length} boldog gazdi-kutya páros</p>
       </header>
 
       <div class="graduates-grid">
@@ -88,17 +87,6 @@ const graduates = graduatesData.data;
   .page-header p {
     color: var(--color-text-light);
     font-size: 1.15rem;
-  }
-
-  .graduate-count {
-    display: inline-block;
-    background: var(--color-primary);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem !important;
-    font-weight: 600;
-    margin-top: 1rem;
   }
 
   .graduates-grid {
