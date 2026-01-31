@@ -1,31 +1,39 @@
 {
   "title": "Egyéni Alap kurzus",
   "subtitle": "Alapozó képzés",
-  "description": "A kutyád és a kapcsolatotok alapjainak lefektetése pozitív megerősítéssel.",
-  "fullDescription": "Alapozd meg a kutyáddal való összhangot az első és a tananyaggyűjtemény középtől, aki te magad áshatod fel a tananyagot, hogy átírd a kutyádval való kommunikációt és együttműködést.",
+  "description": "Személyre szabott képzés a városi együttélés alapjainak elsajátítására a Láthatatlan Póráz módszerrel.",
+  "fullDescription": "Ez a kurzus a városi együttélés kihívásaira készít fel. Megtanítjuk a kutyádnak azokat az alapvető viselkedésformákat, amelyek a mindennapi életben elengedhetetlenek. A módszer lényege: mosoly legyen a kutyának és mosoly a gazdinak!",
   "image": "/images/courses/alap.jpg",
   "order": 1,
-  "price": "47 000 Ft",
-  "duration": "6 alkalom (60 perc/alkalom)",
+  "price": "95 000 Ft",
+  "duration": "8 alkalom (heti 1-1,5 óra)",
   "includes": [
-    "6 személyes foglalkozás",
-    "Otthoni feladatok",
-    "Folyamatos konzultáció",
-    "Tananyag hozzáférés"
+    "100%-os behívás",
+    "Ül és marad parancs",
+    "Fekszik és marad",
+    "Szemkontaktus kialakítása",
+    "Helyre küldés",
+    "Laza pórázon séta",
+    "Étel/tárgy kontroll",
+    "Ajtó/kapu kontroll",
+    "Kezdő csomag: síp és klikker",
+    "Írásos feladatleírások emailben",
+    "Konzultációs támogatás"
   ],
   "requirements": [
-    "Minimum 4 hónapos kutya",
-    "Érvényes oltások",
-    "Egészséges, mozgásképes kutya"
+    "Első 4 alkalom: otthoni környezetben",
+    "5-8. alkalom: változatos, ingerdús helyszíneken",
+    "Minimum napi 3x gyakorlás az alkalmak között",
+    "5-10 perccel korábban érkezés szabadtéri munkánál"
   ],
   "notFor": [
-    "Agresszív viselkedésű kutyák (először viselkedés konzultáció szükséges)",
-    "Beteg vagy sérült kutyák"
+    "Erősen reaktív kutyák (először viselkedés konzultáció ajánlott)",
+    "Ha nincs idő a napi gyakorlásra"
   ],
   "benefits": [
-    "Erősebb kötődés a kutyáddal",
-    "Alapvető parancsok elsajátítása",
-    "Problémás viselkedések kezelése",
-    "Magabiztos gazdi, boldog kutya"
+    "Magabiztos, kiegyensúlyozott kutya",
+    "Stresszmentes séták",
+    "Erős kötődés és kommunikáció",
+    "Biztonságos városi együttélés"
   ]
 }

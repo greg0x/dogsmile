@@ -63,14 +63,11 @@ const pricing = defineCollection({
 
 const graduates = defineCollection({
   type: 'data',
-  schema: z.object({
-    name: z.string(),
+  schema: z.array(z.object({
+    ownerName: z.string(),
     dogName: z.string(),
-    image: z.string(),
     course: z.string().optional(),
-    date: z.string().optional(),
-    order: z.number(),
-  }),
+  })),
 });
 
 export const collections = {

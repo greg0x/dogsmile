@@ -1,31 +1,35 @@
 {
   "title": "Haladó kurzus",
   "subtitle": "Következő szint",
-  "description": "Vidd a következő szintre a kutyáddal való kommunikációt és együttműködést.",
-  "fullDescription": "Ha már túl vagytok az alapokon, és szeretnétek továbbfejleszteni a kutyáddal való kapcsolatot, ez a kurzus nektek szól. Bonyolultabb helyzetekben is működő együttműködést építünk.",
+  "description": "Kiscsoportos haladó képzés változatos helyszíneken, akik már elvégezték az alapkurzust.",
+  "fullDescription": "Ha már túl vagytok az alapokon és szeretnétek továbbfejleszteni a tudásotokat, ez a kurzus nektek szól. Kiscsoportban (3 gazdi-kutya pár) dolgozunk, változatos helyszíneken, aktivitásokkal fűszerezve.",
   "image": "/images/courses/halado.jpg",
   "order": 2,
-  "price": "52 000 Ft",
-  "duration": "6 alkalom (60 perc/alkalom)",
+  "price": "80 000 Ft",
+  "duration": "8 alkalom kiscsoportban",
   "includes": [
-    "6 személyes foglalkozás",
-    "Haladó technikák",
-    "Distrakciós gyakorlatok",
-    "Szabadban végzett foglalkozások"
+    "Kiscsoportos foglalkozások (3 kutya/csoport)",
+    "Változatos helyszínek",
+    "Aktivitásokkal fűszerezett gyakorlatok",
+    "Írásos feladatleírások minden alkalom után",
+    "Haladó distrakciós gyakorlatok"
   ],
   "requirements": [
-    "Alapkurzus elvégzése vagy megfelelő alaptudás",
-    "Stabil alapparancsok",
-    "Motivált gazdi és kutya"
+    "Alapkurzus elvégzése a Láthatatlan Póráz módszerrel",
+    "Minden alkalmon részvétel",
+    "Minimum napi 3x gyakorlás",
+    "5-10 perccel korábban érkezés",
+    "24 órás előzetes jelzés hiányzás esetén"
   ],
   "notFor": [
     "Alapparancsokat nem ismerő kutyák",
-    "Súlyos viselkedési problémákkal küzdő kutyák"
+    "Reaktív kutyák (egyéni képzés ajánlott)",
+    "Ha nem tudsz minden alkalmon részt venni"
   ],
   "benefits": [
-    "Megbízható engedelmesség zavarók mellett is",
-    "Hosszabb távú figyelem és fókusz",
-    "Komplex feladatok végrehajtása",
-    "Még erősebb kapcsolat"
+    "Megbízható engedelmesség zavarók mellett",
+    "Szocializáció más kutyákkal",
+    "Magasabb szintű együttműködés",
+    "Komplex feladatok végrehajtása"
   ]
 }

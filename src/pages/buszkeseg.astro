@@ -5,18 +5,8 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const siteInfo = await getEntry('site-info', 'main');
-
-// Graduates data - this will eventually come from a CMS or content collection
-// For now, we'll use a simple array that can be easily edited
-const graduates = [
-  { name: "Kovács Anna", dogName: "Morzsi", course: "Alap kurzus" },
-  { name: "Nagy Péter", dogName: "Rex", course: "Haladó kurzus" },
-  { name: "Szabó Éva", dogName: "Bodri", course: "Alap kurzus" },
-  { name: "Tóth Gábor", dogName: "Folti", course: "Trükk mester" },
-  { name: "Kiss Katalin", dogName: "Mici", course: "Kölyök kurzus" },
-  { name: "Horváth László", dogName: "Buksi", course: "Csoportos alap" },
-  // Add more graduates here...
-];
+const graduatesData = await getEntry('graduates', 'all');
+const graduates = graduatesData.data;
 ---
 
 <Layout title="Büszkeség Fal" description="Gazdik és kutyáik, akik sikeresen elvégezték a DOGSMILE kurzusokat">
@@ -31,17 +21,18 @@ const graduates = [
       <header class="page-header">
         <h1>Büszkeség Fal</h1>
         <p>Gazdik és kutyáik, akik sikeresen elvégezték kurzusainkat</p>
+        <p class="graduate-count">{graduates.length} boldog gazdi-kutya páros</p>
       </header>
 
       <div class="graduates-grid">
-        {graduates.map((grad, index) => (
+        {graduates.map((grad) => (
           <div class="graduate-card">
             <div class="graduate-avatar">
               <span>{grad.dogName.charAt(0)}</span>
             </div>
             <div class="graduate-info">
               <h3>{grad.dogName}</h3>
-              <p class="owner">Gazdi: {grad.name}</p>
+              <p class="owner">Gazdi: {grad.ownerName}</p>
               {grad.course && <span class="course-badge">{grad.course}</span>}
             </div>
           </div>
@@ -67,6 +58,8 @@ const graduates = [
   .pride-wall {
     padding-top: 10rem;
     padding-bottom: 4rem;
+    background: var(--color-secondary);
+    min-height: 100vh;
   }
 
   .container {
@@ -77,7 +70,7 @@ const graduates = [
 
   .page-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
   }
 
   .page-header h1 {
@@ -91,10 +84,21 @@ const graduates = [
     font-size: 1.15rem;
   }
 
+  .graduate-count {
+    display: inline-block;
+    background: var(--color-primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem !important;
+    font-weight: 600;
+    margin-top: 1rem;
+  }
+
   .graduates-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
     margin-bottom: 4rem;
   }
 
@@ -103,57 +107,60 @@ const graduates = [
     align-items: center;
     gap: 1rem;
     background: white;
-    padding: 1.25rem;
+    padding: 1rem 1.25rem;
     border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     transition: transform 0.2s, box-shadow 0.2s;
   }
 
   .graduate-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   }
 
   .graduate-avatar {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background: var(--color-primary);
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 600;
     flex-shrink: 0;
   }
 
   .graduate-info h3 {
     color: var(--color-primary);
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.15rem;
+    font-size: 1rem;
   }
 
   .owner {
     color: var(--color-text-light);
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    margin: 0;
   }
 
   .course-badge {
     display: inline-block;
     background: var(--color-secondary);
     color: var(--color-primary);
-    padding: 0.2rem 0.5rem;
+    padding: 0.15rem 0.5rem;
     border-radius: 4px;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 500;
+    margin-top: 0.25rem;
   }
 
   .cta-section {
     text-align: center;
-    background: var(--color-secondary);
+    background: white;
     padding: 3rem;
     border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   }
 
   .cta-section h2 {
