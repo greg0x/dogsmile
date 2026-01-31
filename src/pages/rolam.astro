@@ -25,8 +25,12 @@ const siteInfo = await getEntry('site-info', 'main');
       <h1>Rólam, avagy a kórházból a kutyák közé</h1>
 
       <div class="hero-images">
-        <Image src={rolamPortrait} alt="Nagy-Baranyi Krisztina" width={400} height={600} />
-        <Image src={rolamDog} alt="Nagy-Baranyi Krisztina kutyájával" width={400} height={600} />
+        <div class="hero-image">
+          <Image src={rolamPortrait} alt="Nagy-Baranyi Krisztina" width={400} height={600} />
+        </div>
+        <div class="hero-image">
+          <Image src={rolamDog} alt="Nagy-Baranyi Krisztina kutyájával" width={400} height={600} />
+        </div>
       </div>
 
       <div class="about-content">
@@ -91,17 +95,21 @@ const siteInfo = await getEntry('site-info', 'main');
   }
 
   .hero-images {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 1rem;
     margin-bottom: 2rem;
   }
 
-  .hero-images :global(img) {
-    flex: 1;
-    width: 50%;
-    height: auto;
+  .hero-image {
+    overflow: hidden;
     border-radius: 8px;
-    object-fit: cover;
+  }
+
+  .hero-image :global(img) {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 
   .about-content {
@@ -149,7 +157,7 @@ const siteInfo = await getEntry('site-info', 'main');
     }
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 700px) {
     .hero-images {
       grid-template-columns: 1fr;
     }
