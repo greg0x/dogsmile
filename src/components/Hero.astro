@@ -1,27 +1,31 @@
 ---
-
+import { Image } from 'astro:assets';
+import heroImage from '../assets/images/hero.png';
 ---
 
 <section class="hero">
   <div class="hero-content">
-    <h1>Boldog kutya, boldog gazdi</h1>
-    <p>Pozitív megerősítésen alapuló kutyakiképzés a Láthatatlan Póráz módszerrel</p>
+    <h1>Legyetek még jobb társak a kutyádnak!</h1>
+    <p>Kutyaiskola, tréningek és bármennyi segítség amennyi kell, kutyaiskola Szegeden és környékén</p>
     <a href="#kurzusok" class="cta-button">Kurzusok megtekintése</a>
   </div>
   <div class="hero-image">
-    <!-- Placeholder for hero image -->
-    <div class="image-placeholder">
-      <span>Hero kép helye</span>
-    </div>
+    <Image
+      src={heroImage}
+      alt="Boldog kutya gazdájával"
+      width={600}
+      height={400}
+      loading="eager"
+    />
   </div>
 </section>
 
 <style>
   .hero {
-    min-height: 100vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
-    padding: 6rem 1.5rem 2rem;
+    padding: 10rem 1.5rem 4rem;
     max-width: var(--max-width);
     margin: 0 auto;
     gap: 3rem;
@@ -32,14 +36,14 @@
   }
 
   .hero h1 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-size: clamp(2rem, 5vw, 3rem);
     line-height: 1.2;
     color: var(--color-primary);
     margin-bottom: 1rem;
   }
 
   .hero p {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     color: var(--color-text-light);
     margin-bottom: 2rem;
     max-width: 500px;
@@ -56,7 +60,7 @@
   }
 
   .cta-button:hover {
-    background: #1e3d22;
+    background: var(--color-primary-dark);
     transform: translateY(-2px);
   }
 
@@ -64,21 +68,18 @@
     flex: 1;
   }
 
-  .image-placeholder {
-    aspect-ratio: 4/3;
-    background: var(--color-secondary);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-text-light);
+  .hero-image :global(img) {
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    height: auto;
   }
 
   @media (max-width: 768px) {
     .hero {
       flex-direction: column;
       min-height: auto;
-      padding-top: 8rem;
+      padding-top: 10rem;
     }
 
     .hero-content {

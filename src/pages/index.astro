@@ -1,11 +1,25 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import CourseCard from '../components/CourseCard.astro';
 import Testimonial from '../components/Testimonial.astro';
 import Footer from '../components/Footer.astro';
+
+// Import course images for optimization
+import alapImage from '../assets/images/courses/alap.jpg';
+import haladoImage from '../assets/images/courses/halado.png';
+import trukkImage from '../assets/images/courses/trukk.jpg';
+import methodologyImage from '../assets/images/methodology.jpg';
+
+// Map course IDs to imported images
+const courseImages: Record<string, ImageMetadata> = {
+  'alap': alapImage,
+  'halado': haladoImage,
+  'trukk': trukkImage,
+};
 
 const courses = await getCollection('courses');
 const testimonials = await getCollection('testimonials');
@@ -28,7 +42,7 @@ const sortedTestimonials = testimonials.sort((a, b) => a.data.order - b.data.ord
 
     <section class="courses" id="kurzusok">
       <div class="container">
-        <h2 class="section-title">Kurzusaink</h2>
+        <h2 class="section-title">Kurzusok, amikben részt vehetsz</h2>
         <p class="section-subtitle">Válaszd ki a számodra megfelelő programot</p>
 
         <div class="courses-grid">
@@ -37,7 +51,8 @@ const sortedTestimonials = testimonials.sort((a, b) => a.data.order - b.data.ord
               title={course.data.title}
               subtitle={course.data.subtitle}
               description={course.data.description}
-              image={course.data.image}
+              image={courseImages[course.id]}
+              href={`/kurzusok/${course.id}`}
             />
           ))}
         </div>
@@ -48,11 +63,17 @@ const sortedTestimonials = testimonials.sort((a, b) => a.data.order - b.data.ord
       <div class="container">
         <h2 class="section-title">{siteInfo.data.methodology.title}</h2>
         <div class="methodology-content">
-          <p>{siteInfo.data.methodology.content}</p>
+          <div class="methodology-text">
+            <p>{siteInfo.data.methodology.content}</p>
+          </div>
           <div class="methodology-image">
-            <div class="image-placeholder">
-              <span>Módszer illusztráció</span>
-            </div>
+            <Image
+              src={methodologyImage}
+              alt="Láthatatlan Póráz módszer"
+              width={500}
+              height={375}
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
@@ -60,7 +81,7 @@ const sortedTestimonials = testimonials.sort((a, b) => a.data.order - b.data.ord
 
     <section class="testimonials" id="velemenyek">
       <div class="container">
-        <h2 class="section-title">Mit mondanak rólunk</h2>
+        <h2 class="section-title">Vélemények a kurzusokról</h2>
         <p class="section-subtitle">Gazdik és kutyáik sikertörténetei</p>
 
         <div class="testimonials-grid">
@@ -126,20 +147,17 @@ const sortedTestimonials = testimonials.sort((a, b) => a.data.order - b.data.ord
     align-items: center;
   }
 
-  .methodology-content p {
+  .methodology-text p {
     font-size: 1.1rem;
     line-height: 1.8;
     color: var(--color-text-light);
   }
 
-  .methodology-image .image-placeholder {
-    aspect-ratio: 4/3;
-    background: var(--color-secondary);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-text-light);
+  .methodology-image :global(img) {
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: auto;
   }
 
   /* Testimonials Section */
