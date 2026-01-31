@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
+
 interface Props {
   title: string;
   description?: string;
@@ -26,6 +28,8 @@ const { title, description = "Kutyakiképzés pozitív megerősítéssel - Láth
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Lexend+Deca:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <ViewTransitions />
   </head>
   <body>
     <slot />
@@ -55,6 +59,7 @@ const { title, description = "Kutyakiképzés pozitív megerősítéssel - Láth
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
@@ -64,6 +69,7 @@ const { title, description = "Kutyakiképzés pozitív megerősítéssel - Láth
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
   }
 
   body > main {

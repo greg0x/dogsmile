@@ -136,20 +136,33 @@ const { email, phone, instagram } = Astro.props;
       menuBtn?.setAttribute('aria-expanded', 'true');
     }
 
-    function closeMenu() {
+    function closeMenu(instant = false) {
+      if (instant) {
+        // Instantly close without animation for navigation
+        mobileMenu?.classList.add('no-transition');
+        overlay?.classList.add('no-transition');
+      }
       mobileMenu?.classList.remove('is-open');
       overlay?.classList.remove('is-open');
       document.body.style.overflow = '';
       menuBtn?.setAttribute('aria-expanded', 'false');
+
+      if (instant) {
+        // Re-enable transitions after a frame
+        requestAnimationFrame(() => {
+          mobileMenu?.classList.remove('no-transition');
+          overlay?.classList.remove('no-transition');
+        });
+      }
     }
 
     menuBtn?.addEventListener('click', openMenu);
-    closeBtn?.addEventListener('click', closeMenu);
-    overlay?.addEventListener('click', closeMenu);
+    closeBtn?.addEventListener('click', () => closeMenu(false));
+    overlay?.addEventListener('click', () => closeMenu(false));
 
-    // Close menu on link click
+    // Close menu instantly on link click (for fast navigation)
     mobileMenu?.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', closeMenu);
+      link.addEventListener('click', () => closeMenu(true));
     });
 
     // Submenu toggles
@@ -163,7 +176,7 @@ const { email, phone, instagram } = Astro.props;
     // Close menu on escape key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && mobileMenu?.classList.contains('is-open')) {
-        closeMenu();
+        closeMenu(false);
       }
     });
   }
@@ -173,6 +186,15 @@ const { email, phone, instagram } = Astro.props;
 
   // Re-initialize after Astro page transitions
   document.addEventListener('astro:after-swap', initMobileMenu);
+
+  // Ensure menu is closed before page transition starts
+  document.addEventListener('astro:before-preparation', () => {
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const overlay = document.querySelector('.mobile-menu-overlay');
+    mobileMenu?.classList.remove('is-open');
+    overlay?.classList.remove('is-open');
+    document.body.style.overflow = '';
+  });
 </script>
 
 <style>
@@ -321,19 +343,25 @@ const { email, phone, instagram } = Astro.props;
   .mobile-menu-btn {
     display: none;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 5px;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 8px;
+    padding: 10px;
+    min-width: 44px;
+    min-height: 44px;
     z-index: 1001;
+    flex-shrink: 0;
   }
 
   .mobile-menu-btn span {
     display: block;
     width: 24px;
-    height: 2px;
+    height: 3px;
     background: var(--color-primary);
+    border-radius: 2px;
     transition: transform 0.3s, opacity 0.3s;
   }
 
@@ -378,6 +406,11 @@ const { email, phone, instagram } = Astro.props;
   .mobile-menu.is-open {
     transform: translateX(0);
     visibility: visible;
+  }
+
+  .mobile-menu.no-transition,
+  .mobile-menu-overlay.no-transition {
+    transition: none !important;
   }
 
   .mobile-menu-header {
@@ -536,16 +569,19 @@ const { email, phone, instagram } = Astro.props;
     }
 
     .header-container {
-      padding: 0.5rem 1rem;
-      padding-left: 0.5rem;
+      padding: 0.5rem 0.75rem;
     }
 
     .logo {
-      margin-left: 0.5rem;
+      margin-left: 0;
+      flex-shrink: 1;
+      min-width: 0;
+      overflow: hidden;
     }
 
     .logo :global(img) {
-      height: 70px;
+      height: 60px;
+      max-width: 100%;
     }
   }
 </style>

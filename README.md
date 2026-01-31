@@ -1,16 +1,33 @@
 ## Todo
 
-- jelentkezes form w/ netlify tag
+- responsive menu
 - deploy to netlify
 
-- add decap admin
+---
 
-- egyeni
-- csoportos alap
-- csoportos kolyok
-- halado
-- trukk mester
-- buszkeseg fal
-- rolam
-- kapcsolat
-  - responsivity
+- review pages
+  - landing
+  - egyeni
+  - csoportos alap
+  - csoportos kolyok
+  - halado
+  - trukk mester
+  - buszkeseg fal
+  - rolam
+  - kapcsolat
+    - responsivity
+- add decap admin
+- SEO optimasation
+
+## Kriszta topics
+
+- hasonlo kutyas lapokat nezegetni, hogy mi az ami ebbol tetszik
+  - vilagon barhol, template
+  - Szeged kornyeki / magyar konkurenciak
+- mi konvertal jol egy weblapon -> visual, info architecture
+- hogyan talalnak meg az emberek? (funnel teteje)
+  - kulcsszavak
+
+## Backlog
+
+- gazdi interjuk
