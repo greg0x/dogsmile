@@ -1,5 +1,6 @@
 ---
 import { getEntry } from 'astro:content';
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -8,6 +9,19 @@ import Sidebar from '../components/Sidebar.astro';
 const siteInfo = await getEntry('site-info', 'main');
 const graduatesData = await getEntry('graduates', 'all');
 const graduates = graduatesData.data;
+
+// Import all graduate images
+const graduateImages = import.meta.glob<{ default: ImageMetadata }>(
+  '../assets/images/graduates/*.{jpeg,jpg,png,gif}',
+  { eager: true }
+);
+
+// Create a map of filename to image
+const imageMap: Record<string, ImageMetadata> = {};
+for (const [path, module] of Object.entries(graduateImages)) {
+  const filename = path.split('/').pop()!;
+  imageMap[filename] = module.default;
+}
 ---
 
 <Layout title="Büszkeség Fal" description="Gazdik és kutyáik, akik sikeresen elvégezték a DOGSMILE kurzusokat">
@@ -27,24 +41,27 @@ const graduates = graduatesData.data;
       <div class="page-content">
         <div class="main-content">
           <div class="graduates-grid">
-            {graduates.map((grad) => (
-              <div class={`graduate-card ${grad.image ? 'has-image' : ''}`}>
-                {grad.image ? (
-                  <div class="graduate-image">
-                    <img src={grad.image} alt={`${grad.dogName} és ${grad.ownerName}`} loading="lazy" />
+            {graduates.map((grad) => {
+              const gradImage = grad.image ? imageMap[grad.image] : null;
+              return (
+                <div class={`graduate-card ${gradImage ? 'has-image' : ''}`}>
+                  {gradImage ? (
+                    <div class="graduate-image">
+                      <Image src={gradImage} alt={`${grad.dogName} és ${grad.ownerName}`} width={70} height={70} />
+                    </div>
+                  ) : (
+                    <div class="graduate-avatar">
+                      <span>{grad.dogName.charAt(0)}</span>
+                    </div>
+                  )}
+                  <div class="graduate-info">
+                    <h3>{grad.dogName}</h3>
+                    <p class="owner">Gazdi: {grad.ownerName}</p>
+                    {grad.course && <span class="course-badge">{grad.course}</span>}
                   </div>
-                ) : (
-                  <div class="graduate-avatar">
-                    <span>{grad.dogName.charAt(0)}</span>
-                  </div>
-                )}
-                <div class="graduate-info">
-                  <h3>{grad.dogName}</h3>
-                  <p class="owner">Gazdi: {grad.ownerName}</p>
-                  {grad.course && <span class="course-badge">{grad.course}</span>}
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           <div class="cta-section">
