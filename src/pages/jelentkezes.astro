@@ -1,0 +1,394 @@
+---
+import { getEntry } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Sidebar from '../components/Sidebar.astro';
+
+const siteInfo = await getEntry('site-info', 'main');
+---
+
+<Layout title="Jelentkezési lap" description="Jelentkezz a DOGSMILE kutyaiskola kurzusaira">
+  <Header
+    email={siteInfo.data.email}
+    phone={siteInfo.data.phone}
+    instagram={siteInfo.data.instagram}
+  />
+
+  <main class="signup-page">
+    <div class="container">
+      <header class="page-header">
+        <h1>Jelentkezési lap</h1>
+        <p>* A csillaggal jelölt mezők kitöltése kötelező</p>
+      </header>
+
+      <div class="page-content">
+        <div class="main-content">
+          <form
+            name="jelentkezes"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            class="signup-form"
+          >
+            <input type="hidden" name="form-name" value="jelentkezes" />
+            <p class="hidden">
+              <label>Ne töltsd ki ha ember vagy: <input name="bot-field" /></label>
+            </p>
+
+            <fieldset class="form-section">
+              <legend>Személyes adatok</legend>
+
+              <div class="form-group">
+                <label for="nev">Név *</label>
+                <input type="text" id="nev" name="nev" required />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email cím *</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+
+              <div class="form-group">
+                <label for="telefon">Telefonszám *</label>
+                <input type="tel" id="telefon" name="telefon" required />
+              </div>
+
+              <div class="form-group">
+                <label for="lakcim">Lakcím <span class="optional">(opcionális, egyéni képzés esetén kitöltendő)</span></label>
+                <input type="text" id="lakcim" name="lakcim" />
+              </div>
+            </fieldset>
+
+            <fieldset class="form-section">
+              <legend>Számlázási adatok</legend>
+
+              <div class="form-group">
+                <label for="szamlazasi-nev">Számlázási név *</label>
+                <input type="text" id="szamlazasi-nev" name="szamlazasi-nev" required />
+              </div>
+
+              <div class="form-group">
+                <label for="szamlazasi-cim">Számlázási cím *</label>
+                <input type="text" id="szamlazasi-cim" name="szamlazasi-cim" required />
+              </div>
+            </fieldset>
+
+            <fieldset class="form-section">
+              <legend>Kutya adatai</legend>
+
+              <div class="form-group">
+                <label for="kutya-neve">Kutya neve *</label>
+                <input type="text" id="kutya-neve" name="kutya-neve" required />
+              </div>
+
+              <div class="form-group">
+                <label for="kutya-fajtaja">Kutya fajtája *</label>
+                <input type="text" id="kutya-fajtaja" name="kutya-fajtaja" required />
+              </div>
+
+              <div class="form-group">
+                <label for="kutya-szuletesi-ideje">Kutya születési ideje *</label>
+                <input type="text" id="kutya-szuletesi-ideje" name="kutya-szuletesi-ideje" placeholder="pl. 2023. március" required />
+              </div>
+
+              <div class="form-group">
+                <label>Kutya ivara *</label>
+                <div class="radio-group">
+                  <label class="radio-label">
+                    <input type="radio" name="kutya-ivara" value="szuka" required />
+                    <span>Szuka</span>
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="kutya-ivara" value="kan" />
+                    <span>Kan</span>
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="kutya-ivara" value="ivartalanított szuka" />
+                    <span>Ivartalanított szuka</span>
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="kutya-ivara" value="ivartalanított kan" />
+                    <span>Ivartalanított kan</span>
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-section">
+              <legend>Kurzus választás</legend>
+
+              <div class="form-group">
+                <label>Melyik kurzusra jelentkezel? *</label>
+                <div class="radio-group">
+                  <label class="radio-label">
+                    <input type="radio" name="kurzus" value="Egyéni Alap kurzus" required />
+                    <span>Egyéni Alap kurzus</span>
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="kurzus" value="Csoportos Felnőtt kurzus" />
+                    <span>Csoportos Felnőtt kurzus</span>
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="kurzus" value="Csoportos Kölyök kurzus" />
+                    <span>Csoportos Kölyök kurzus</span>
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="kurzus" value="Haladó kurzus" />
+                    <span>Haladó kurzus</span>
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="kurzus" value="Trükk Mester" />
+                    <span>Trükk Mester</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="megjegyzes">Megjegyzés <span class="optional">(opcionális)</span></label>
+                <textarea id="megjegyzes" name="megjegyzes" rows="4"></textarea>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-section">
+              <legend>Feltételek elfogadása</legend>
+
+              <div class="form-group checkbox-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" name="aszf" required />
+                  <span>Elfogadom az <a href="/aszf" target="_blank">Általános Szerződési Feltételeket</a> *</span>
+                </label>
+              </div>
+
+              <div class="form-group checkbox-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" name="adatkezeles" required />
+                  <span>Elfogadom az <a href="/adatkezeles" target="_blank">Adatkezelési nyilatkozatot</a> *</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <button type="submit" class="submit-button">Küldés</button>
+          </form>
+        </div>
+
+        <Sidebar
+          email={siteInfo.data.email}
+          phone={siteInfo.data.phone}
+          instagram={siteInfo.data.instagram}
+        />
+      </div>
+    </div>
+  </main>
+
+  <Footer
+    email={siteInfo.data.email}
+    phone={siteInfo.data.phone}
+    instagram={siteInfo.data.instagram}
+  />
+</Layout>
+
+<style>
+  .signup-page {
+    padding-top: 10rem;
+    padding-bottom: 4rem;
+    background: var(--color-secondary);
+  }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .page-header h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .page-header p {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+  }
+
+  .page-content {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .signup-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .form-section {
+    border: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+  }
+
+  .form-section legend {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-secondary);
+    width: 100%;
+  }
+
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .form-group label {
+    display: block;
+    font-weight: 500;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .optional {
+    font-weight: 400;
+    color: var(--color-text-light);
+    font-size: 0.875rem;
+  }
+
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="tel"],
+  .form-group textarea {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background: #f9f9f9;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+    background: white;
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  .radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .radio-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    transition: border-color 0.2s, background 0.2s;
+    font-weight: 400;
+  }
+
+  .radio-label:hover {
+    border-color: var(--color-primary);
+  }
+
+  .radio-label:has(input:checked) {
+    border-color: var(--color-primary);
+    background: var(--color-secondary);
+  }
+
+  .radio-label input {
+    accent-color: var(--color-primary);
+  }
+
+  .checkbox-group {
+    margin-bottom: 1rem;
+  }
+
+  .checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    cursor: pointer;
+    font-weight: 400;
+  }
+
+  .checkbox-label input {
+    margin-top: 0.25rem;
+    accent-color: var(--color-primary);
+    width: 18px;
+    height: 18px;
+  }
+
+  .checkbox-label a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  .checkbox-label a:hover {
+    color: var(--color-accent);
+  }
+
+  .submit-button {
+    display: block;
+    width: 100%;
+    padding: 1rem 2rem;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .submit-button:hover {
+    background: var(--color-primary-dark);
+  }
+
+  @media (max-width: 900px) {
+    .page-content {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .signup-form {
+      padding: 1.5rem;
+    }
+
+    .radio-group {
+      flex-direction: column;
+    }
+
+    .radio-label {
+      width: 100%;
+    }
+  }
+</style>

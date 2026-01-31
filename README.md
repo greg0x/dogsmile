@@ -1,10 +1,16 @@
 ## Todo
 
-- check <Image />
-- add decap admin
-- deploy to netlify
 - jelentkezes form w/ netlify tag
-- graduates
-  - image loading
+- deploy to netlify
+
+- add decap admin
+
+- egyeni
+- csoportos alap
+- csoportos kolyok
+- halado
+- trukk mester
+- buszkeseg fal
 - rolam
+- kapcsolat
   - responsivity
