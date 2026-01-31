@@ -1,0 +1,177 @@
+---
+import { getEntry } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Sidebar from '../components/Sidebar.astro';
+
+const siteInfo = await getEntry('site-info', 'main');
+---
+
+<Layout title="ÁSZF" description="Általános Szerződési Feltételek - DOGSMILE kutyaiskola">
+  <Header
+    email={siteInfo.data.email}
+    phone={siteInfo.data.phone}
+    instagram={siteInfo.data.instagram}
+  />
+
+  <main class="legal-page">
+    <div class="container">
+      <header class="page-header">
+        <h1>ÁSZF</h1>
+        <p>Általános Szerződési Feltételek</p>
+      </header>
+
+      <div class="page-content">
+        <div class="main-content">
+          <article class="legal-content">
+            <section>
+              <h2>Prológus</h2>
+              <p>A gazda és kutyaoktatás alapját a felek közötti megbeszélések és közös gyakorlások adják. Együttműködésük kölcsönös és bizalmon alapuló. A tréner az általa alkalmazott módszereket, működési mechanizmusokat, szándékait -velük együtt kockázatait-, illetve lehetséges eredményét a tréning folyamatának minden fázisában nyíltan kezeli.</p>
+              <p>A tréning szabad akaraton alapuló, aktív és felelős folyamat, amely azonban nem tudja bizonyos eredmények elérését garantálni. A tréner a Megbízó folyamatát, gyakorlatait kíséri, beindítja a változásokat, nyomon követi a haladást, de a tényleges változást a Megbízó a kutyával való gyakorlással viszi végbe.</p>
+              <p>A Megbízó felkészült és nyitott arra, hogy értékrendjét kritikusan szemlélje, saját személyével és helyzetével objektíven foglalkozzon, viselkedésén változtasson és a trénert, illetve annak munkamódszereit elfogadja.</p>
+            </section>
+
+            <section>
+              <h2>1. A tréner felelőssége</h2>
+              <p><strong>1.1</strong> A tréner titoktartást vállal.</p>
+              <p><strong>1.2</strong> A tréner elkötelezi magát, hogy a rendelkezésére bocsátott információkat csak és kizárólag a megállapodásban rögzített tréning feladat céljából használja fel.</p>
+              <p><strong>1.3</strong> A tréner elkötelezi magát, hogy saját jegyzeteit és a számára átadott írásos dokumentumokat, úgy őrzi meg, hogy az harmadik fél számára nem lesz hozzáférhető.</p>
+              <p><strong>1.4</strong> A tréner elkötelezi magát, hogy minden rendelkezésre álló eszközt, metódust és technikát bevon a Megbízó érdekében.</p>
+            </section>
+
+            <section>
+              <h2>2. A Megbízó felelőssége</h2>
+              <p><strong>2.1</strong> A Megbízó tudomásul veszi, hogy a kurzus során végig, teljes mértékben ő a felelős a saját testi és lelki egészségéért.</p>
+              <p><strong>2.2</strong> A megbízó vállalja,- a kívánt eredmény elérésének érdekében- hogy a kapott feladatokat végrehajtja, elfogadja a tréner munkamódszereit.</p>
+              <p><strong>2.3</strong> A Megbízó tudomásul veszi, hogy a tréner beindítja a változásokat, de a tényleges eredményességet a Megbízó a napi (min. 30 perc) gyakorlásokkal érheti el.</p>
+              <p><strong>2.4</strong> A Megbízó tudomásul veszi, hogy a trénertől kölcsönkapott felszereléseket legkésőbb a tréning végén épségben visszaadja.</p>
+              <p><strong>2.5</strong> A Megbízó tudomásul veszi, hogy a trénertől kapott felvételeket, gyakorlást segítő anyagokat nem adhatja tovább harmadik félnek, nem oszthatja meg nyilvános oldalakon sem.</p>
+            </section>
+
+            <section>
+              <h2>3. A tréningek helyszíne</h2>
+              <p><strong>3.1</strong> Egyéni oktatás esetén: a kutya lakhelyén majd egyéb – a tréningcélokat segítő – előre egyeztetett helyszíneken.</p>
+              <p><strong>3.2</strong> Csoportos tréningek esetén: Szegeden előre egyeztetett helyszíneken.</p>
+            </section>
+
+            <section>
+              <h2>4. A tréning időkeretei</h2>
+              <p><strong>4.1</strong> A tréningek 60-90 percesek.</p>
+              <p><strong>4.2</strong> Azok a tréning napok, melyeken a Megbízó nem jelenik meg, nem kerülnek visszafizetésre és a tréning megtartottnak tekintett.</p>
+              <p><strong>4.3</strong> Azok a tréning napok, melyek rossz idő, tréner betegsége vagy egyéb más váratlan okból kifolyólag nem lettek megtartva, egy másik előre egyeztetett időpontban pótlásra kerülnek.</p>
+            </section>
+
+            <section>
+              <h2>5. Lemondás</h2>
+              <p><strong>5.1</strong> A Megbízó és a tréner között megbeszélt időpontot a Megbízó legkésőbb 1 munkanappal az időpont előtt mondhatja le.</p>
+              <p><strong>5.2</strong> Az egyéni kurzusok első alkalmától számítva 15 héten keresztül van lehetőség a tanfolyam befejezésére.</p>
+              <p><strong>5.3</strong> A kurzus díjának beérkezésével megkezdődik a szolgáltatás igénybevétele.</p>
+            </section>
+
+            <section>
+              <h2>6. Általános</h2>
+              <p><strong>6.1</strong> A tréner a Megbízó személyes adatait csak olyan mértékben kezeli, amennyiben az a számlázás és ügyfélnyilvántartása szempontjából elengedhetetlenül szükséges.</p>
+              <p><strong>6.2</strong> Minden kiegészítés, amelyet a felek a szerződésben szeretnének elhelyezni, az írásos formát kívánja meg.</p>
+              <p><strong>6.3</strong> A felek vitás kérdéseiket igyekszenek mindenkor békés úton rendezni.</p>
+              <p><strong>6.4</strong> A kurzus során készült fotók, videók marketing célú felhasználásra kerülhetnek.</p>
+            </section>
+          </article>
+        </div>
+
+        <Sidebar
+          email={siteInfo.data.email}
+          phone={siteInfo.data.phone}
+          instagram={siteInfo.data.instagram}
+        />
+      </div>
+    </div>
+  </main>
+
+  <Footer
+    email={siteInfo.data.email}
+    phone={siteInfo.data.phone}
+    instagram={siteInfo.data.instagram}
+  />
+</Layout>
+
+<style>
+  .legal-page {
+    padding-top: 10rem;
+    padding-bottom: 4rem;
+    background: var(--color-secondary);
+  }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .page-header h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .page-header p {
+    color: var(--color-text-light);
+    font-size: 1.15rem;
+  }
+
+  .page-content {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .legal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  .legal-content section {
+    margin-bottom: 2rem;
+  }
+
+  .legal-content section:last-child {
+    margin-bottom: 0;
+  }
+
+  .legal-content h2 {
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-secondary);
+  }
+
+  .legal-content p {
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: 0.75rem;
+    text-align: justify;
+  }
+
+  .legal-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  .legal-content strong {
+    color: var(--color-text);
+  }
+
+  @media (max-width: 900px) {
+    .page-content {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

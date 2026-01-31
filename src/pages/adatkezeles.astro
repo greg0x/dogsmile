@@ -1,0 +1,363 @@
+---
+import { getEntry } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Sidebar from '../components/Sidebar.astro';
+
+const siteInfo = await getEntry('site-info', 'main');
+---
+
+<Layout title="Adatkezelési tájékoztató" description="Adatkezelési tájékoztató - DOGSMILE kutyaiskola">
+  <Header
+    email={siteInfo.data.email}
+    phone={siteInfo.data.phone}
+    instagram={siteInfo.data.instagram}
+  />
+
+  <main class="legal-page">
+    <div class="container">
+      <header class="page-header">
+        <h1>Adatkezelési tájékoztató</h1>
+        <p>A www.dogsmile.hu weboldalon megjelenített kurzusokon, képzéseken, tanfolyamokon való részvételhez kapcsolódó adatkezeléshez</p>
+      </header>
+
+      <div class="page-content">
+        <div class="main-content">
+          <article class="legal-content">
+            <section>
+              <h2>1. Adatkezelő megnevezése</h2>
+              <div class="info-box">
+                <p><strong>Teljes név:</strong> Nagy-Baranyi Krisztina (Továbbiakban: Adatkezelő)</p>
+                <p><strong>Pozíció:</strong> tréner, a "DOGSMILE" tulajdonosa</p>
+                <p><strong>E-mail címe:</strong> nagy.baranyi.krisztina@gmail.com</p>
+                <p><strong>Telefonszáma:</strong> 0670/402-55-59</p>
+                <p><strong>Honlapja:</strong> www.dogsmile.hu</p>
+                <p><strong>Székhelye:</strong> 6725 Szeged, Oltványi u. 2. 1. em. 2.</p>
+                <p><strong>Levelezési címe:</strong> 6721 Szeged, Szűcs u. 5.</p>
+                <p><strong>Adószáma:</strong> 68504494126</p>
+              </div>
+              <p>A www.dogsmile.hu honlapon látható és olvasható minden tartalom Nagy-Baranyi Krisztina tulajdonát képezi.</p>
+              <p>Nagy-Baranyi Krisztina (dogsmile.hu domain tulajdonosa) számára kiemelt fontosságú cél a weboldal látogatói által rendelkezésre bocsátott személyes adatok védelme, a látogatók információs önrendelkezési jogának biztosítása. A felhasználók személyes adatait a vonatkozó hatályos jogszabályoknak megfelelően és teljes körűen kezeli.</p>
+              <p>A látogatók személyes adatait bizalmasan kezeli, gondoskodik azok biztonságáról, megteszi azokat a technikai és szervezési intézkedéseket, valamint kialakítja azokat az eljárási szabályokat, amelyek a vonatkozó jogszabályi rendelkezések és más ajánlások érvényre juttatásához szükségesek.</p>
+            </section>
+
+            <section>
+              <h2>2. Jogszabályi háttér</h2>
+              <p>A www.dogsmile.hu honlapon található kurzusokhoz, tanfolyamokhoz, rendezvényekhez kapcsolódóan megadott személyes adatok kezelése során az alábbi jogszabályok alapján járunk el:</p>
+              <ul>
+                <li>AZ EURÓPAI PARLAMENT ÉS A TANÁCS (EU) 2016/679 RENDELETE (2016. április 27.) a természetes személyeknek a személyes adatok kezelése tekintetében történő védelméről és az ilyen adatok szabad áramlásáról, valamint a 95/46/EK rendelet hatályon kívül helyezéséről (általános adatvédelmi rendelet)</li>
+                <li>A személyi jövedelemadóról szóló 1995. évi CXVII. törvény (a továbbiakban: SZJA törvény)</li>
+              </ul>
+
+              <h3>2.1. Értelmező rendelkezések</h3>
+              <p>A jelen szabályzat alkalmazásában:</p>
+              <ul>
+                <li><strong>személyes adat:</strong> bármely meghatározott (azonosított vagy azonosítható) természetes személlyel kapcsolatba hozható adat, az adatból levonható, az érintettre vonatkozó következtetés.</li>
+                <li><strong>hozzájárulás:</strong> az érintett kívánságának önkéntes és határozott kinyilvánítása, amely megfelelő tájékoztatáson alapul.</li>
+                <li><strong>tiltakozás:</strong> az érintett nyilatkozata, amellyel személyes adatainak kezelését kifogásolja.</li>
+                <li><strong>adatkezelő:</strong> az a természetes vagy jogi személy, aki vagy amely az adatok kezelésének célját meghatározza.</li>
+                <li><strong>adatkezelés:</strong> az alkalmazott eljárástól függetlenül az adatokon végzett bármely művelet vagy a műveletek összessége.</li>
+                <li><strong>adattovábbítás:</strong> ha az adatot meghatározott harmadik személy számára hozzáférhetővé teszik.</li>
+                <li><strong>adattörlés:</strong> az adatok felismerhetetlenné tétele oly módon, hogy a helyreállításuk többé nem lehetséges.</li>
+                <li><strong>adatfeldolgozó:</strong> az a természetes vagy jogi személy, aki az adatkezelő megbízásából személyes adatok feldolgozását végzi.</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2>3. Adatkezelési alapelvek</h2>
+              <p>Az Adatkezelő személyes adatnak minősülő adatokat kizárólag az érintett hozzájárulásával kezel.</p>
+              <p>Az Adatkezelő adatkezelési tevékenysége során törekszik arra, hogy az adatkezelésre vonatkozó jogszabályok, valamint jelen szabályzat rendelkezései – így különösen az adatkezelés célhoz kötöttsége, mint alapelv – folyamatosan és maradéktalanul érvényesüljenek.</p>
+              <p>Az Adatkezelő a regisztráció során megadott és a honlapon keresztül megkötött szerződések létrejötte és teljesítése során birtokába kerülő adatokat a jelen szabályzatban meghatározott célokhoz kötött módon, a szerződések fennállásának időtartama alatt kezeli.</p>
+            </section>
+
+            <section>
+              <h2>4. Regisztráció, az adatkezelés célja, kezelt adatok köre</h2>
+              <h3>4.1. Regisztráció</h3>
+              <p>A www.dogsmile.hu honlapon igénybe vehető szolgáltatások előzetes regisztrációhoz kötöttek. Regisztráció nélkül a honlap megtekinthető, de a honlapon keresztül elérhető szolgáltatások igénybevételére azonban nincs mód. A regisztrációhoz személyes adatok megadása szükséges.</p>
+
+              <div class="data-table">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Személyes adat</th>
+                      <th>Adatkezelés célja</th>
+                      <th>Adatkezelés jogalapja</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Gazda neve</td>
+                      <td>Az azonosításodhoz és kapcsolattartáshoz van rá szükség</td>
+                      <td>Jelentkezéssel egyidejű, önkéntes hozzájárulás</td>
+                    </tr>
+                    <tr>
+                      <td>E-mail-cím</td>
+                      <td>Kapcsolattartáshoz van rá szükség</td>
+                      <td>Jelentkezéssel egyidejű, önkéntes hozzájárulás</td>
+                    </tr>
+                    <tr>
+                      <td>Telefonszám</td>
+                      <td>Kapcsolattartáshoz van rá szükség</td>
+                      <td>Jelentkezéssel egyidejű, önkéntes hozzájárulás</td>
+                    </tr>
+                    <tr>
+                      <td>Számlázási név és cím</td>
+                      <td>Számla kiállításához van rá szükség</td>
+                      <td>Jelentkezéssel egyidejű, önkéntes hozzájárulás</td>
+                    </tr>
+                    <tr>
+                      <td>Lakcím</td>
+                      <td>A képzés lebonyolítási menete miatt van rá szükség (csak egyéni képzésnél)</td>
+                      <td>Jelentkezéssel egyidejű, önkéntes hozzájárulás</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p>A fenti adatok az információs önrendelkezési jogról és az információszabadságról szóló 2011. évi CXII. törvény (Infotv.) értelmében személyes adatnak minősülnek. Az Adatkezelő különleges adatokat nem kezel.</p>
+
+              <h3>4.3. Az adatkezelés célja</h3>
+              <p>A honlapon történő regisztrációval, a regisztráció megtörténtéhez szükséges adatok rendelkezésre bocsátásával az érintett hozzájárul ahhoz, hogy megadott személyes adatait az Adatkezelő a honlapon keresztül igénybe vehető szolgáltatások nyújtása érdekében elektronikus úton létrejövő szerződések megkötése és teljesítése céljából a szerződés, illetve a szerződésből eredő követelések fennállásának időtartama alatt kezelje.</p>
+            </section>
+
+            <section>
+              <h2>5. Elektronikus hirdetések, hírlevelek</h2>
+              <p>Az érintett a regisztrációval hozzájárul ahhoz, hogy részére az Adatkezelő elektronikus hirdetést és/vagy hírlevelet küldjön.</p>
+              <p>Amennyiben az érintett a továbbiakban nem kíván az Adatkezelőtől elektronikus hirdetést kapni, erre irányuló kérését elektronikus úton jelezheti az Adatkezelőnek, aki a kérés beérkezésétől számított 3 munkanapon belül eleget tesz az érintett kérésének.</p>
+            </section>
+
+            <section>
+              <h2>6. Hozzájárulás fotó- és videó anyagokban történő megjelenéshez</h2>
+              <p>Az érintett a regisztrációval hozzájárul ahhoz, hogy a tanfolyamokon készült fotó- és videó anyagokban megjelenjen, melyeket az Adatkezelő marketing célokkal használ fel.</p>
+              <p>Bizonyos felvételek marketing célból felhasználásra kerülnek:</p>
+              <ul>
+                <li>a www.dogsmile.hu weboldalon</li>
+                <li>a hivatalos <a href="https://www.facebook.com/MosolyakutyusnakMosolyagazdinak" target="_blank" rel="noopener">Facebook-oldalon</a></li>
+                <li>a hivatalos <a href="https://www.instagram.com/dogsmile_kutyaoktatas/" target="_blank" rel="noopener">Instagram-oldalon</a></li>
+              </ul>
+              <p>Amennyiben az érintett nem kíván a fentiekhez hozzájárulni, erre irányuló kérését elektronikus úton jelezheti az Adatkezelőnek a regisztrációt követő 3 munkanapon belül.</p>
+            </section>
+
+            <section>
+              <h2>7. Az érintett jogai, a jogérvényesítés menete</h2>
+              <p>Önt a GDPR alapján a személyes adataival kapcsolatban az alábbi jogok illetik meg:</p>
+
+              <h3>7.1. A tájékoztatás joga</h3>
+              <p>Az érintett tájékoztatást kérhet az Adatkezelőtől személyes adatainak kezeléséről, személyes adatai helyesbítését kérheti, továbbá kezelt adatainak törlését vagy zárolását kérheti.</p>
+              <p>Az Adatkezelő köteles a kérelem benyújtásától számított legrövidebb idő alatt, legfeljebb azonban 30 napon belül írásban, közérthető formában megadni a tájékoztatást.</p>
+
+              <h3>7.2. Az adatok helyesbítése, törlése</h3>
+              <p>Ha a személyes adat a valóságnak nem felel meg, és a valóságnak megfelelő személyes adat az Adatkezelő rendelkezésére áll, a személyes adatot az Adatkezelő helyesbíti.</p>
+              <p>A személyes adatot törölni kell, ha:</p>
+              <ul>
+                <li>kezelése jogellenes;</li>
+                <li>az érintett kéri;</li>
+                <li>az hiányos vagy téves;</li>
+                <li>az adatkezelés célja megszűnt;</li>
+                <li>azt a bíróság vagy az adatvédelmi biztos elrendelte.</li>
+              </ul>
+
+              <h3>7.3. Tiltakozási jog</h3>
+              <p>Az érintett tiltakozhat személyes adatának kezelése ellen. Az Adatkezelő a tiltakozást köteles a kérelem benyújtásától számított legrövidebb időn belül, de legfeljebb 15 nap alatt megvizsgálni.</p>
+
+              <h3>7.4. Az adatkezeléssel kapcsolatos jogorvoslati lehetőségek</h3>
+              <p>Amennyiben bármilyen problémát észlel az adatkezelés kapcsán, kérjük, elsőként jelezze az Adatkezelőnek. Írjon a <a href="mailto:nagy.baranyi.krisztina@gmail.com">nagy.baranyi.krisztina@gmail.com</a> e-mail címre.</p>
+              <p>Amennyiben nem sikerült megoldást találni, a Nemzeti Adatvédelmi és Információszabadság Hatóságnál vizsgálatot kezdeményezhet:</p>
+              <div class="info-box">
+                <p><strong>Posta cím:</strong> 1530 Budapest, Pf.: 5.</p>
+                <p><strong>Cím:</strong> 1125 Budapest, Szilágyi Erzsébet fasor 22/c</p>
+                <p><strong>Telefon:</strong> +36 (1) 391-1400</p>
+                <p><strong>E-mail:</strong> ugyfelszolgalat@naih.hu</p>
+              </div>
+            </section>
+          </article>
+        </div>
+
+        <Sidebar
+          email={siteInfo.data.email}
+          phone={siteInfo.data.phone}
+          instagram={siteInfo.data.instagram}
+        />
+      </div>
+    </div>
+  </main>
+
+  <Footer
+    email={siteInfo.data.email}
+    phone={siteInfo.data.phone}
+    instagram={siteInfo.data.instagram}
+  />
+</Layout>
+
+<style>
+  .legal-page {
+    padding-top: 10rem;
+    padding-bottom: 4rem;
+    background: var(--color-secondary);
+  }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .page-header h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .page-header p {
+    color: var(--color-text-light);
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .page-content {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .legal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  .legal-content section {
+    margin-bottom: 2.5rem;
+  }
+
+  .legal-content section:last-child {
+    margin-bottom: 0;
+  }
+
+  .legal-content h2 {
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-secondary);
+  }
+
+  .legal-content h3 {
+    font-size: 1.1rem;
+    color: var(--color-primary);
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .legal-content p {
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: 0.75rem;
+    text-align: justify;
+  }
+
+  .legal-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  .legal-content strong {
+    color: var(--color-text);
+  }
+
+  .legal-content ul {
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+  }
+
+  .legal-content li {
+    margin-bottom: 0.5rem;
+  }
+
+  .legal-content a {
+    color: var(--color-primary);
+  }
+
+  .legal-content a:hover {
+    text-decoration: underline;
+  }
+
+  .info-box {
+    background: var(--color-secondary);
+    padding: 1.25rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+
+  .info-box p {
+    margin-bottom: 0.5rem;
+    text-align: left;
+  }
+
+  .info-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .data-table {
+    overflow-x: auto;
+    margin: 1rem 0;
+  }
+
+  .data-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border: 1px solid var(--color-secondary);
+  }
+
+  .data-table th {
+    background: var(--color-primary);
+    color: white;
+    font-weight: 600;
+  }
+
+  .data-table td {
+    color: var(--color-text-light);
+  }
+
+  .data-table tr:nth-child(even) {
+    background: var(--color-secondary);
+  }
+
+  @media (max-width: 900px) {
+    .page-content {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .legal-content {
+      padding: 1.5rem;
+    }
+
+    .data-table {
+      font-size: 0.8rem;
+    }
+
+    .data-table th,
+    .data-table td {
+      padding: 0.5rem;
+    }
+  }
+</style>
