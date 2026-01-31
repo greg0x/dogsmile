@@ -1,0 +1,90 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  description: string;
+  image: string;
+}
+
+const { title, subtitle, description, image } = Astro.props;
+---
+
+<article class="course-card">
+  <div class="course-image">
+    <!-- Will use Astro Image when we have actual images -->
+    <div class="image-placeholder">
+      <span>{title} kép</span>
+    </div>
+  </div>
+  <div class="course-content">
+    <span class="course-subtitle">{subtitle}</span>
+    <h3 class="course-title">{title}</h3>
+    <p class="course-description">{description}</p>
+    <a href="#" class="course-link">Részletek &rarr;</a>
+  </div>
+</article>
+
+<style>
+  .course-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .course-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  }
+
+  .course-image {
+    aspect-ratio: 16/10;
+    overflow: hidden;
+  }
+
+  .image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: var(--color-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-light);
+    font-size: 0.875rem;
+  }
+
+  .course-content {
+    padding: 1.5rem;
+  }
+
+  .course-subtitle {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  .course-title {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    margin: 0.5rem 0;
+  }
+
+  .course-description {
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .course-link {
+    color: var(--color-primary);
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+
+  .course-link:hover {
+    color: var(--color-accent);
+  }
+</style>

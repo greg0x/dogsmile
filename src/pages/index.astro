@@ -1,0 +1,161 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import CourseCard from '../components/CourseCard.astro';
+import Testimonial from '../components/Testimonial.astro';
+import Footer from '../components/Footer.astro';
+
+const courses = await getCollection('courses');
+const testimonials = await getCollection('testimonials');
+const siteInfo = await getEntry('site-info', 'main');
+
+// Sort by order
+const sortedCourses = courses.sort((a, b) => a.data.order - b.data.order);
+const sortedTestimonials = testimonials.sort((a, b) => a.data.order - b.data.order);
+---
+
+<Layout title="Kutyakiképzés pozitív megerősítéssel">
+  <Header
+    email={siteInfo.data.email}
+    phone={siteInfo.data.phone}
+    instagram={siteInfo.data.instagram}
+  />
+
+  <main>
+    <Hero />
+
+    <section class="courses" id="kurzusok">
+      <div class="container">
+        <h2 class="section-title">Kurzusaink</h2>
+        <p class="section-subtitle">Válaszd ki a számodra megfelelő programot</p>
+
+        <div class="courses-grid">
+          {sortedCourses.map((course) => (
+            <CourseCard
+              title={course.data.title}
+              subtitle={course.data.subtitle}
+              description={course.data.description}
+              image={course.data.image}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="methodology" id="modszer">
+      <div class="container">
+        <h2 class="section-title">{siteInfo.data.methodology.title}</h2>
+        <div class="methodology-content">
+          <p>{siteInfo.data.methodology.content}</p>
+          <div class="methodology-image">
+            <div class="image-placeholder">
+              <span>Módszer illusztráció</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials" id="velemenyek">
+      <div class="container">
+        <h2 class="section-title">Mit mondanak rólunk</h2>
+        <p class="section-subtitle">Gazdik és kutyáik sikertörténetei</p>
+
+        <div class="testimonials-grid">
+          {sortedTestimonials.map((testimonial) => (
+            <Testimonial
+              name={testimonial.data.name}
+              quote={testimonial.data.quote}
+              image={testimonial.data.image}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer
+    email={siteInfo.data.email}
+    phone={siteInfo.data.phone}
+    instagram={siteInfo.data.instagram}
+  />
+</Layout>
+
+<style>
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  section {
+    padding: 5rem 0;
+  }
+
+  .section-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: var(--color-text-light);
+    margin-bottom: 3rem;
+  }
+
+  /* Courses Section */
+  .courses {
+    background: var(--color-secondary);
+  }
+
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  /* Methodology Section */
+  .methodology-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .methodology-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text-light);
+  }
+
+  .methodology-image .image-placeholder {
+    aspect-ratio: 4/3;
+    background: var(--color-secondary);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-light);
+  }
+
+  /* Testimonials Section */
+  .testimonials {
+    background: var(--color-secondary);
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .methodology-content {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
