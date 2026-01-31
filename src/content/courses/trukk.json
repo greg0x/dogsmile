@@ -2,26 +2,31 @@
   "title": "Trükk mester kurzus",
   "subtitle": "Szórakoztató tanulás",
   "description": "Tanulj meg trükköket, amik erősítik a kötődést és mentálisan stimulálják a kutyádat.",
-  "fullDescription": "A trükkök tanítása nem csak szórakoztató, hanem kiváló módja a kutya mentális stimulálásának és a gazdi-kutya kapcsolat erősítésének. Kreatív és vidám foglalkozások várnak, ahol a tanulás örömforrás lesz mindkettőtöknek!",
-  "image": "/images/courses/trukk.jpg",
+  "fullDescription": "A trükkök tanítása nem csak szórakoztató, hanem kiváló módja a kutya mentális stimulálásának és a gazdi-kutya kapcsolat erősítésének. Pozitív megerősítésen alapuló módszerekkel 10 trükköt tanultok meg együtt, lépésről lépésre haladva.",
+  "image": "trukk.jpg",
   "order": 3,
-  "price": "35 000 Ft",
-  "duration": "4 alkalom (60 perc/alkalom)",
+  "price": "50 000 Ft",
+  "duration": "6 hét, heti 1 alkalom (1-1,5 óra)",
   "includes": [
-    "4 személyes foglalkozás",
-    "10+ trükk megtanulása",
-    "Lépésről lépésre útmutatás",
-    "Kreatív feladatok otthonra"
+    "6 héten keresztül heti 1x 1-1,5 órás foglalkozás",
+    "10 trükk lépésről lépésre",
+    "Pozitív megerősítéssel",
+    "Feladatleírás emailben",
+    "Konzultáció, ha elakadsz a gyakorlásban"
   ],
   "requirements": [
-    "Alapvető engedelmesség (ül, marad)",
-    "Játékos, motivált kutya",
-    "Türelmes gazdi"
+    "Elvégezted az LPM&P alap kurzust",
+    "Minőségi időt szeretnél tölteni kutyusoddal",
+    "A kutyáddal kialakult bizalmi kapcsolatod szeretnéd fenntartani, mélyíteni",
+    "Új készségeket szeretnétek elsajátítani"
   ],
   "benefits": [
-    "Szórakoztató közös időtöltés",
-    "Mentális stimuláció",
-    "Erősebb kötődés",
-    "Látványos trükkök"
+    "Fejleszti a kutyus koordinációját",
+    "Mentálisan és fizikailag is megmozgatja",
+    "Változatosságot ad a hétköznapoknak",
+    "Esős időben is meg tudod vele mozgatni kutyádat",
+    "Színesítheted vele a sétáitokat",
+    "Kapcsolatotokat új szintre emeli",
+    "Stresszhelyzetben egy nagyszerű eszköz annak oldására"
   ]
 }
