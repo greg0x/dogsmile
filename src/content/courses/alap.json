@@ -4,6 +4,7 @@
   "description": "Személyre szabott képzés a városi együttélés alapjainak elsajátítására a Láthatatlan Póráz módszerrel.",
   "fullDescription": "Ez a kurzus a városi együttélés kihívásaira készít fel. Megtanítjuk a kutyádnak azokat az alapvető viselkedésformákat, amelyek a mindennapi életben elengedhetetlenek. A módszer lényege: mosoly legyen a kutyának és mosoly a gazdinak!",
   "image": "alap.jpg",
+  "trainerImage": "trainer-krisztina.png",
   "order": 1,
   "price": "95 000 Ft",
   "priceNote": "Vagy 2 részletben: 2 x 47 500 Ft",

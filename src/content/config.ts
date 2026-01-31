@@ -21,6 +21,7 @@ const courses = defineCollection({
       instructor: z.array(z.string()),
       participant: z.array(z.string()),
     }).optional(),
+    trainerImage: z.string().optional(),
   }),
 });
 

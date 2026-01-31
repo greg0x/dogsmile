@@ -34,6 +34,19 @@ if (courseImagePath) {
     }
   }
 }
+
+// Get trainer image if specified
+const trainerImagePath = course.data.trainerImage;
+let trainerImage: ImageMetadata | null = null;
+if (trainerImagePath) {
+  const filename = trainerImagePath.split('/').pop();
+  for (const [path, module] of Object.entries(courseImages)) {
+    if (path.includes(filename!)) {
+      trainerImage = module.default;
+      break;
+    }
+  }
+}
 ---
 
 <Layout title={course.data.title} description={course.data.description}>
@@ -153,6 +166,12 @@ if (courseImagePath) {
               </ul>
             </section>
           )}
+
+          {trainerImage && (
+            <div class="trainer-image">
+              <Image src={trainerImage} alt="Krisztina - kutyatréner" width={600} height={400} />
+            </div>
+          )}
         </div>
 
         <aside class="course-sidebar">
@@ -250,6 +269,19 @@ if (courseImagePath) {
     width: 100%;
     height: auto;
     object-fit: cover;
+  }
+
+  .trainer-image {
+    margin-top: 2rem;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .trainer-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
   }
 
   .course-content {
