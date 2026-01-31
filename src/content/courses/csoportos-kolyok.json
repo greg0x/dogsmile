@@ -1,27 +1,64 @@
 {
   "title": "Csoportos Kölyök kurzus",
   "subtitle": "Kölyökkutyáknak",
-  "description": "Speciálisan kölyökkutyáknak tervezett csoportos képzés a legjobb alapokért.",
-  "fullDescription": "A kölyökkor a legfontosabb időszak a kutya életében. Ebben a kurzusban a szocializáció és az alapvető viselkedésformák kialakítása a cél, játékos, kölyökbarát módszerekkel.",
-  "image": "/images/courses/alap.jpg",
+  "description": "Kiscsoportos kölyökkutyás képzés a Láthatatlan Póráz módszerrel.",
+  "fullDescription": "Egy kölyök érkezése a családba mindig izgalmas dolog. A kiskutyák rendkívül érdeklődőek, nagy az energiájuk és nagyon gyorsan tanulnak. Ám nem mindegy, hogy az a tanulás hogyan zajlik. Pozitív megerősítéssel és sok türelemmel nem csak a tanultakat alapozhatjuk meg, hanem a kapcsolatunkat is kutyusunkkal.",
+  "image": "kolyok-csoportos.png",
   "order": 5,
-  "price": "32 000 Ft",
-  "duration": "6 alkalom (45 perc/alkalom)",
+  "price": "75 000 Ft",
+  "priceNote": "Vagy 2 részletben: 2 x 37 500 Ft",
+  "duration": "8 hét, heti 1x 1-1,5 óra",
   "includes": [
-    "6 csoportos foglalkozás",
-    "Maximum 5 kölyök/csoport",
-    "Szocializációs játékok",
-    "Alapozó gyakorlatok"
+    "100%-os behívás",
+    "Ül + marad",
+    "Fekszik + marad",
+    "Szemkontaktus",
+    "Helyére küldés",
+    "Laza pórázon séta",
+    "Nincs kényszerítés, büntetés vagy bántalmazás, csak pozitív megerősítés!",
+    "Kiscsoportos foglalkozás (3 gazdi-kutya páros)",
+    "Első 4 alkalom Szegeden az Erzsébet ligetben",
+    "5. alkalomtól változatos környezetben",
+    "8 héten át heti 1x 1-1,5 órás foglalkozás",
+    "Ajándék a kezdéshez: síp és klikker",
+    "Feladatleírás emailben",
+    "Konzultáció, ha elakadsz a gyakorlásban"
   ],
   "requirements": [
-    "8 hét - 5 hónap közötti kölyök",
-    "Legalább első oltás megléte",
-    "Egészséges kölyök"
+    "Kutyusod 7 hónaposnál fiatalabb",
+    "Szeretnéd a kutyád jobban megismerni és megérteni",
+    "Bizalmi kapcsolatot szeretnél építeni kutyusoddal",
+    "Tudsz időt szentelni a gyakorlásra (alkalomtól alkalomig minimum 3x)",
+    "Szeretnéd megtanulni, hogyan segítheted kutyusod szocializációját",
+    "Tudsz elvárásmentesen viszonyulni kutyusodhoz és tudsz az ő tempójában haladni",
+    "Egyetértesz a módszer szemléletével",
+    "Minden alkalmon részt tudsz venni"
+  ],
+  "notFor": [
+    "Nincs időd gyakorolni",
+    "Nem tudsz a kutyusoddal büntetés és bántalmazás mentesen együtt dolgozni",
+    "\"Csak\" jó és engedelmes kutyát szeretnél, nem pedig boldog kutyát",
+    "Nem tudsz minden alkalmon részt venni"
   ],
   "benefits": [
-    "Korai szocializáció",
+    "Korai szocializáció más kutyákkal",
     "Helyes viselkedésminták kialakítása",
-    "Játékos tanulás",
-    "Erős alapok a jövőre"
-  ]
+    "Közösségi élmény gazdiknak és kutyáknak",
+    "Stresszmentes séták a jövőben"
+  ],
+  "expectations": {
+    "instructor": [
+      "Időben érkezek",
+      "Ha késni fogok, szólok",
+      "A feladatokról adok leírást, tehát nem baj, ha nem jegyzed meg azonnal",
+      "Maximális türelem és kitartás",
+      "Jókedv"
+    ],
+    "participant": [
+      "5-10 perccel korábban érkezel, hogy kutyusodnak legyen ideje szaglászni, üríteni",
+      "Előkészíted a szükséges felszerelést",
+      "Ha nem tudsz jönni, 24 órával előtte szólsz",
+      "Minimum 3x gyakorolsz az alkalmak között"
+    ]
+  }
 }
