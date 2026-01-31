@@ -167,6 +167,9 @@ if (courseImagePath) {
             {course.data.duration && (
               <div class="duration">{course.data.duration}</div>
             )}
+            {course.data.assessmentFee && (
+              <div class="assessment-fee">{course.data.assessmentFee}</div>
+            )}
             <a href="/jelentkezes" class="cta-button">Jelentkezem &raquo;</a>
             <p class="note">Kérdésed van? Írj bátran!</p>
           </div>
@@ -326,6 +329,14 @@ if (courseImagePath) {
     font-size: 0.9rem;
     opacity: 0.8;
     margin-bottom: 0.5rem;
+  }
+
+  .assessment-fee {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-bottom: 1rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   .duration {

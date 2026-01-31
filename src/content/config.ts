@@ -11,6 +11,7 @@ const courses = defineCollection({
     order: z.number(),
     price: z.string().optional(),
     priceNote: z.string().optional(),
+    assessmentFee: z.string().optional(),
     duration: z.string().optional(),
     includes: z.array(z.string()).optional(),
     requirements: z.array(z.string()).optional(),

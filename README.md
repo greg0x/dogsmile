@@ -2,10 +2,8 @@
 
 - review pages
   - landing
-  - egyeni
   - csoportos alap
   - csoportos kolyok
-  - trukk mester
 - deploy to netlify + test email send
 - add decap admin
 - SEO optimasation

@@ -3,16 +3,18 @@
   "subtitle": "Alapozó képzés",
   "description": "Személyre szabott képzés a városi együttélés alapjainak elsajátítására a Láthatatlan Póráz módszerrel.",
   "fullDescription": "Ez a kurzus a városi együttélés kihívásaira készít fel. Megtanítjuk a kutyádnak azokat az alapvető viselkedésformákat, amelyek a mindennapi életben elengedhetetlenek. A módszer lényege: mosoly legyen a kutyának és mosoly a gazdinak!",
-  "image": "/images/courses/alap.jpg",
+  "image": "alap.jpg",
   "order": 1,
   "price": "95 000 Ft",
-  "duration": "8 alkalom (heti 1-1,5 óra)",
+  "priceNote": "Vagy 2 részletben: 2 x 47 500 Ft",
+  "assessmentFee": "Felmérés: 15 000 Ft",
+  "duration": "8 hét, heti 1-1,5 óra",
   "includes": [
     "100%-os behívás",
-    "Ül és marad parancs",
-    "Fekszik és marad",
-    "Szemkontaktus kialakítása",
-    "Helyre küldés",
+    "Ül + marad",
+    "Fekszik + marad",
+    "Szemkontaktus",
+    "Helyére küldés",
     "Laza pórázon séta",
     "Étel/tárgy kontroll",
     "Ajtó/kapu kontroll",
@@ -21,19 +23,39 @@
     "Konzultációs támogatás"
   ],
   "requirements": [
-    "Első 4 alkalom: otthoni környezetben",
-    "5-8. alkalom: változatos, ingerdús helyszíneken",
-    "Minimum napi 3x gyakorlás az alkalmak között",
-    "5-10 perccel korábban érkezés szabadtéri munkánál"
+    "Jobban szeretnéd megérteni a kutyádat",
+    "Bizalmon alapuló kapcsolatot szeretnél kialakítani",
+    "Vállalod, hogy minimum 3x gyakorolsz az alkalmak között",
+    "Támogatod a kutyád szocializációját",
+    "Elvárások nélkül állsz a képzéshez",
+    "Egyetértesz a módszer filozófiájával"
   ],
   "notFor": [
-    "Erősen reaktív kutyák (először viselkedés konzultáció ajánlott)",
-    "Ha nincs idő a napi gyakorlásra"
+    "Gyors megoldást keresel egy konkrét problémára",
+    "Nincs időd a napi gyakorlásra",
+    "Nem szeretnél erőszakmentes módszereket használni",
+    "Az engedelmességet fontosabbnak tartod a kutya boldogságánál"
   ],
   "benefits": [
     "Magabiztos, kiegyensúlyozott kutya",
     "Stresszmentes séták",
     "Erős kötődés és kommunikáció",
     "Biztonságos városi együttélés"
-  ]
+  ],
+  "expectations": {
+    "instructor": [
+      "Időben érkezem",
+      "Ha késni fogok, szólok",
+      "Előző nap megerősítem az időpontot",
+      "Írásos feladatleírást adok",
+      "Türelmes és elkötelezett vagyok",
+      "Osztatlan figyelmet biztosítok"
+    ],
+    "participant": [
+      "Szabadtéri munkánál 5-10 perccel korábban érkezel",
+      "Előkészíted a szükséges felszerelést",
+      "Ha nem tudsz jönni, 24 órával előtte szólsz",
+      "Minimum 3x gyakorolsz az alkalmak között"
+    ]
+  }
 }
