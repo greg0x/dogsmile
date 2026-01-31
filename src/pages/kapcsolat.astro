@@ -185,6 +185,8 @@ const siteInfo = await getEntry('site-info', 'main');
   .info-content p {
     color: var(--color-text);
     font-weight: 500;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   .info-content a:hover {
@@ -244,8 +246,14 @@ const siteInfo = await getEntry('site-info', 'main');
     margin-top: 1rem;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 968px) {
     .page-content {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .contact-info {
       grid-template-columns: 1fr;
     }
   }
