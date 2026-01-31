@@ -25,6 +25,7 @@ const { title, description = "Kutyakiképzés pozitív megerősítéssel - Láth
     <!-- Preconnect to external resources if needed -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Lexend+Deca:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   </head>
   <body>
     <slot />
@@ -45,8 +46,10 @@ const { title, description = "Kutyakiképzés pozitív megerősítéssel - Láth
     --color-accent: #5a7bc0;
     --color-text: #333;
     --color-text-light: #666;
-    --color-header-bg: #2d3a5c;
-    --font-body: system-ui, -apple-system, sans-serif;
+    --color-header-bg: #3d4f7a;
+    --color-header-light: #7a8ab8;
+    --font-body: 'Lexend Deca', system-ui, -apple-system, sans-serif;
+    --font-heading: 'Cinzel Decorative', serif;
     --max-width: 1200px;
   }
 
@@ -69,5 +72,11 @@ const { title, description = "Kutyakiképzés pozitív megerősítéssel - Láth
   a {
     color: inherit;
     text-decoration: none;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--color-primary);
   }
 </style>
