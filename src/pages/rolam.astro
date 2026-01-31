@@ -1,8 +1,14 @@
 ---
 import { getEntry } from 'astro:content';
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Sidebar from '../components/Sidebar.astro';
+
+import rolamPortrait from '../assets/images/about/rolam-portrait.jpg';
+import rolamDog from '../assets/images/about/rolam-dog.jpg';
+import oklevelek from '../assets/images/about/oklevelek.jpg';
 
 const siteInfo = await getEntry('site-info', 'main');
 ---
@@ -16,105 +22,45 @@ const siteInfo = await getEntry('site-info', 'main');
 
   <main class="about-page">
     <div class="container">
+      <h1>Rólam, avagy a kórházból a kutyák közé</h1>
+
+      <div class="hero-images">
+        <Image src={rolamPortrait} alt="Nagy-Baranyi Krisztina" width={400} height={600} />
+        <Image src={rolamDog} alt="Nagy-Baranyi Krisztina kutyájával" width={400} height={600} />
+      </div>
+
       <div class="about-content">
         <div class="about-text">
-          <h1>Rólam, avagy a kórházból a kutyák közé</h1>
-
           <p class="intro">
-            Nagy-Baranyi Krisztina vagyok, a DOGSMILE kutyaiskola alapítója és vezetője.
+            Nagy-Baranyi Krisztina, kutyaoktató vagyok. Mostmár.
           </p>
 
           <p>
-            Hajdanán, mikor még az ifjúság szele fújta kócosra a hajam, eljött az idő, hogy eldőljön, merre tovább.
-            Évekig az egészségügyben dolgoztam, de valahogy sosem éreztem, hogy ez lenne az én utam.
-            Aztán egy bevásárlóközpontban megláttam egy kutyát, akit épp szocializáltak - és valami megváltozott bennem.
+            Ám ez nem volt mindig így. Lássuk csak: hajdanán, mikor még az ifjúság szele fújta kócosra a hajam, eljött az idő, amikor is be kellett volna tájolni, hogy merre is az arra. Iránytű híján kikötöttem az egészségügyben. Aztán teltek-múltak az évek és én egyre kevésbé éreztem magaménak a dolgot. Mindeközben férjhez mentem és egy csodás napon egy bevásárlóközpontban kigyulladt az a bizonyos lámpa (tudod, mikor akkorát koppan, hogy még a szomszéd városban is hallják). Ugyanis egy kutyust szocializáltak épp, amit én elsőre kiszúrtam. A férjemnek hála (igen kellett, hogy bátrabb legyek) odamentünk információt gyűjteni és hazaérve rögtön a jó öreg Google bácsitól kértem segítséget. Ekkor találtam rá egy fantasztikus képzésre, ami a <a href="https://lfrm.hu/" target="_blank" rel="noopener"><strong>Láthatatlan Póráz Módszer & Program (LPM&P)</strong></a>.
           </p>
 
           <p>
-            Elvégeztem a <strong>Láthatatlan Póráz Módszer & Program (LPM&P)</strong> képzését,
-            majd a mesterképzést is. A módszer lényege a "kapcsolat- és folyamatfókuszú" megközelítés:
-            a cél, hogy a gazdi és a kutya között olyan bizalom épüljön, ami "hipergyorsan" működik,
-            miközben minden apró előrelépést megünneplünk.
+            Nem kellett sokat gondolkoznom a beiratkozáson. És hipp-hopp eljött a tanfolyam, amely őrült jó hangulatban telt. Csodálatos és hatalmas tudású oktatókkal, sok-sok gyakorlattal egy olyan légkörben, ahol az lehetsz, aki vagy, úgy, ahogy vagy, és csak azért, mert vagy (by Dömötör Júlia). Fantasztikus embereket ismerhettem meg a tanuló társaim személyében is.
           </p>
 
           <p>
-            A képzés során csodálatos és rendkívül képzett oktatókkal találkoztam,
-            akik támogató környezetben, gyakorlati feladatokon keresztül adták át a tudásukat.
-            Ma már én is így dolgozom: türelemmel, pozitív megerősítéssel, és a kapcsolat építésére fókuszálva.
+            Mindezt folytattam a mester tréner képzésen. Az egész egy nagyszerű utazás volt saját magamban, a technikában. Mint minden utazás, ez is tele volt élményekkel. Ezek az élmények támogatják ma is munkámat, hogy gazdi és kutyusa még jobb társak legyenek.
           </p>
 
-          <h2>Képzettségeim</h2>
-          <ul class="qualifications">
-            <li>Láthatatlan Póráz Módszer & Program (LPM&P) tanúsítvány</li>
-            <li>LPM&P Mesterképzés</li>
-            <li>Kutya-viselkedés tanácsadó</li>
-            <li>Több éves gyakorlati tapasztalat</li>
-          </ul>
+          <p>
+            Az LPM&P segít ebben azzal, hogy kapcsolat és folyamat fókuszú, tehát a legkisebb sikernek is örülünk, valamint hiper sebességgel mélyíti és építi a bizalmat gazdi és kutyusa között.
+          </p>
 
-          <h2>Miért válassz engem?</h2>
-          <ul class="reasons">
-            <li>
-              <strong>Kapcsolatfókuszú megközelítés</strong> - Nem parancsokat tanítok,
-              hanem a kutyáddal való kapcsolatot építjük együtt.
-            </li>
-            <li>
-              <strong>Maximális türelem és kitartás</strong> - Tudom, hogy minden kutya
-              és gazdi egyedi tempóban halad. Nincs sürgetés.
-            </li>
-            <li>
-              <strong>Mosoly a kutyának, mosoly a gazdinak</strong> - A cél egy boldog,
-              kiegyensúlyozott kutya és egy magabiztos gazdi.
-            </li>
-          </ul>
+          <div class="certificates">
+            <Image src={oklevelek} alt="LPM&P tanúsítványok" width={800} height={530} />
+          </div>
         </div>
 
-        <aside class="about-sidebar">
-          <div class="contact-card">
-            <h3>Kapcsolat</h3>
-            <div class="contact-item">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-              </svg>
-              <a href={`mailto:${siteInfo.data.email}`}>{siteInfo.data.email}</a>
-            </div>
-            <div class="contact-item">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-              </svg>
-              <a href={`tel:${siteInfo.data.phone.replace(/[^0-9+]/g, '')}`}>{siteInfo.data.phone}</a>
-            </div>
-            <div class="contact-item">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-              </svg>
-              <span>Szeged és környéke</span>
-            </div>
-          </div>
-
-          <div class="social-card">
-            <h3>Kövess!</h3>
-            <div class="social-links">
-              <a href={siteInfo.data.instagram} target="_blank" rel="noopener">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/>
-                </svg>
-                Instagram
-              </a>
-              <a href="https://www.facebook.com/MosolyakutyusnakMosolyagazdinak" target="_blank" rel="noopener">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
-                Facebook
-              </a>
-            </div>
-          </div>
-
-          <div class="cta-card">
-            <h3>Készen állsz?</h3>
-            <p>Jelentkezz egy kurzusra és kezdjük el együtt!</p>
-            <a href="/#kurzusok" class="cta-button">Kurzusok</a>
-          </div>
-        </aside>
+        <Sidebar
+          email={siteInfo.data.email}
+          phone={siteInfo.data.phone}
+          instagram={siteInfo.data.instagram}
+        />
       </div>
     </div>
   </main>
@@ -138,24 +84,31 @@ const siteInfo = await getEntry('site-info', 'main');
     padding: 0 1.5rem;
   }
 
+  h1 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: var(--color-primary);
+    margin-bottom: 2rem;
+  }
+
+  .hero-images {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-images :global(img) {
+    flex: 1;
+    width: 50%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
   .about-content {
     display: grid;
     grid-template-columns: 1fr 320px;
     gap: 3rem;
     align-items: start;
-  }
-
-  .about-text h1 {
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
-    color: var(--color-primary);
-    margin-bottom: 1.5rem;
-  }
-
-  .about-text h2 {
-    font-size: 1.25rem;
-    color: var(--color-primary);
-    margin-top: 2rem;
-    margin-bottom: 1rem;
   }
 
   .intro {
@@ -168,148 +121,36 @@ const siteInfo = await getEntry('site-info', 'main');
   .about-text p {
     color: var(--color-text-light);
     line-height: 1.8;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    text-align: justify;
   }
 
-  .about-text strong {
+  .about-text a {
     color: var(--color-primary);
   }
 
-  .qualifications,
-  .reasons {
-    list-style: none;
-    padding: 0;
+  .about-text a:hover {
+    text-decoration: underline;
   }
 
-  .qualifications li {
-    padding: 0.5rem 0;
-    padding-left: 1.5rem;
-    position: relative;
-    color: var(--color-text-light);
+  .certificates {
+    margin-top: 2rem;
   }
 
-  .qualifications li::before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: var(--color-accent);
-    font-weight: bold;
-  }
-
-  .reasons li {
-    padding: 1rem;
-    background: var(--color-secondary);
+  .certificates :global(img) {
+    width: 100%;
+    height: auto;
     border-radius: 8px;
-    margin-bottom: 1rem;
-    color: var(--color-text-light);
-  }
-
-  .reasons li strong {
-    color: var(--color-primary);
-    display: block;
-    margin-bottom: 0.25rem;
-  }
-
-  .about-sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .contact-card,
-  .social-card,
-  .cta-card {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  }
-
-  .contact-card h3,
-  .social-card h3,
-  .cta-card h3 {
-    color: var(--color-primary);
-    margin-bottom: 1rem;
-    font-size: 1rem;
-  }
-
-  .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.5rem 0;
-  }
-
-  .contact-item svg {
-    color: var(--color-accent);
-    flex-shrink: 0;
-  }
-
-  .contact-item a,
-  .contact-item span {
-    color: var(--color-text);
-    transition: color 0.2s;
-  }
-
-  .contact-item a:hover {
-    color: var(--color-primary);
-  }
-
-  .social-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .social-links a {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem;
-    background: var(--color-secondary);
-    border-radius: 8px;
-    color: var(--color-primary);
-    font-weight: 500;
-    transition: background 0.2s;
-  }
-
-  .social-links a:hover {
-    background: var(--color-primary);
-    color: white;
-  }
-
-  .cta-card {
-    background: var(--color-primary);
-    color: white;
-  }
-
-  .cta-card h3 {
-    color: white;
-  }
-
-  .cta-card p {
-    opacity: 0.9;
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-  }
-
-  .cta-button {
-    display: block;
-    text-align: center;
-    background: white;
-    color: var(--color-primary);
-    padding: 0.75rem;
-    border-radius: 8px;
-    font-weight: 600;
-    transition: background 0.2s;
-  }
-
-  .cta-button:hover {
-    background: var(--color-secondary);
   }
 
   @media (max-width: 900px) {
     .about-content {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .hero-images {
       grid-template-columns: 1fr;
     }
   }

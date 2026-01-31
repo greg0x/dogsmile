@@ -1,0 +1,183 @@
+---
+interface Props {
+  email: string;
+  phone: string;
+  instagram: string;
+}
+
+const { email, phone, instagram } = Astro.props;
+---
+
+<aside class="sidebar">
+  <div class="courses-card">
+    <h3>Kurzusok</h3>
+    <nav class="course-list">
+      <a href="/kurzusok/alap">Egyéni Alap kurzus</a>
+      <a href="/kurzusok/csoportos-alap">Csoportos Alap kurzus</a>
+      <a href="/kurzusok/csoportos-kolyok">Csoportos Kölyök kurzus</a>
+      <a href="/kurzusok/halado">Haladó kurzus</a>
+      <a href="/kurzusok/trukk">Trükk mester</a>
+    </nav>
+  </div>
+
+  <div class="cta-card">
+    <h3>Jelentkezés kurzusokra</h3>
+    <a href="/jelentkezes" class="cta-button">Jelentkezem &raquo;</a>
+  </div>
+
+  <div class="contact-card">
+    <h3>Kapcsolat</h3>
+    <p class="contact-name">Nagy-Baranyi Krisztina</p>
+    <div class="contact-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+      </svg>
+      <a href={`mailto:${email}`}>{email}</a>
+    </div>
+    <div class="contact-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+      </svg>
+      <a href={`tel:${phone.replace(/[^0-9+]/g, '')}`}>{phone}</a>
+    </div>
+    <div class="social-row">
+      <a href="https://www.facebook.com/MosolyakutyusnakMosolyagazdinak" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+        Facebook
+      </a>
+      <a href={instagram} target="_blank" rel="noopener" aria-label="Instagram">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/>
+        </svg>
+        Instagram
+      </a>
+    </div>
+  </div>
+</aside>
+
+<style>
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .courses-card,
+  .contact-card,
+  .cta-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .courses-card h3,
+  .contact-card h3,
+  .cta-card h3 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  .course-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .course-list a {
+    color: var(--color-text);
+    font-size: 0.9rem;
+    padding: 0.25rem 0;
+    padding-left: 1rem;
+    position: relative;
+    transition: color 0.2s;
+  }
+
+  .course-list a::before {
+    content: "○";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-size: 0.7rem;
+  }
+
+  .course-list a:hover {
+    color: var(--color-primary);
+  }
+
+  .cta-card {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .cta-card h3 {
+    color: white;
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-button {
+    display: block;
+    text-align: center;
+    background: white;
+    color: var(--color-primary);
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+
+  .cta-button:hover {
+    background: var(--color-secondary);
+  }
+
+  .contact-name {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0;
+    font-size: 0.9rem;
+  }
+
+  .contact-item svg {
+    color: var(--color-accent);
+    flex-shrink: 0;
+  }
+
+  .contact-item a {
+    color: var(--color-text);
+    transition: color 0.2s;
+  }
+
+  .contact-item a:hover {
+    color: var(--color-primary);
+  }
+
+  .social-row {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-secondary);
+  }
+
+  .social-row a {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--color-primary);
+    font-size: 0.85rem;
+    transition: opacity 0.2s;
+  }
+
+  .social-row a:hover {
+    opacity: 0.7;
+  }
+</style>
