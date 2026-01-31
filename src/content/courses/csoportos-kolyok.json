@@ -1,0 +1,27 @@
+{
+  "title": "Csoportos Kölyök kurzus",
+  "subtitle": "Kölyökkutyáknak",
+  "description": "Speciálisan kölyökkutyáknak tervezett csoportos képzés a legjobb alapokért.",
+  "fullDescription": "A kölyökkor a legfontosabb időszak a kutya életében. Ebben a kurzusban a szocializáció és az alapvető viselkedésformák kialakítása a cél, játékos, kölyökbarát módszerekkel.",
+  "image": "/images/courses/alap.jpg",
+  "order": 5,
+  "price": "32 000 Ft",
+  "duration": "6 alkalom (45 perc/alkalom)",
+  "includes": [
+    "6 csoportos foglalkozás",
+    "Maximum 5 kölyök/csoport",
+    "Szocializációs játékok",
+    "Alapozó gyakorlatok"
+  ],
+  "requirements": [
+    "8 hét - 5 hónap közötti kölyök",
+    "Legalább első oltás megléte",
+    "Egészséges kölyök"
+  ],
+  "benefits": [
+    "Korai szocializáció",
+    "Helyes viselkedésminták kialakítása",
+    "Játékos tanulás",
+    "Erős alapok a jövőre"
+  ]
+}

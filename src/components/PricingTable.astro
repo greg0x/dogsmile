@@ -1,0 +1,198 @@
+---
+interface PricingTier {
+  name: string;
+  duration: string;
+  description: string;
+  price: string;
+  features: string[];
+  highlighted?: boolean;
+}
+
+interface Props {
+  tiers: PricingTier[];
+}
+
+const { tiers } = Astro.props;
+---
+
+<section class="pricing" id="szolgaltatasok">
+  <div class="container">
+    <div class="pricing-header">
+      <span class="pricing-badge">Új szolgáltatás</span>
+      <h2 class="pricing-title">HAPPY BRAIN</h2>
+      <p class="pricing-subtitle">Válaszd ki a számodra megfelelő csomagot</p>
+    </div>
+
+    <div class="pricing-grid">
+      {tiers.map((tier) => (
+        <div class={`pricing-card ${tier.highlighted ? 'highlighted' : ''}`}>
+          <div class="pricing-card-header">
+            <h3>{tier.name}</h3>
+            <span class="duration">{tier.duration}</span>
+          </div>
+          <p class="pricing-description">{tier.description}</p>
+          <div class="pricing-price">
+            <span class="amount">{tier.price}</span>
+          </div>
+          <ul class="pricing-features">
+            {tier.features.map((feature) => (
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                </svg>
+                {feature}
+              </li>
+            ))}
+          </ul>
+          <a href="/kapcsolat" class="pricing-cta">Jelentkezés</a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .pricing {
+    padding: 5rem 0;
+    background: white;
+  }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .pricing-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .pricing-badge {
+    display: inline-block;
+    background: var(--color-accent);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+  }
+
+  .pricing-title {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .pricing-subtitle {
+    color: var(--color-text-light);
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .pricing-card {
+    background: var(--color-secondary);
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .pricing-card.highlighted {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .pricing-card.highlighted .pricing-description,
+  .pricing-card.highlighted .duration {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .pricing-card.highlighted .pricing-cta {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .pricing-card-header h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .duration {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+  }
+
+  .pricing-description {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin: 1rem 0;
+    flex-grow: 1;
+  }
+
+  .pricing-price {
+    margin: 1rem 0;
+  }
+
+  .amount {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .pricing-features {
+    list-style: none;
+    margin: 1rem 0;
+    padding: 0;
+  }
+
+  .pricing-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .pricing-features svg {
+    flex-shrink: 0;
+    color: var(--color-accent);
+  }
+
+  .pricing-card.highlighted .pricing-features svg {
+    color: white;
+  }
+
+  .pricing-cta {
+    display: block;
+    text-align: center;
+    background: var(--color-primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    margin-top: auto;
+    transition: background 0.2s;
+  }
+
+  .pricing-cta:hover {
+    background: var(--color-primary-dark);
+  }
+
+  .pricing-card.highlighted .pricing-cta:hover {
+    background: var(--color-secondary);
+    color: var(--color-primary);
+  }
+</style>

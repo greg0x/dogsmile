@@ -2,6 +2,30 @@
   "title": "Haladó kurzus",
   "subtitle": "Következő szint",
   "description": "Vidd a következő szintre a kutyáddal való kommunikációt és együttműködést.",
+  "fullDescription": "Ha már túl vagytok az alapokon, és szeretnétek továbbfejleszteni a kutyáddal való kapcsolatot, ez a kurzus nektek szól. Bonyolultabb helyzetekben is működő együttműködést építünk.",
   "image": "/images/courses/halado.jpg",
-  "order": 2
+  "order": 2,
+  "price": "52 000 Ft",
+  "duration": "6 alkalom (60 perc/alkalom)",
+  "includes": [
+    "6 személyes foglalkozás",
+    "Haladó technikák",
+    "Distrakciós gyakorlatok",
+    "Szabadban végzett foglalkozások"
+  ],
+  "requirements": [
+    "Alapkurzus elvégzése vagy megfelelő alaptudás",
+    "Stabil alapparancsok",
+    "Motivált gazdi és kutya"
+  ],
+  "notFor": [
+    "Alapparancsokat nem ismerő kutyák",
+    "Súlyos viselkedési problémákkal küzdő kutyák"
+  ],
+  "benefits": [
+    "Megbízható engedelmesség zavarók mellett is",
+    "Hosszabb távú figyelem és fókusz",
+    "Komplex feladatok végrehajtása",
+    "Még erősebb kapcsolat"
+  ]
 }

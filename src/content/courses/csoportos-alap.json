@@ -1,0 +1,31 @@
+{
+  "title": "Csoportos Alap kurzus",
+  "subtitle": "Közösségi tanulás",
+  "description": "Alapképzés más kutyákkal együtt, szocializációs lehetőséggel.",
+  "fullDescription": "A csoportos kurzus kiváló lehetőség arra, hogy a kutyád más kutyák társaságában is megtanuljon figyelni rád. Közösségben tanulunk, ahol a szocializáció és az alapparancsok kéz a kézben járnak.",
+  "image": "/images/courses/alap.jpg",
+  "order": 4,
+  "price": "35 000 Ft",
+  "duration": "6 alkalom (60 perc/alkalom)",
+  "includes": [
+    "6 csoportos foglalkozás",
+    "Maximum 6 kutya/csoport",
+    "Szocializációs gyakorlatok",
+    "Alapparancsok tanítása"
+  ],
+  "requirements": [
+    "Minimum 6 hónapos kutya",
+    "Érvényes oltások",
+    "Nem agresszív más kutyákkal"
+  ],
+  "notFor": [
+    "Reaktív vagy agresszív kutyák",
+    "Nagyon félénk kutyák (először egyéni ajánlott)"
+  ],
+  "benefits": [
+    "Szocializáció más kutyákkal",
+    "Figyelem zavarók mellett",
+    "Közösségi élmény",
+    "Kedvezőbb ár"
+  ]
+}

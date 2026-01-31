@@ -1,0 +1,294 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+export async function getStaticPaths() {
+  const courses = await getCollection('courses');
+  return courses.map((course) => ({
+    params: { slug: course.id },
+    props: { course },
+  }));
+}
+
+const { course } = Astro.props;
+const siteInfo = await getEntry('site-info', 'main');
+---
+
+<Layout title={course.data.title} description={course.data.description}>
+  <Header
+    email={siteInfo.data.email}
+    phone={siteInfo.data.phone}
+    instagram={siteInfo.data.instagram}
+  />
+
+  <main class="course-page">
+    <div class="container">
+      <div class="course-header">
+        <span class="course-subtitle">{course.data.subtitle}</span>
+        <h1>{course.data.title}</h1>
+        <p class="course-intro">{course.data.fullDescription || course.data.description}</p>
+      </div>
+
+      <div class="course-content">
+        <div class="course-main">
+          {course.data.includes && (
+            <section class="course-section">
+              <h2>Mit tartalmaz a kurzus?</h2>
+              <ul class="feature-list">
+                {course.data.includes.map((item: string) => (
+                  <li>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {course.data.benefits && (
+            <section class="course-section">
+              <h2>Mire számíthatsz?</h2>
+              <ul class="feature-list benefits">
+                {course.data.benefits.map((item: string) => (
+                  <li>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {course.data.requirements && (
+            <section class="course-section">
+              <h2>Neked való a képzés, ha...</h2>
+              <ul class="feature-list">
+                {course.data.requirements.map((item: string) => (
+                  <li>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {course.data.notFor && (
+            <section class="course-section">
+              <h2>Nem neked való a képzés, ha...</h2>
+              <ul class="feature-list not-for">
+                {course.data.notFor.map((item: string) => (
+                  <li>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+        </div>
+
+        <aside class="course-sidebar">
+          <div class="price-card">
+            <h3>Kurzus ára</h3>
+            {course.data.price && (
+              <div class="price">{course.data.price}</div>
+            )}
+            {course.data.duration && (
+              <div class="duration">{course.data.duration}</div>
+            )}
+            <a href="/kapcsolat" class="cta-button">Jelentkezés</a>
+            <p class="note">Kérdésed van? Írj bátran!</p>
+          </div>
+        </aside>
+      </div>
+
+      <div class="back-link">
+        <a href="/#kurzusok">&larr; Vissza a kurzusokhoz</a>
+      </div>
+    </div>
+  </main>
+
+  <Footer
+    email={siteInfo.data.email}
+    phone={siteInfo.data.phone}
+    instagram={siteInfo.data.instagram}
+  />
+</Layout>
+
+<style>
+  .course-page {
+    padding-top: 10rem;
+    padding-bottom: 4rem;
+  }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .course-header {
+    max-width: 800px;
+    margin-bottom: 3rem;
+  }
+
+  .course-subtitle {
+    display: inline-block;
+    background: var(--color-secondary);
+    color: var(--color-primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .course-header h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+
+  .course-intro {
+    font-size: 1.15rem;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .course-content {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .course-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .course-section h2 {
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-secondary);
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-secondary);
+  }
+
+  .feature-list li:last-child {
+    border-bottom: none;
+  }
+
+  .feature-list svg {
+    flex-shrink: 0;
+    color: var(--color-accent);
+    margin-top: 0.1rem;
+  }
+
+  .feature-list.benefits svg {
+    color: #4caf50;
+  }
+
+  .feature-list.not-for svg {
+    color: #e57373;
+  }
+
+  .price-card {
+    background: var(--color-primary);
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    position: sticky;
+    top: 8rem;
+  }
+
+  .price-card h3 {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
+    margin-bottom: 0.5rem;
+  }
+
+  .price {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .duration {
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-button {
+    display: block;
+    text-align: center;
+    background: white;
+    color: var(--color-primary);
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+
+  .cta-button:hover {
+    background: var(--color-secondary);
+  }
+
+  .note {
+    text-align: center;
+    font-size: 0.875rem;
+    opacity: 0.8;
+    margin-top: 1rem;
+  }
+
+  .back-link {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-secondary);
+  }
+
+  .back-link a {
+    color: var(--color-primary);
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .back-link a:hover {
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 900px) {
+    .course-content {
+      grid-template-columns: 1fr;
+    }
+
+    .price-card {
+      position: static;
+    }
+  }
+</style>

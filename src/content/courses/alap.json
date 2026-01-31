@@ -1,7 +1,31 @@
 {
-  "title": "Alap kurzusok",
+  "title": "Egyéni Alap kurzus",
   "subtitle": "Alapozó képzés",
   "description": "A kutyád és a kapcsolatotok alapjainak lefektetése pozitív megerősítéssel.",
+  "fullDescription": "Alapozd meg a kutyáddal való összhangot az első és a tananyaggyűjtemény középtől, aki te magad áshatod fel a tananyagot, hogy átírd a kutyádval való kommunikációt és együttműködést.",
   "image": "/images/courses/alap.jpg",
-  "order": 1
+  "order": 1,
+  "price": "47 000 Ft",
+  "duration": "6 alkalom (60 perc/alkalom)",
+  "includes": [
+    "6 személyes foglalkozás",
+    "Otthoni feladatok",
+    "Folyamatos konzultáció",
+    "Tananyag hozzáférés"
+  ],
+  "requirements": [
+    "Minimum 4 hónapos kutya",
+    "Érvényes oltások",
+    "Egészséges, mozgásképes kutya"
+  ],
+  "notFor": [
+    "Agresszív viselkedésű kutyák (először viselkedés konzultáció szükséges)",
+    "Beteg vagy sérült kutyák"
+  ],
+  "benefits": [
+    "Erősebb kötődés a kutyáddal",
+    "Alapvető parancsok elsajátítása",
+    "Problémás viselkedések kezelése",
+    "Magabiztos gazdi, boldog kutya"
+  ]
 }

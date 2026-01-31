@@ -4,6 +4,7 @@ import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
+import PricingTable from '../components/PricingTable.astro';
 import CourseCard from '../components/CourseCard.astro';
 import Testimonial from '../components/Testimonial.astro';
 import Footer from '../components/Footer.astro';
@@ -19,15 +20,20 @@ const courseImages: Record<string, ImageMetadata> = {
   'alap': alapImage,
   'halado': haladoImage,
   'trukk': trukkImage,
+  'csoportos-alap': alapImage,
+  'csoportos-kolyok': alapImage,
 };
 
-const courses = await getCollection('courses');
+const allCourses = await getCollection('courses');
 const testimonials = await getCollection('testimonials');
 const siteInfo = await getEntry('site-info', 'main');
+const pricingData = await getEntry('pricing', 'tiers');
 
-// Sort by order
-const sortedCourses = courses.sort((a, b) => a.data.order - b.data.order);
+// Sort by order and take first 3 for homepage
+const sortedCourses = allCourses.sort((a, b) => a.data.order - b.data.order);
+const featuredCourses = sortedCourses.slice(0, 3);
 const sortedTestimonials = testimonials.sort((a, b) => a.data.order - b.data.order);
+const pricingTiers = pricingData.data.sort((a, b) => a.order - b.order);
 ---
 
 <Layout title="Kutyakiképzés pozitív megerősítéssel">
@@ -40,13 +46,15 @@ const sortedTestimonials = testimonials.sort((a, b) => a.data.order - b.data.ord
   <main>
     <Hero />
 
+    <PricingTable tiers={pricingTiers} />
+
     <section class="courses" id="kurzusok">
       <div class="container">
         <h2 class="section-title">Kurzusok, amikben részt vehetsz</h2>
         <p class="section-subtitle">Válaszd ki a számodra megfelelő programot</p>
 
         <div class="courses-grid">
-          {sortedCourses.map((course) => (
+          {featuredCourses.map((course) => (
             <CourseCard
               title={course.data.title}
               subtitle={course.data.subtitle}
@@ -55,6 +63,17 @@ const sortedTestimonials = testimonials.sort((a, b) => a.data.order - b.data.ord
               href={`/kurzusok/${course.id}`}
             />
           ))}
+        </div>
+
+        <div class="all-courses-link">
+          <p>További kurzusaink:
+            {sortedCourses.slice(3).map((course, i) => (
+              <>
+                <a href={`/kurzusok/${course.id}`}>{course.data.title}</a>
+                {i < sortedCourses.slice(3).length - 1 && ', '}
+              </>
+            ))}
+          </p>
         </div>
       </div>
     </section>
@@ -65,6 +84,7 @@ const sortedTestimonials = testimonials.sort((a, b) => a.data.order - b.data.ord
         <div class="methodology-content">
           <div class="methodology-text">
             <p>{siteInfo.data.methodology.content}</p>
+            <a href="/rolam" class="learn-more">Tudj meg többet rólam &rarr;</a>
           </div>
           <div class="methodology-image">
             <Image
@@ -92,6 +112,10 @@ const sortedTestimonials = testimonials.sort((a, b) => a.data.order - b.data.ord
               image={testimonial.data.image}
             />
           ))}
+        </div>
+
+        <div class="pride-wall-link">
+          <a href="/buszkeseg">Nézd meg a Büszkeség Falat &rarr;</a>
         </div>
       </div>
     </section>
@@ -139,6 +163,21 @@ const sortedTestimonials = testimonials.sort((a, b) => a.data.order - b.data.ord
     gap: 2rem;
   }
 
+  .all-courses-link {
+    text-align: center;
+    margin-top: 2rem;
+    color: var(--color-text-light);
+  }
+
+  .all-courses-link a {
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .all-courses-link a:hover {
+    text-decoration: underline;
+  }
+
   /* Methodology Section */
   .methodology-content {
     display: grid;
@@ -151,6 +190,17 @@ const sortedTestimonials = testimonials.sort((a, b) => a.data.order - b.data.ord
     font-size: 1.1rem;
     line-height: 1.8;
     color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .learn-more {
+    color: var(--color-primary);
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+
+  .learn-more:hover {
+    color: var(--color-accent);
   }
 
   .methodology-image :global(img) {
@@ -169,6 +219,21 @@ const sortedTestimonials = testimonials.sort((a, b) => a.data.order - b.data.ord
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+  }
+
+  .pride-wall-link {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .pride-wall-link a {
+    color: var(--color-primary);
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+
+  .pride-wall-link a:hover {
+    color: var(--color-accent);
   }
 
   @media (max-width: 768px) {

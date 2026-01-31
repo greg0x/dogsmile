@@ -1,0 +1,261 @@
+---
+import { getEntry } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const siteInfo = await getEntry('site-info', 'main');
+---
+
+<Layout title="Rólam" description="Ismerj meg engem, Nagy-Baranyi Krisztinát, a DOGSMILE kutyaiskola alapítóját">
+  <Header
+    email={siteInfo.data.email}
+    phone={siteInfo.data.phone}
+    instagram={siteInfo.data.instagram}
+  />
+
+  <main class="about-page">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text">
+          <h1>Rólam, avagy a kórházból a kutyák közé</h1>
+
+          <p class="intro">
+            Nagy-Baranyi Krisztina vagyok, a DOGSMILE kutyaiskola alapítója és vezetője.
+            Korábban az egészségügyben dolgoztam, de az életem egy ponton gyökeresen megváltozott.
+          </p>
+
+          <p>
+            A kutyákkal való munka nem csak szakma számomra, hanem életforma és szenvedély.
+            Minden nap azzal töltöm, hogy segítsek a gazdiknak és kutyáiknak megtalálni a közös hangot,
+            és harmonikus kapcsolatot építeni.
+          </p>
+
+          <p>
+            A pozitív megerősítésen alapuló módszertan híve vagyok, mert hiszem, hogy az erőszakmentes,
+            szereteten alapuló tanítás vezet a legjobb és legtartósabb eredményekhez.
+            A Láthatatlan Póráz módszer kidolgozása során arra törekedtem, hogy olyan rendszert alkossak,
+            ami minden gazdi-kutya páros számára működik.
+          </p>
+
+          <h2>Képzettségeim</h2>
+          <ul class="qualifications">
+            <li>Kutya-viselkedés tanácsadó</li>
+            <li>Pozitív megerősítéses tréner</li>
+            <li>Több éves gyakorlati tapasztalat</li>
+          </ul>
+
+          <h2>Miért válassz engem?</h2>
+          <ul class="reasons">
+            <li>
+              <strong>Személyre szabott megközelítés</strong> - Minden kutya és gazdi egyedi,
+              ezért a módszereket az adott helyzethez igazítom.
+            </li>
+            <li>
+              <strong>Türelem és empátia</strong> - Tudom, milyen kihívásokkal jár egy kutya nevelése,
+              és támogatom a gazdikat az út minden lépésén.
+            </li>
+            <li>
+              <strong>Eredményorientált</strong> - A cél nem csak a "parancsok" megtanítása,
+              hanem egy boldog, kiegyensúlyozott kutya és elégedett gazdi.
+            </li>
+          </ul>
+        </div>
+
+        <aside class="about-sidebar">
+          <div class="contact-card">
+            <h3>Kapcsolat</h3>
+            <div class="contact-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+              <a href={`mailto:${siteInfo.data.email}`}>{siteInfo.data.email}</a>
+            </div>
+            <div class="contact-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+              </svg>
+              <a href={`tel:${siteInfo.data.phone.replace(/[^0-9+]/g, '')}`}>{siteInfo.data.phone}</a>
+            </div>
+            <div class="contact-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/>
+              </svg>
+              <a href={siteInfo.data.instagram} target="_blank" rel="noopener">Instagram</a>
+            </div>
+          </div>
+
+          <div class="cta-card">
+            <h3>Készen állsz?</h3>
+            <p>Jelentkezz egy kurzusra és kezdjük el együtt!</p>
+            <a href="/#kurzusok" class="cta-button">Kurzusok</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <Footer
+    email={siteInfo.data.email}
+    phone={siteInfo.data.phone}
+    instagram={siteInfo.data.instagram}
+  />
+</Layout>
+
+<style>
+  .about-page {
+    padding-top: 10rem;
+    padding-bottom: 4rem;
+  }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .about-text h1 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+  }
+
+  .about-text h2 {
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .intro {
+    font-size: 1.15rem;
+    color: var(--color-text);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-text p {
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .qualifications,
+  .reasons {
+    list-style: none;
+    padding: 0;
+  }
+
+  .qualifications li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--color-text-light);
+  }
+
+  .qualifications li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: bold;
+  }
+
+  .reasons li {
+    padding: 1rem;
+    background: var(--color-secondary);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+
+  .reasons li strong {
+    color: var(--color-primary);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .about-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .contact-card,
+  .cta-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .contact-card h3,
+  .cta-card h3 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+  }
+
+  .contact-item svg {
+    color: var(--color-accent);
+    flex-shrink: 0;
+  }
+
+  .contact-item a {
+    color: var(--color-text);
+    transition: color 0.2s;
+  }
+
+  .contact-item a:hover {
+    color: var(--color-primary);
+  }
+
+  .cta-card {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .cta-card h3 {
+    color: white;
+  }
+
+  .cta-card p {
+    opacity: 0.9;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .cta-button {
+    display: block;
+    text-align: center;
+    background: white;
+    color: var(--color-primary);
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+
+  .cta-button:hover {
+    background: var(--color-secondary);
+  }
+
+  @media (max-width: 900px) {
+    .about-content {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

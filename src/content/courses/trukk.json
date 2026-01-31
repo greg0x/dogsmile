@@ -2,6 +2,26 @@
   "title": "Trükk mester kurzus",
   "subtitle": "Szórakoztató tanulás",
   "description": "Tanulj meg trükköket, amik erősítik a kutyáddal való kötődést és szórakoztatóvá teszik a közös időt.",
+  "fullDescription": "A trükkök tanítása nem csak szórakoztató, hanem kiváló módja a kutya mentális stimulálásának és a gazdi-kutya kapcsolat erősítésének. Kreatív és vidám foglalkozások várnak!",
   "image": "/images/courses/trukk.jpg",
-  "order": 3
+  "order": 3,
+  "price": "35 000 Ft",
+  "duration": "4 alkalom (60 perc/alkalom)",
+  "includes": [
+    "4 személyes foglalkozás",
+    "10+ trükk megtanulása",
+    "Videós útmutatók",
+    "Kreatív feladatok"
+  ],
+  "requirements": [
+    "Alapvető engedelmesség",
+    "Játékos kutya",
+    "Türelmes gazdi"
+  ],
+  "benefits": [
+    "Szórakoztató közös időtöltés",
+    "Mentális stimuláció a kutyának",
+    "Erősebb kötődés",
+    "Látványos eredmények"
+  ]
 }
