@@ -1,31 +1,67 @@
 {
   "title": "Csoportos Alap kurzus",
   "subtitle": "Közösségi tanulás",
-  "description": "Alapképzés más kutyákkal együtt, szocializációs lehetőséggel.",
+  "description": "Kiscsoportos alapképzés más kutyákkal együtt, a Láthatatlan Póráz módszerrel.",
   "fullDescription": "A csoportos kurzus kiváló lehetőség arra, hogy a kutyád más kutyák társaságában is megtanuljon figyelni rád. Közösségben tanulunk, ahol a szocializáció és az alapparancsok kéz a kézben járnak.",
-  "image": "/images/courses/alap.jpg",
+  "image": "csoportos.jpg",
   "order": 4,
-  "price": "35 000 Ft",
-  "duration": "6 alkalom (60 perc/alkalom)",
+  "price": "75 000 Ft",
+  "priceNote": "Vagy 2 részletben: 2 x 37 500 Ft",
+  "duration": "8 hét, heti 1x 1-1,5 óra",
   "includes": [
-    "6 csoportos foglalkozás",
-    "Maximum 6 kutya/csoport",
-    "Szocializációs gyakorlatok",
-    "Alapparancsok tanítása"
+    "100%-os behívás",
+    "Ül + marad",
+    "Fekszik + marad",
+    "Szemkontaktus",
+    "Helyére küldés",
+    "Laza pórázon séta",
+    "Nincs kényszerítés, büntetés vagy bántalmazás, csak pozitív megerősítés!",
+    "Kiscsoportos foglalkozás (3 gazdi-kutya páros)",
+    "Első 4 alkalom Szegeden az Erzsébet ligetben",
+    "5. alkalomtól változatos környezetben",
+    "8 héten át heti 1x 1-1,5 órás foglalkozás",
+    "Ajándék a kezdéshez: síp és klikker",
+    "Feladatleírás emailben",
+    "Konzultáció, ha elakadsz a gyakorlásban"
   ],
   "requirements": [
-    "Minimum 6 hónapos kutya",
-    "Érvényes oltások",
-    "Nem agresszív más kutyákkal"
+    "Kutyusod 7 hónaposnál idősebb",
+    "Szeretnéd a kutyád jobban megismerni és megérteni",
+    "Bizalmi kapcsolatot szeretnél építeni kutyusoddal",
+    "Tudsz időt szentelni a gyakorlásra (alkalomtól alkalomig minimum 3x)",
+    "Szeretnéd megtanulni, hogyan segítheted kutyusod szocializációját",
+    "Tudsz elvárásmentesen viszonyulni kutyusodhoz",
+    "Egyetértesz a módszer szemléletével",
+    "Minden alkalmon részt tudsz venni"
   ],
   "notFor": [
-    "Reaktív vagy agresszív kutyák",
-    "Nagyon félénk kutyák (először egyéni ajánlott)"
+    "Azonnali megoldást szeretnél egy adott problémára",
+    "Nincs időd gyakorolni",
+    "Nem tudsz a kutyusoddal büntetés és bántalmazás mentesen együtt dolgozni",
+    "\"Csak\" jó és engedelmes kutyát szeretnél, nem pedig boldog kutyát",
+    "Nem tudsz minden alkalmon részt venni",
+    "Kutyád reaktív más kutyákkal és/vagy emberekkel (egyéni képzést javaslom)"
   ],
   "benefits": [
     "Szocializáció más kutyákkal",
     "Figyelem zavarók mellett",
-    "Közösségi élmény",
-    "Kedvezőbb ár"
-  ]
+    "Közösségi élmény gazdiknak és kutyáknak",
+    "Stresszmentes séták"
+  ],
+  "expectations": {
+    "instructor": [
+      "Időben érkezem",
+      "Ha késni fogok, szólok",
+      "Előző nap megerősítem az időpontot",
+      "Írásos feladatleírást adok",
+      "Türelmes és elkötelezett vagyok",
+      "Osztatlan figyelmet biztosítok"
+    ],
+    "participant": [
+      "5-10 perccel korábban érkezel",
+      "Előkészíted a szükséges felszerelést",
+      "Ha nem tudsz jönni, 24 órával előtte szólsz",
+      "Minimum 3x gyakorolsz az alkalmak között"
+    ]
+  }
 }
