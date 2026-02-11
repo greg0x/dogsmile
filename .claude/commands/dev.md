@@ -1,0 +1,1 @@
+Start the local development server by running `~/.bun/bin/bun dev` in the project root. Run the command in the background so the conversation can continue while the server is running.
