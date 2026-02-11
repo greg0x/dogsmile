@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import logo from '../assets/images/logo-banner.jpg';
+import logo from '../assets/images/logo_fekete.png';
 
 interface Props {
   email: string;
@@ -25,9 +25,9 @@ const { email, phone, instagram } = Astro.props;
           <span class="contact-text">{phone}</span>
         </a>
         <span class="separator">|</span>
-        <a href={instagram} target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          <span class="contact-text">Instagram</span>
+        <a href="https://www.facebook.com/mosolyakutyanakmosolyagazdinak" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <span class="contact-text">Facebook</span>
         </a>
       </div>
     </div>
@@ -42,18 +42,19 @@ const { email, phone, instagram } = Astro.props;
       <nav class="nav">
         <a href="/" class="nav-link">Nyitólap</a>
         <div class="nav-dropdown">
-          <a href="/#kurzusok" class="nav-link">Alap kurzusok <span class="arrow">▾</span></a>
+          <a href="/#kurzusok" class="nav-link">Szolgáltatások <span class="arrow">▾</span></a>
           <div class="dropdown-menu">
-            <a href="/kurzusok/alap">Egyéni Alap kurzus</a>
-            <a href="/kurzusok/csoportos-alap">Csoportos Alap kurzus</a>
-            <a href="/kurzusok/csoportos-kolyok">Csoportos Kölyök kurzus</a>
-          </div>
-        </div>
-        <div class="nav-dropdown">
-          <a href="/#tovabbtanulas" class="nav-link">Továbbtanulás <span class="arrow">▾</span></a>
-          <div class="dropdown-menu">
+            <div class="dropdown-submenu">
+              <a href="#" class="dropdown-submenu-trigger">Alap kurzus <span class="arrow">▸</span></a>
+              <div class="dropdown-submenu-menu">
+                <a href="/kurzusok/alap">Egyéni</a>
+                <a href="/kurzusok/csoportos-alap">Csoportos</a>
+              </div>
+            </div>
             <a href="/kurzusok/halado">Haladó kurzus</a>
             <a href="/kurzusok/trukk">Trükk mester</a>
+            <a href="/kurzusok/happy-brain">Happy Brain</a>
+            <a href="/kurzusok/tanacsadas">Tanácsadás</a>
           </div>
         </div>
         <a href="/buszkeseg" class="nav-link">Büszkeség Fal</a>
@@ -87,28 +88,28 @@ const { email, phone, instagram } = Astro.props;
 
       <div class="mobile-nav-group">
         <button class="mobile-nav-toggle">
-          Alap kurzusok
+          Szolgáltatások
           <svg class="toggle-arrow" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
             <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
           </svg>
         </button>
         <div class="mobile-submenu">
-          <a href="/kurzusok/alap">Egyéni Alap kurzus</a>
-          <a href="/kurzusok/csoportos-alap">Csoportos Alap kurzus</a>
-          <a href="/kurzusok/csoportos-kolyok">Csoportos Kölyök kurzus</a>
-        </div>
-      </div>
-
-      <div class="mobile-nav-group">
-        <button class="mobile-nav-toggle">
-          Továbbtanulás
-          <svg class="toggle-arrow" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
-          </svg>
-        </button>
-        <div class="mobile-submenu">
+          <div class="mobile-nav-subgroup">
+            <button class="mobile-nav-subtoggle">
+              Alap kurzus
+              <svg class="toggle-arrow" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+              </svg>
+            </button>
+            <div class="mobile-sub-submenu">
+              <a href="/kurzusok/alap">Egyéni</a>
+              <a href="/kurzusok/csoportos-alap">Csoportos</a>
+            </div>
+          </div>
           <a href="/kurzusok/halado">Haladó kurzus</a>
           <a href="/kurzusok/trukk">Trükk mester</a>
+          <a href="/kurzusok/happy-brain">Happy Brain</a>
+          <a href="/kurzusok/tanacsadas">Tanácsadás</a>
         </div>
       </div>
 
@@ -167,6 +168,15 @@ const { email, phone, instagram } = Astro.props;
 
     // Submenu toggles
     toggles.forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        const group = toggle.parentElement;
+        group?.classList.toggle('is-open');
+      });
+    });
+
+    // Sub-submenu toggles
+    const subtoggles = document.querySelectorAll('.mobile-nav-subtoggle');
+    subtoggles.forEach(toggle => {
       toggle.addEventListener('click', () => {
         const group = toggle.parentElement;
         group?.classList.toggle('is-open');
@@ -250,7 +260,7 @@ const { email, phone, instagram } = Astro.props;
   .header-container {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0.5rem 1.5rem;
+    padding: 0.25rem 1.5rem;
     padding-left: 0;
     display: flex;
     align-items: center;
@@ -264,11 +274,8 @@ const { email, phone, instagram } = Astro.props;
   }
 
   .logo :global(img) {
-    border-radius: 4px;
     width: auto;
     height: 100px;
-    border: 3px solid white;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
 
   .nav {
@@ -279,7 +286,7 @@ const { email, phone, instagram } = Astro.props;
 
   .nav-link {
     font-family: 'Cinzel', serif;
-    color: #202963;
+    color: var(--color-primary-dark);
     font-weight: 700;
     font-size: 16px;
     line-height: 28px;
@@ -309,7 +316,7 @@ const { email, phone, instagram } = Astro.props;
     left: 0;
     background: white;
     min-width: 220px;
-    border-radius: 4px;
+    border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     opacity: 0;
     visibility: hidden;
@@ -334,6 +341,54 @@ const { email, phone, instagram } = Astro.props;
 
   .dropdown-menu a:hover {
     background: var(--color-secondary);
+  }
+
+  .dropdown-submenu {
+    position: relative;
+  }
+
+  .dropdown-submenu-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    color: var(--color-text);
+    font-weight: 500;
+    text-transform: none;
+    transition: background 0.2s;
+    cursor: pointer;
+  }
+
+  .dropdown-submenu-trigger:hover {
+    background: var(--color-secondary);
+  }
+
+  .dropdown-submenu-menu {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background: var(--color-primary);
+    min-width: 180px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-10px);
+    transition: all 0.2s;
+  }
+
+  .dropdown-submenu-menu a {
+    color: white;
+  }
+
+  .dropdown-submenu-menu a:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .dropdown-submenu:hover .dropdown-submenu-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
   }
 
   /* Mobile menu button */
@@ -510,6 +565,50 @@ const { email, phone, instagram } = Astro.props;
   .mobile-submenu a:hover {
     background: rgba(0, 0, 0, 0.05);
     color: var(--color-primary);
+  }
+
+  .mobile-nav-subgroup {
+  }
+
+  .mobile-nav-subtoggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.75rem 1.25rem 0.75rem 2rem;
+    background: none;
+    border: none;
+    color: var(--color-text-light);
+    font-weight: 500;
+    font-size: 0.95rem;
+    font-family: inherit;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .mobile-nav-subtoggle:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  .mobile-nav-subgroup .toggle-arrow {
+    transition: transform 0.2s;
+  }
+
+  .mobile-nav-subgroup.is-open .toggle-arrow {
+    transform: rotate(180deg);
+  }
+
+  .mobile-sub-submenu {
+    display: none;
+    background: rgba(0, 0, 0, 0.03);
+  }
+
+  .mobile-nav-subgroup.is-open .mobile-sub-submenu {
+    display: block;
+  }
+
+  .mobile-sub-submenu a {
+    padding-left: 3rem;
   }
 
   .mobile-cta {
