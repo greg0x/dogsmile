@@ -42,22 +42,22 @@ const { email, phone, instagram } = Astro.props;
       <nav class="nav">
         <a href="/" class="nav-link">Nyitólap</a>
         <div class="nav-dropdown">
-          <a href="/#kurzusok" class="nav-link">Szolgáltatások <span class="arrow">▾</span></a>
+          <a href="/#kurzusok" class="nav-link">Szolgáltatások <span class="arrow arrow-large">▾</span></a>
           <div class="dropdown-menu">
             <div class="dropdown-submenu">
-              <a href="#" class="dropdown-submenu-trigger">Alap kurzus <span class="arrow">▸</span></a>
+              <a href="#" class="dropdown-submenu-trigger">Alap kurzus <span class="arrow arrow-large">▸</span></a>
               <div class="dropdown-submenu-menu">
                 <a href="/kurzusok/alap">Egyéni</a>
                 <a href="/kurzusok/csoportos-alap">Csoportos</a>
               </div>
             </div>
             <a href="/kurzusok/halado">Haladó kurzus</a>
-            <a href="/kurzusok/trukk">Trükk mester</a>
+            <a href="/kurzusok/trukk">Trükkmester</a>
             <a href="/kurzusok/happy-brain">Happy Brain</a>
             <a href="/kurzusok/tanacsadas">Tanácsadás</a>
           </div>
         </div>
-        <a href="/buszkeseg" class="nav-link">Büszkeség Fal</a>
+        <a href="/buszkeseg" class="nav-link">Büszkeségfal</a>
         <a href="/rolam" class="nav-link">Rólam</a>
         <a href="/kapcsolat" class="nav-link">Kapcsolat</a>
       </nav>
@@ -107,13 +107,13 @@ const { email, phone, instagram } = Astro.props;
             </div>
           </div>
           <a href="/kurzusok/halado">Haladó kurzus</a>
-          <a href="/kurzusok/trukk">Trükk mester</a>
+          <a href="/kurzusok/trukk">Trükkmester</a>
           <a href="/kurzusok/happy-brain">Happy Brain</a>
           <a href="/kurzusok/tanacsadas">Tanácsadás</a>
         </div>
       </div>
 
-      <a href="/buszkeseg" class="mobile-nav-link">Büszkeség Fal</a>
+      <a href="/buszkeseg" class="mobile-nav-link">Büszkeségfal</a>
       <a href="/rolam" class="mobile-nav-link">Rólam</a>
       <a href="/kapcsolat" class="mobile-nav-link">Kapcsolat</a>
 
@@ -275,7 +275,8 @@ const { email, phone, instagram } = Astro.props;
 
   .logo :global(img) {
     width: auto;
-    height: 100px;
+    height: 130px;
+    margin: -15px 0;
   }
 
   .nav {
@@ -308,6 +309,10 @@ const { email, phone, instagram } = Astro.props;
   .arrow {
     font-size: 0.7em;
     margin-left: 0.15rem;
+  }
+
+  .arrow-large {
+    font-size: 1.1em;
   }
 
   .dropdown-menu {

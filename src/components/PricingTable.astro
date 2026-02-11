@@ -18,9 +18,7 @@ const { tiers } = Astro.props;
 <section class="pricing" id="szolgaltatasok">
   <div class="container">
     <div class="pricing-header">
-      <span class="pricing-badge">Új szolgáltatás</span>
-      <h2 class="pricing-title">HAPPY BRAIN</h2>
-      <p class="pricing-subtitle">Válaszd ki a számodra megfelelő csomagot</p>
+      <h2 class="pricing-title">Kurzusok, amiken részt vehetsz</h2>
     </div>
 
     <div class="pricing-grid">
@@ -93,8 +91,20 @@ const { tiers } = Astro.props;
 
   .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(5, 1fr);
     gap: 1.5rem;
+  }
+
+  @media (max-width: 1024px) {
+    .pricing-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .pricing-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   .pricing-card {
@@ -113,6 +123,10 @@ const { tiers } = Astro.props;
 
   .pricing-card.highlighted {
     background: var(--color-primary);
+    color: white;
+  }
+
+  .pricing-card.highlighted h3 {
     color: white;
   }
 
