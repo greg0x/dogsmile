@@ -46,12 +46,9 @@ const pricingTiers = pricingData.data.sort((a, b) => a.order - b.order);
   <main>
     <Hero />
 
-    <PricingTable tiers={pricingTiers} />
-
     <section class="courses" id="kurzusok">
       <div class="container">
-        <h2 class="section-title">Kurzusok, amikben részt vehetsz</h2>
-        <p class="section-subtitle">Válaszd ki a számodra megfelelő programot</p>
+        <h2 class="section-title">Kurzusok, amiken részt vehetsz</h2>
 
         <div class="courses-list">
           {featuredCourses.map((course, index) => (
@@ -66,16 +63,6 @@ const pricingTiers = pricingData.data.sort((a, b) => a.order - b.order);
           ))}
         </div>
 
-        <div class="all-courses-link">
-          <p>További kurzusaink:
-            {sortedCourses.slice(3).map((course, i) => (
-              <>
-                <a href={`/kurzusok/${course.id}`}>{course.data.title}</a>
-                {i < sortedCourses.slice(3).length - 1 && ', '}
-              </>
-            ))}
-          </p>
-        </div>
       </div>
     </section>
 
@@ -144,7 +131,7 @@ const pricingTiers = pricingData.data.sort((a, b) => a.order - b.order);
     font-size: clamp(1.75rem, 4vw, 2.5rem);
     color: var(--color-primary);
     text-align: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: 2.5rem;
   }
 
   .section-subtitle {
@@ -155,7 +142,7 @@ const pricingTiers = pricingData.data.sort((a, b) => a.order - b.order);
 
   /* Courses Section */
   .courses {
-    background: var(--color-secondary);
+    background: white;
   }
 
   .courses-list {
@@ -185,6 +172,10 @@ const pricingTiers = pricingData.data.sort((a, b) => a.order - b.order);
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
     align-items: center;
+  }
+
+  .methodology {
+    background: var(--color-secondary);
   }
 
   .methodology-text p {
