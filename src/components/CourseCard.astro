@@ -8,19 +8,20 @@ interface Props {
   description: string;
   image: ImageMetadata;
   href?: string;
+  reversed?: boolean;
 }
 
-const { title, subtitle, description, image, href = "#" } = Astro.props;
+const { title, subtitle, description, image, href = "#", reversed = false } = Astro.props;
 ---
 
 <article class="course-card">
-  <a href={href} class="course-link-wrapper">
+  <a href={href} class="course-link-wrapper" style={reversed ? 'flex-direction: row-reverse;' : ''}>
     <div class="course-image">
       <Image
         src={image}
         alt={title}
-        width={400}
-        height={250}
+        width={600}
+        height={400}
         loading="lazy"
       />
     </div>
@@ -48,11 +49,17 @@ const { title, subtitle, description, image, href = "#" } = Astro.props;
   }
 
   .course-link-wrapper {
-    display: block;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .course-link-wrapper.reversed {
+    flex-direction: row-reverse;
   }
 
   .course-image {
-    aspect-ratio: 16/10;
+    flex: 1;
+    min-height: 280px;
     overflow: hidden;
   }
 
@@ -68,7 +75,11 @@ const { title, subtitle, description, image, href = "#" } = Astro.props;
   }
 
   .course-content {
-    padding: 1.5rem;
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .course-subtitle {
@@ -99,5 +110,16 @@ const { title, subtitle, description, image, href = "#" } = Astro.props;
 
   .course-card:hover .course-link {
     color: var(--color-accent);
+  }
+
+  @media (max-width: 768px) {
+    .course-link-wrapper,
+    .course-link-wrapper.reversed {
+      flex-direction: column;
+    }
+
+    .course-image {
+      min-height: 200px;
+    }
   }
 </style>

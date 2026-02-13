@@ -53,14 +53,15 @@ const pricingTiers = pricingData.data.sort((a, b) => a.order - b.order);
         <h2 class="section-title">Kurzusok, amikben részt vehetsz</h2>
         <p class="section-subtitle">Válaszd ki a számodra megfelelő programot</p>
 
-        <div class="courses-grid">
-          {featuredCourses.map((course) => (
+        <div class="courses-list">
+          {featuredCourses.map((course, index) => (
             <CourseCard
               title={course.data.title}
               subtitle={course.data.subtitle}
               description={course.data.description}
               image={courseImages[course.id]}
               href={`/kurzusok/${course.id}`}
+              reversed={index % 2 !== 0}
             />
           ))}
         </div>
@@ -157,9 +158,9 @@ const pricingTiers = pricingData.data.sort((a, b) => a.order - b.order);
     background: var(--color-secondary);
   }
 
-  .courses-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  .courses-list {
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
   }
 
