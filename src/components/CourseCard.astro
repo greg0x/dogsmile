@@ -9,9 +9,10 @@ interface Props {
   image: ImageMetadata;
   href?: string;
   reversed?: boolean;
+  highlighted?: boolean;
 }
 
-const { title, subtitle, description, image, href = "#", reversed = false } = Astro.props;
+const { title, subtitle, description, image, href = "#", reversed = false, highlighted = false } = Astro.props;
 ---
 
 <article class="course-card">
@@ -103,13 +104,20 @@ const { title, subtitle, description, image, href = "#", reversed = false } = As
   }
 
   .course-link {
-    color: var(--color-primary);
+    display: inline-block;
+    background: var(--color-primary);
+    color: white;
+    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
+    align-self: flex-start;
+    border-radius: 6px;
     font-weight: 600;
-    transition: color 0.2s;
+    transition: background 0.2s, transform 0.2s;
   }
 
   .course-card:hover .course-link {
-    color: var(--color-accent);
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
   }
 
   @media (max-width: 768px) {

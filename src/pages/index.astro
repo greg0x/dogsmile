@@ -59,6 +59,7 @@ const pricingTiers = pricingData.data.sort((a, b) => a.order - b.order);
               image={courseImages[course.id]}
               href={`/kurzusok/${course.id}`}
               reversed={index % 2 !== 0}
+              highlighted={course.id === 'alap'}
             />
           ))}
         </div>
@@ -71,8 +72,14 @@ const pricingTiers = pricingData.data.sort((a, b) => a.order - b.order);
         <h2 class="section-title">{siteInfo.data.methodology.title}</h2>
         <div class="methodology-content">
           <div class="methodology-text">
-            <p>{siteInfo.data.methodology.content}</p>
-            <a href="/rolam" class="learn-more">Tudj meg többet rólam &rarr;</a>
+            <p>A tréning a <strong>Láthatatlan Póráz Módszer & Program</strong> tematikájára épül, mely teljes mértékben erőszakmentes. Csak pozitív megerősítéssel dolgozunk és kapcsolat fókuszú.</p>
+
+            <p class="quote"><em>A "Láthatatlan póráz" program arról szól, hogy kutyánkat elsősorban szavainkkal, mozdulatainkkal tudjuk irányítani, ne a pórázt rángatva húzzuk, vonjuk őt, ne kelljen kiabálnunk vele. Ehhez elengedhetetlenül fontos, hogy tanuljunk kutyául, megértsük, a kutyánknak mi a fontos és elfogadjuk, hogy a változáshoz előbb változtatnunk kell.</em><br/>(Dömötör Júlia- a Láthatatlan Póráz Módszer alapítója)</p>
+
+            <p>A tréning során egy kidolgozott, fix tematika szerint haladunk, emiatt a feladatok (pl: ül, fekszik, behívás, kapu kontroll) időben nem cserélhetők fel és nem is hagyhatók el. Minden feladat lépcsőzetesen van felépítve, megkönnyítve így a tanulást és a gyakorlást. Ahogy haladunk előre, úgy épül szépen az a bizonyos láthatatlan póráz, mely gyakorlatilag a gazdi-kutyus kölcsönös bizalma.</p>
+
+            <p><strong>FONTOS!</strong> Ez a módszer nem tünetet kezel és nem egy dologra/problémára fókuszál, így az alkalmak során nem engedelmességet, hanem együttműködést tanítunk. Egy olyan keretet, amely működtetésével sokszor magától megoldódnak korábbi problémák anélkül, hogy kimondottan azzal foglalkoztunk volna.</p>
+
           </div>
           <div class="methodology-image">
             <Image
@@ -183,6 +190,11 @@ const pricingTiers = pricingData.data.sort((a, b) => a.order - b.order);
     line-height: 1.8;
     color: var(--color-text-light);
     margin-bottom: 1.5rem;
+    text-align: justify;
+  }
+
+  .methodology-text .quote {
+    font-style: italic;
   }
 
   .learn-more {
