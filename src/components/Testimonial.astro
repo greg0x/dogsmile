@@ -11,20 +11,13 @@ const { name, quote, image } = Astro.props;
 <blockquote class="testimonial">
   <p class="testimonial-quote">"{quote}"</p>
   <footer class="testimonial-footer">
-    <div class="testimonial-avatar">
-      {image ? (
-        <img src={image} alt={name} />
-      ) : (
-        <span>{name.charAt(0)}</span>
-      )}
-    </div>
     <cite class="testimonial-name">{name}</cite>
   </footer>
 </blockquote>
 
 <style>
   .testimonial {
-    background: white;
+    background: var(--color-secondary);
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -33,9 +26,9 @@ const { name, quote, image } = Astro.props;
   .testimonial-quote {
     font-size: 1.1rem;
     line-height: 1.7;
-    color: var(--color-text);
+    color: var(--color-primary);
     margin-bottom: 1.5rem;
-    font-style: italic;
+    font-style: normal;
   }
 
   .testimonial-footer {

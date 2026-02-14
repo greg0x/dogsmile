@@ -14,6 +14,7 @@ import alapImage from '../assets/images/courses/alap.jpg';
 import haladoImage from '../assets/images/courses/halado.png';
 import trukkImage from '../assets/images/courses/trukk.jpg';
 import methodologyImage from '../assets/images/methodology.jpg';
+import fokepImage from '../assets/images/főképnek.jpg';
 
 // Map course IDs to imported images
 const courseImages: Record<string, ImageMetadata> = {
@@ -72,7 +73,7 @@ const pricingTiers = pricingData.data.sort((a, b) => a.order - b.order);
         <h2 class="section-title">{siteInfo.data.methodology.title}</h2>
         <div class="methodology-content">
           <div class="methodology-text">
-            <p>A tréning a <strong>Láthatatlan Póráz Módszer & Program</strong> tematikájára épül, mely teljes mértékben erőszakmentes. Csak pozitív megerősítéssel dolgozunk és kapcsolat fókuszú.</p>
+            <p>A tréning a <a href="https://lathatatlanporaz.hu/" target="_blank" rel="noopener noreferrer" class="methodology-link"><strong>Láthatatlan Póráz Módszer & Program</strong></a> tematikájára épül, mely teljes mértékben erőszakmentes. Csak pozitív megerősítéssel dolgozunk és kapcsolat fókuszú.</p>
 
             <p class="quote"><em>A "Láthatatlan póráz" program arról szól, hogy kutyánkat elsősorban szavainkkal, mozdulatainkkal tudjuk irányítani, ne a pórázt rángatva húzzuk, vonjuk őt, ne kelljen kiabálnunk vele. Ehhez elengedhetetlenül fontos, hogy tanuljunk kutyául, megértsük, a kutyánknak mi a fontos és elfogadjuk, hogy a változáshoz előbb változtatnunk kell.</em><br/>(Dömötör Júlia- a Láthatatlan Póráz Módszer alapítója)</p>
 
@@ -89,6 +90,13 @@ const pricingTiers = pricingData.data.sort((a, b) => a.order - b.order);
               height={375}
               loading="lazy"
             />
+            <Image
+              src={fokepImage}
+              alt="DOGSMILE kutyaoktatás"
+              width={500}
+              height={375}
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
@@ -97,7 +105,7 @@ const pricingTiers = pricingData.data.sort((a, b) => a.order - b.order);
     <section class="testimonials" id="velemenyek">
       <div class="container">
         <h2 class="section-title">Vélemények a kurzusokról</h2>
-        <p class="section-subtitle">Gazdik és kutyáik sikertörténetei</p>
+
 
         <div class="testimonials-grid">
           {sortedTestimonials.map((testimonial) => (
@@ -191,10 +199,20 @@ const pricingTiers = pricingData.data.sort((a, b) => a.order - b.order);
     color: var(--color-text-light);
     margin-bottom: 1.5rem;
     text-align: justify;
+    text-align-last: left;
   }
 
   .methodology-text .quote {
     font-style: italic;
+  }
+
+  .methodology-link {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .methodology-link:hover {
+    color: var(--color-primary-dark);
   }
 
   .learn-more {
@@ -207,6 +225,12 @@ const pricingTiers = pricingData.data.sort((a, b) => a.order - b.order);
     color: var(--color-accent);
   }
 
+  .methodology-image {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
   .methodology-image :global(img) {
     border-radius: 12px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
@@ -216,7 +240,7 @@ const pricingTiers = pricingData.data.sort((a, b) => a.order - b.order);
 
   /* Testimonials Section */
   .testimonials {
-    background: var(--color-secondary);
+    background: white;
   }
 
   .testimonials-grid {
