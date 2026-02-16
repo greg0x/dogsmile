@@ -2,7 +2,7 @@
   "title": "Alap kurzus",
   "subtitle": "Alapozó képzés",
   "description": "Együttműködési és kontroll feladatok, melyek segítenek, hogy közös életed a kutyáddal még boldogabb legyen.",
-  "fullDescription": "Ez a kurzus a városi együttélés kihívásaira készít fel. Megtanítjuk a kutyádnak azokat az alapvető viselkedésformákat, amelyek a mindennapi életben elengedhetetlenek. A módszer lényege: mosoly legyen a kutyának és mosoly a gazdinak!",
+  "fullDescription": "Napjainkban, amikor többnyire a városi lét a betondzsungelhez kötődik, de mi mégis szeretnénk kutyát, nem biztos, hogy belegondolunk, hogy az az élet milyen lenne a blökinek. Nagyon sok, számunkra evidens dolog egy kutyusnak nem az. Ahhoz, hogy egy ember és kutya közös élete élhető legyen egy ilyen környezetben, a számunkra evidens dolgokat jó, ha megtanítjuk kedvencünknek.\nAz alap kurzus ehhez nyújt segítséget egy nem mindennapi kutyaoktatás keretein belül a Láthatatlan Póráz Módszer és Program segítségével, hogy mosoly legyen a kutyának és mosoly a gazdinak.",
   "image": "alap.jpg",
   "trainerImage": "trainer-krisztina.png",
   "order": 1,
@@ -18,45 +18,46 @@
     "Helyére küldés",
     "Laza pórázon séta",
     "Étel/tárgy kontroll",
-    "Ajtó/kapu kontroll",
-    "Kezdő csomag: síp és klikker",
-    "Írásos feladatleírások emailben",
-    "Konzultációs támogatás"
+    "Ajtó/kapu kontroll"
   ],
   "requirements": [
-    "Jobban szeretnéd megérteni a kutyádat",
-    "Bizalmon alapuló kapcsolatot szeretnél kialakítani",
-    "Vállalod, hogy minimum 3x gyakorolsz az alkalmak között",
-    "Támogatod a kutyád szocializációját",
-    "Elvárások nélkül állsz a képzéshez",
-    "Egyetértesz a módszer filozófiájával"
+    "Szeretnéd a kutyád jobban megismerni és megérteni",
+    "Bizalmi kapcsolatot szeretnél építeni kutyusoddal",
+    "Tudsz időt szentelni a gyakorlásra (alkalomtól alkalomig minimum 3x)",
+    "Szeretnéd megtanulni, hogyan segítheted kutyusod szocializációját",
+    "Tudsz elvárásmentesen viszonyulni kutyusodhoz és tudsz az ő tempójában haladni",
+    "Kutyád reaktív más kutyákkal",
+    "Egyetértesz a módszer szemléletével"
   ],
   "notFor": [
-    "Gyors megoldást keresel egy konkrét problémára",
-    "Nincs időd a napi gyakorlásra",
-    "Nem szeretnél erőszakmentes módszereket használni",
-    "Az engedelmességet fontosabbnak tartod a kutya boldogságánál"
+    "Azonnali megoldást szeretnél egy adott problémára",
+    "Nincs időd gyakorolni",
+    "Nem tudsz a kutyusoddal büntetés és bántalmazás mentesen együtt dolgozni",
+    "\"Csak\" jó és engedelmes kutyát szeretnél, nem pedig boldog kutyát"
   ],
-  "benefits": [
-    "Magabiztos, kiegyensúlyozott kutya",
-    "Stresszmentes séták",
-    "Erős kötődés és kommunikáció",
-    "Biztonságos városi együttélés"
+  "highlights": [
+    "Nincs kényszerítés, büntetés vagy bántalmazás, csak pozitív megerősítés!",
+    "Első 4 alkalom otthoni környezetben zajlik, majd",
+    "az 5. alkalomtól változatos, ingergazdag környezetbe helyezzük az addig tanultakat",
+    "8 héten át heti 1x 1-1,5 órás foglalkozás",
+    "Ajándék a kezdéshez: síp, klikker",
+    "Feladatleírás emailben",
+    "Konzultáció, ha elakadsz a gyakorlásban"
   ],
   "expectations": {
     "instructor": [
-      "Időben érkezem",
-      "Ha késni fogok, szólok",
-      "Előző nap megerősítem az időpontot",
-      "Írásos feladatleírást adok",
-      "Türelmes és elkötelezett vagyok",
-      "Osztatlan figyelmet biztosítok"
+      "Időben érkezek",
+      "Ha kések, szólok",
+      "A feladatokról adok leírást, tehát nem baj, ha nem jegyzed meg azonnal",
+      "Maximális türelem és kitartás",
+      "Csak a Tiétek a figyelmem",
+      "Jókedv"
     ],
     "participant": [
-      "Szabadtéri munkánál 5-10 perccel korábban érkezel",
-      "Előkészíted a szükséges felszerelést",
-      "Ha nem tudsz jönni, 24 órával előtte szólsz",
-      "Minimum 3x gyakorolsz az alkalmak között"
+      "Ha külső helyszínen dolgozunk, kérlek érkezz 5-10 perccel korábban, hogy kutyusodnak legyen ideje szaglászni, üríteni",
+      "Az alkalmakra készítsd össze a szükséges eszközöket",
+      "Ha nem alkalmas az időpont, akkor kérlek legkésőbb 24 órával a megbeszélt időpont előtt szólj",
+      "Ahhoz, hogy a hatékonyság minél jobb legyen, kérlek, két alkalom között gyakorolj minimum 3x."
     ]
   }
 }

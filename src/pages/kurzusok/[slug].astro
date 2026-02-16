@@ -61,14 +61,22 @@ if (trainerImagePath) {
       <div class="course-header">
         <span class="course-subtitle">{course.data.subtitle}</span>
         <h1>{course.data.title}</h1>
-        <p class="course-intro">{course.data.fullDescription || course.data.description}</p>
+        <div class="course-intro">
+          {(course.data.fullDescription || course.data.description).split('\n').map((paragraph: string) => {
+            const parts = paragraph.split('Láthatatlan Póráz Módszer és Program');
+            if (parts.length > 1) {
+              return <p>{parts[0]}<a href="https://lathatatlanporaz.hu/" target="_blank" rel="noopener noreferrer" class="methodology-link"><strong>Láthatatlan Póráz Módszer és Program</strong></a>{parts[1]}</p>;
+            }
+            return <p>{paragraph}</p>;
+          })}
+        </div>
       </div>
 
       <div class="course-content">
         <div class="course-main">
           {courseImage && (
             <div class="course-image">
-              <Image src={courseImage} alt={course.data.title} width={600} height={400} />
+              <Image src={courseImage} alt={course.data.title} width={1500} height={1000} quality={90} />
             </div>
           )}
           {course.data.includes && (
@@ -87,14 +95,13 @@ if (trainerImagePath) {
             </section>
           )}
 
-          {course.data.benefits && (
-            <section class="course-section">
-              <h2>Mire számíthatsz?</h2>
-              <ul class="feature-list benefits">
-                {course.data.benefits.map((item: string) => (
+          {course.data.highlights && (
+            <section class="course-section highlights-section">
+              <ul class="feature-list highlights">
+                {course.data.highlights.map((item: string) => (
                   <li>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
                     </svg>
                     {item}
                   </li>
@@ -138,12 +145,10 @@ if (trainerImagePath) {
           {course.data.expectations?.instructor && (
             <section class="course-section">
               <h2>Amivel én segítem az alkalmakat:</h2>
-              <ul class="feature-list">
+              <ul class="feature-list smiley-list">
                 {course.data.expectations.instructor.map((item: string) => (
                   <li>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                    </svg>
+                    <span class="smiley-icon">🙂</span>
                     {item}
                   </li>
                 ))}
@@ -154,12 +159,10 @@ if (trainerImagePath) {
           {course.data.expectations?.participant && (
             <section class="course-section">
               <h2>Amivel segíteni tudod a tréninget:</h2>
-              <ul class="feature-list">
+              <ul class="feature-list smiley-list">
                 {course.data.expectations.participant.map((item: string) => (
                   <li>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                    </svg>
+                    <span class="smiley-icon">🙂</span>
                     {item}
                   </li>
                 ))}
@@ -167,11 +170,6 @@ if (trainerImagePath) {
             </section>
           )}
 
-          {trainerImage && (
-            <div class="trainer-image">
-              <Image src={trainerImage} alt="Krisztina - kutyatréner" width={600} height={400} />
-            </div>
-          )}
         </div>
 
         <aside class="course-sidebar">
@@ -196,15 +194,19 @@ if (trainerImagePath) {
           <div class="other-courses">
             <h3>Többi kurzus</h3>
             <nav class="course-list">
-              <a href="/kurzusok/alap">Egyéni Alap kurzus</a>
-              <a href="/kurzusok/csoportos-alap">Csoportos Alap kurzus</a>
-              <a href="/kurzusok/csoportos-kolyok">Csoportos Kölyök kurzus</a>
               <a href="/kurzusok/halado">Haladó kurzus</a>
               <a href="/kurzusok/trukk">Trükkmester</a>
+              <a href="/kurzusok/happy-brain">Happy Brain</a>
             </nav>
           </div>
         </aside>
       </div>
+
+      {trainerImage && (
+        <div class="trainer-image">
+          <Image src={trainerImage} alt="Krisztina - kutyatréner" width={1024} height={682} quality={90} />
+        </div>
+      )}
 
       <div class="back-link">
         <a href="/#kurzusok">&larr; Vissza a kurzusokhoz</a>
@@ -259,6 +261,35 @@ if (trainerImagePath) {
     line-height: 1.7;
   }
 
+  .course-intro p {
+    margin-bottom: 0.75rem;
+  }
+
+  .course-intro p:last-child {
+    margin-bottom: 0;
+  }
+
+  .methodology-link {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .methodology-link:hover {
+    color: var(--color-primary-dark);
+  }
+
+  .smiley-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .smiley-icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    line-height: 1.5;
+  }
+
   .course-image {
     margin-bottom: 2rem;
     border-radius: 12px;
@@ -272,16 +303,20 @@ if (trainerImagePath) {
   }
 
   .trainer-image {
-    margin-top: 2rem;
-    border-radius: 12px;
-    overflow: hidden;
-    text-align: center;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
 
-  .trainer-image img {
-    max-width: 100%;
+  .trainer-image :global(img) {
+    max-width: 700px;
+    width: 100%;
     height: auto;
     border-radius: 12px;
+    display: block;
+    margin: 0 auto;
   }
 
   .course-content {
@@ -296,6 +331,7 @@ if (trainerImagePath) {
   }
 
   .course-section h2 {
+    font-family: 'Lexend Deca', sans-serif;
     font-size: 1.25rem;
     color: var(--color-primary);
     margin-bottom: 1rem;
@@ -326,8 +362,8 @@ if (trainerImagePath) {
     margin-top: 0.1rem;
   }
 
-  .feature-list.benefits svg {
-    color: #4caf50;
+  .feature-list.highlights svg {
+    color: var(--color-accent);
   }
 
   .feature-list.not-for svg {
@@ -344,6 +380,7 @@ if (trainerImagePath) {
   }
 
   .price-card h3 {
+    font-family: 'Lexend Deca', sans-serif;
     font-size: 0.875rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -407,6 +444,7 @@ if (trainerImagePath) {
   }
 
   .other-courses h3 {
+    font-family: 'Lexend Deca', sans-serif;
     color: var(--color-primary);
     margin-bottom: 1rem;
     font-size: 1rem;

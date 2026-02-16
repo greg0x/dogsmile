@@ -15,7 +15,7 @@ const { email, phone, instagram } = Astro.props;
   <div class="top-bar">
     <div class="top-bar-container">
       <div class="contact-links">
-        <a href={`mailto:${email}`}>
+        <a href={`https://mail.google.com/mail/?view=cm&to=${email}`} target="_blank" rel="noopener">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
           <span class="contact-text">{email}</span>
         </a>
@@ -54,7 +54,6 @@ const { email, phone, instagram } = Astro.props;
             <a href="/kurzusok/halado">Haladó kurzus</a>
             <a href="/kurzusok/trukk">Trükkmester</a>
             <a href="/kurzusok/happy-brain">Happy Brain</a>
-            <a href="/kurzusok/tanacsadas">Tanácsadás</a>
           </div>
         </div>
         <a href="/buszkeseg" class="nav-link">Büszkeségfal</a>
@@ -109,7 +108,6 @@ const { email, phone, instagram } = Astro.props;
           <a href="/kurzusok/halado">Haladó kurzus</a>
           <a href="/kurzusok/trukk">Trükkmester</a>
           <a href="/kurzusok/happy-brain">Happy Brain</a>
-          <a href="/kurzusok/tanacsadas">Tanácsadás</a>
         </div>
       </div>
 

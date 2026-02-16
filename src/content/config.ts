@@ -17,6 +17,7 @@ const courses = defineCollection({
     requirements: z.array(z.string()).optional(),
     notFor: z.array(z.string()).optional(),
     benefits: z.array(z.string()).optional(),
+    highlights: z.array(z.string()).optional(),
     expectations: z.object({
       instructor: z.array(z.string()),
       participant: z.array(z.string()),
