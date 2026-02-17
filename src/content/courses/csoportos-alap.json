@@ -16,7 +16,9 @@
     "Helyére küldés",
     "Laza pórázon séta",
     "Nincs kényszerítés, büntetés vagy bántalmazás, csak pozitív megerősítés!",
-    "Kiscsoportos foglalkozás (3 gazdi-kutya páros)",
+    "Kiscsoportos foglalkozás (3 gazdi-kutya páros)"
+  ],
+  "highlights": [
     "Első 4 alkalom Szegeden az Erzsébet ligetben",
     "5. alkalomtól változatos környezetben",
     "8 héten át heti 1x 1-1,5 órás foglalkozás",
@@ -50,18 +52,17 @@
   ],
   "expectations": {
     "instructor": [
-      "Időben érkezem",
-      "Ha késni fogok, szólok",
-      "Előző nap megerősítem az időpontot",
-      "Írásos feladatleírást adok",
-      "Türelmes és elkötelezett vagyok",
-      "Osztatlan figyelmet biztosítok"
+      "Időben érkezek",
+      "Ha kések, szólok",
+      "A feladatokról adok leírást, tehát nem baj, ha nem jegyzed meg azonnal",
+      "Maximális türelem és kitartás",
+      "Jókedv"
     ],
     "participant": [
-      "5-10 perccel korábban érkezel",
-      "Előkészíted a szükséges felszerelést",
-      "Ha nem tudsz jönni, 24 órával előtte szólsz",
-      "Minimum 3x gyakorolsz az alkalmak között"
+      "Kérlek érkezz 5-10 perccel korábban, hogy kutyusodnak legyen ideje szaglászni, üríteni",
+      "Az alkalmakra készítsd össze a szükséges eszközöket",
+      "Ha valami oknál fogva nem tudsz megjelenni az alkalmon, akkor kérlek legkésőbb 24 órával az időpont előtt szólj",
+      "Ahhoz, hogy a hatékonyság minél jobb legyen, kérlek, két alkalom között gyakorolj minimum 3x."
     ]
   }
 }

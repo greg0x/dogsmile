@@ -2,11 +2,12 @@
   "title": "Trükkmester kurzus",
   "subtitle": "Szórakoztató tanulás",
   "description": "Ha már elvégezted az alap kurzust, akkor a láthatatlan póráz tovább építéséhez kitűnő választás trükkök megtanulása.",
-  "fullDescription": "A trükkök tanítása nem csak szórakoztató, hanem kiváló módja a kutya mentális stimulálásának és a gazdi-kutya kapcsolat erősítésének. Pozitív megerősítésen alapuló módszerekkel 10 trükköt tanultok meg együtt, lépésről lépésre haladva.",
+  "fullDescription": "A kutyusok szeretik az új feladatokat, kihívásokat. A trükkökkel ezt megvalósíthatod kedvencednek, miközben tovább erősödik a kapcsolatotok.",
   "image": "trukk.jpg",
   "order": 3,
   "price": "50 000 Ft",
   "duration": "6 hét, heti 1 alkalom (1-1,5 óra)",
+  "includesTitle": "Hogyan kell elképzelni?",
   "includes": [
     "6 héten keresztül heti 1x 1-1,5 órás foglalkozás",
     "10 trükk lépésről lépésre",

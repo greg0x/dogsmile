@@ -16,6 +16,16 @@ export async function getStaticPaths() {
 const { course } = Astro.props;
 const siteInfo = await getEntry('site-info', 'main');
 
+const allCourseLinks = [
+  { slug: 'alap', label: 'Alap kurzus' },
+  { slug: 'halado', label: 'Haladó kurzus' },
+  { slug: 'trukk', label: 'Trükkmester' },
+  { slug: 'happy-brain', label: 'Happy Brain' },
+];
+const currentSlug = course.id;
+const isAlap = currentSlug === 'alap' || currentSlug === 'csoportos-alap' || currentSlug === 'csoportos-kolyok';
+const otherCourses = allCourseLinks.filter(c => isAlap ? c.slug !== 'alap' : c.slug !== currentSlug);
+
 // Import course images
 const courseImages = import.meta.glob<{ default: ImageMetadata }>(
   '../../assets/images/courses/*.{jpeg,jpg,png,gif}',
@@ -79,9 +89,25 @@ if (trainerImagePath) {
               <Image src={courseImage} alt={course.data.title} width={1500} height={1000} quality={90} />
             </div>
           )}
+          {course.data.benefits && (
+            <section class="course-section">
+              <h2>Miért jó elfoglaltság?</h2>
+              <ul class="feature-list highlights">
+                {course.data.benefits.map((item: string) => (
+                  <li>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
           {course.data.includes && (
             <section class="course-section">
-              <h2>Mit tartalmaz a kurzus?</h2>
+              <h2>{course.data.includesTitle || 'Mit tartalmaz a kurzus?'}</h2>
               <ul class="feature-list">
                 {course.data.includes.map((item: string) => (
                   <li>
@@ -194,9 +220,9 @@ if (trainerImagePath) {
           <div class="other-courses">
             <h3>Többi kurzus</h3>
             <nav class="course-list">
-              <a href="/kurzusok/halado">Haladó kurzus</a>
-              <a href="/kurzusok/trukk">Trükkmester</a>
-              <a href="/kurzusok/happy-brain">Happy Brain</a>
+              {otherCourses.map(c => (
+                <a href={`/kurzusok/${c.slug}`}>{c.label}</a>
+              ))}
             </nav>
           </div>
         </aside>

@@ -48,7 +48,7 @@ const currentYear = new Date().getFullYear();
 
     <div class="footer-contact">
       <h4>Kapcsolat</h4>
-      <a href={`mailto:${email}`}>{email}</a>
+      <a href={`https://mail.google.com/mail/?view=cm&to=${email}`} target="_blank" rel="noopener">{email}</a>
       <a href={`tel:${phone.replace(/[^0-9+]/g, '')}`}>{phone}</a>
       <div class="social-links">
         <a href="https://www.facebook.com/mosolyakutyanakmosolyagazdinak" target="_blank" rel="noopener" aria-label="Facebook">

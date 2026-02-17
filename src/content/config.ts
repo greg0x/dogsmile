@@ -14,6 +14,7 @@ const courses = defineCollection({
     assessmentFee: z.string().optional(),
     duration: z.string().optional(),
     includes: z.array(z.string()).optional(),
+    includesTitle: z.string().optional(),
     requirements: z.array(z.string()).optional(),
     notFor: z.array(z.string()).optional(),
     benefits: z.array(z.string()).optional(),
