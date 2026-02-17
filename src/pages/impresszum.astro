@@ -1,0 +1,158 @@
+---
+import { getEntry } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const siteInfo = await getEntry('site-info', 'main');
+---
+
+<Layout title="Impresszum" description="Impresszum - DOGSMILE kutyaiskola">
+  <Header
+    email={siteInfo.data.email}
+    phone={siteInfo.data.phone}
+    instagram={siteInfo.data.instagram}
+  />
+
+  <main class="legal-page">
+    <div class="container">
+      <header class="page-header">
+        <h1>Impresszum</h1>
+      </header>
+
+      <div class="page-content">
+        <div class="main-content">
+          <article class="legal-content">
+            <section>
+              <h2>Szolgáltató adatai</h2>
+              <div class="info-box">
+                <p><strong>Név:</strong> Nagy-Baranyi Krisztina e.v.</p>
+                <p><strong>Pozíció:</strong> tréner</p>
+                <p><strong>Cím:</strong> 6721 Szeged, Szűcs utca 5.</p>
+                <p><strong>Adószám:</strong> 90806142-1-26</p>
+                <p><strong>Nyilvántartási szám:</strong> 60147501</p>
+                <p><strong>E-mail cím:</strong> <a href="mailto:nagy.baranyi.krisztina@gmail.com">nagy.baranyi.krisztina@gmail.com</a></p>
+                <p><strong>Telefonszám:</strong> <a href="tel:+36704025559">06-70/402-55-59</a></p>
+                <p><strong>Facebook:</strong> <a href="https://www.facebook.com/mosolyakutyanakmosolyagazdinak" target="_blank" rel="noopener">facebook.com/mosolyakutyanakmosolyagazdinak</a></p>
+              </div>
+            </section>
+
+            <section>
+              <h2>Tárhelyszolgáltató</h2>
+              <div class="info-box">
+                <p><strong>Név:</strong> tarhely.eu Szolgáltató Kft.</p>
+                <p><strong>E-mail:</strong> support@tarhely.eu</p>
+                <p><strong>Cím:</strong> 1097 Budapest, Könyves Kálmán krt. 12-14</p>
+              </div>
+            </section>
+
+            <section>
+              <h2>Elérhetőségek</h2>
+              <div class="info-box">
+                <p><strong>Képzés helye:</strong> Szeged és 10 km-es körzete</p>
+                <p><strong>E-mail cím:</strong> <a href="mailto:nagy.baranyi.krisztina@gmail.com">nagy.baranyi.krisztina@gmail.com</a></p>
+                <p><strong>Telefonszám:</strong> <a href="tel:+36704025559">06-70/402-55-59</a></p>
+                <p><strong>Facebook:</strong> <a href="https://www.facebook.com/mosolyakutyanakmosolyagazdinak" target="_blank" rel="noopener">facebook.com/mosolyakutyanakmosolyagazdinak</a></p>
+              </div>
+            </section>
+          </article>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <Footer
+    email={siteInfo.data.email}
+    phone={siteInfo.data.phone}
+    instagram={siteInfo.data.instagram}
+  />
+</Layout>
+
+<style>
+  .legal-page {
+    padding-top: 10rem;
+    padding-bottom: 4rem;
+    background: var(--color-secondary);
+  }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .page-header h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .page-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .legal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  .legal-content section {
+    margin-bottom: 2.5rem;
+  }
+
+  .legal-content section:last-child {
+    margin-bottom: 0;
+  }
+
+  .legal-content h2 {
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-secondary);
+  }
+
+  .legal-content p {
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+  }
+
+  .legal-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  .legal-content strong {
+    color: var(--color-text);
+  }
+
+  .legal-content a {
+    color: var(--color-primary);
+  }
+
+  .legal-content a:hover {
+    text-decoration: underline;
+  }
+
+  .info-box {
+    background: var(--color-secondary);
+    padding: 1.25rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+
+  .info-box p {
+    text-align: left;
+  }
+
+</style>

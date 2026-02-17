@@ -3,7 +3,6 @@ import { getEntry } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import Sidebar from '../components/Sidebar.astro';
 
 const siteInfo = await getEntry('site-info', 'main');
 ---
@@ -33,9 +32,9 @@ const siteInfo = await getEntry('site-info', 'main');
                 <p><strong>E-mail címe:</strong> nagy.baranyi.krisztina@gmail.com</p>
                 <p><strong>Telefonszáma:</strong> 0670/402-55-59</p>
                 <p><strong>Honlapja:</strong> www.dogsmile.hu</p>
-                <p><strong>Székhelye:</strong> 6725 Szeged, Oltványi u. 2. 1. em. 2.</p>
+                <p><strong>Székhelye:</strong> 6721 Szeged, Szűcs u. 5.</p>
                 <p><strong>Levelezési címe:</strong> 6721 Szeged, Szűcs u. 5.</p>
-                <p><strong>Adószáma:</strong> 68504494126</p>
+                <p><strong>Adószáma:</strong> 90806142-1-26</p>
               </div>
               <p>A www.dogsmile.hu honlapon látható és olvasható minden tartalom Nagy-Baranyi Krisztina tulajdonát képezi.</p>
               <p>Nagy-Baranyi Krisztina (dogsmile.hu domain tulajdonosa) számára kiemelt fontosságú cél a weboldal látogatói által rendelkezésre bocsátott személyes adatok védelme, a látogatók információs önrendelkezési jogának biztosítása. A felhasználók személyes adatait a vonatkozó hatályos jogszabályoknak megfelelően és teljes körűen kezeli.</p>
@@ -133,8 +132,7 @@ const siteInfo = await getEntry('site-info', 'main');
               <p>Bizonyos felvételek marketing célból felhasználásra kerülnek:</p>
               <ul>
                 <li>a www.dogsmile.hu weboldalon</li>
-                <li>a hivatalos <a href="https://www.facebook.com/MosolyakutyusnakMosolyagazdinak" target="_blank" rel="noopener">Facebook-oldalon</a></li>
-                <li>a hivatalos <a href="https://www.instagram.com/dogsmile_kutyaoktatas/" target="_blank" rel="noopener">Instagram-oldalon</a></li>
+                <li>a hivatalos <a href="https://www.facebook.com/mosolyakutyanakmosolyagazdinak" target="_blank" rel="noopener">Facebook-oldalon</a></li>
               </ul>
               <p>Amennyiben az érintett nem kíván a fentiekhez hozzájárulni, erre irányuló kérését elektronikus úton jelezheti az Adatkezelőnek a regisztrációt követő 3 munkanapon belül.</p>
             </section>
@@ -174,11 +172,6 @@ const siteInfo = await getEntry('site-info', 'main');
           </article>
         </div>
 
-        <Sidebar
-          email={siteInfo.data.email}
-          phone={siteInfo.data.phone}
-          instagram={siteInfo.data.instagram}
-        />
       </div>
     </div>
   </main>
@@ -222,10 +215,8 @@ const siteInfo = await getEntry('site-info', 'main');
   }
 
   .page-content {
-    display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 3rem;
-    align-items: start;
+    max-width: 800px;
+    margin: 0 auto;
   }
 
   .legal-content {
@@ -338,12 +329,6 @@ const siteInfo = await getEntry('site-info', 'main');
 
   .data-table tr:nth-child(even) {
     background: var(--color-secondary);
-  }
-
-  @media (max-width: 968px) {
-    .page-content {
-      grid-template-columns: 1fr;
-    }
   }
 
   @media (max-width: 600px) {
