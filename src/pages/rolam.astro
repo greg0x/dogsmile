@@ -24,15 +24,6 @@ const siteInfo = await getEntry('site-info', 'main');
     <div class="container">
       <h1>Rólam, avagy a kórházból a kutyák közé</h1>
 
-      <div class="hero-images">
-        <div class="hero-image">
-          <Image src={rolamPortrait} alt="Nagy-Baranyi Krisztina" width={1200} height={1800} quality={90} />
-        </div>
-        <div class="hero-image">
-          <Image src={rolamDog} alt="Nagy-Baranyi Krisztina kutyájával" width={1200} height={1800} quality={90} />
-        </div>
-      </div>
-
       <div class="about-content">
         <div class="about-text">
           <p class="intro">
@@ -40,7 +31,7 @@ const siteInfo = await getEntry('site-info', 'main');
           </p>
 
           <p>
-            Ám ez nem volt mindig így. Lássuk csak: hajdanán, mikor még az ifjúság szele fújta kócosra a hajam, eljött az idő, amikor is be kellett volna tájolni, hogy merre is az arra. Iránytű híján kikötöttem az egészségügyben. Aztán teltek-múltak az évek és én egyre kevésbé éreztem magaménak a dolgot. Mindeközben férjhez mentem és egy csodás napon egy bevásárlóközpontban kigyulladt az a bizonyos lámpa (tudod, mikor akkorát koppan, hogy még a szomszéd városban is hallják). Ugyanis egy kutyust szocializáltak épp, amit én elsőre kiszúrtam. A férjemnek hála (igen kellett, hogy bátrabb legyek) odamentünk információt gyűjteni és hazaérve rögtön a jó öreg Google bácsitól kértem segítséget. Ekkor találtam rá egy fantasztikus képzésre, ami a <a href="https://lfrm.hu/" target="_blank" rel="noopener"><strong>Láthatatlan Póráz Módszer & Program (LPM&P)</strong></a>.
+            Ám ez nem volt mindig így. Lássuk csak: hajdanán, mikor még az ifjúság szele fújta kócosra a hajam, eljött az idő, amikor is be kellett volna tájolni, hogy merre is az arra. Iránytű híján kikötöttem az egészségügyben. Aztán teltek-múltak az évek és én egyre kevésbé éreztem magaménak a dolgot. Mindeközben férjhez mentem és egy csodás napon egy bevásárlóközpontban kigyulladt az a bizonyos lámpa (tudod, mikor akkorát koppan, hogy még a szomszéd városban is hallják). Ugyanis egy kutyust szocializáltak épp, amit én elsőre kiszúrtam. A férjemnek hála (igen kellett, hogy bátrabb legyek) odamentünk információt gyűjteni és hazaérve rögtön a jó öreg Google bácsitól kértem segítséget. Ekkor találtam rá egy fantasztikus képzésre, ami a <a href="https://lathatatlanporaz.hu/" target="_blank" rel="noopener"><strong>Láthatatlan Póráz Módszer & Program (LPM&P)</strong></a>.
           </p>
 
           <p>
@@ -60,10 +51,23 @@ const siteInfo = await getEntry('site-info', 'main');
           </div>
         </div>
 
+        <div class="sidebar-column">
+          <div class="hero-images">
+            <div class="hero-image">
+              <Image src={rolamDog} alt="Nagy-Baranyi Krisztina kutyájával" width={600} height={900} quality={90} />
+            </div>
+            <div class="hero-image">
+              <Image src={rolamPortrait} alt="Nagy-Baranyi Krisztina" width={600} height={900} quality={90} />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottom-sidebar">
         <Sidebar
           email={siteInfo.data.email}
           phone={siteInfo.data.phone}
-      
+
         />
       </div>
     </div>
@@ -94,11 +98,23 @@ const siteInfo = await getEntry('site-info', 'main');
     margin-bottom: 2rem;
   }
 
-  .hero-images {
+  .about-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-bottom: 2rem;
+    grid-template-columns: 1fr 320px;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .sidebar-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .hero-images {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
   }
 
   .hero-image {
@@ -112,15 +128,8 @@ const siteInfo = await getEntry('site-info', 'main');
     display: block;
   }
 
-  .about-content {
-    display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 3rem;
-    align-items: start;
-  }
-
   .intro {
-    font-size: 1.15rem;
+    font-size: 1rem;
     color: var(--color-text);
     line-height: 1.7;
     margin-bottom: 1.5rem;
@@ -135,10 +144,11 @@ const siteInfo = await getEntry('site-info', 'main');
 
   .about-text a {
     color: var(--color-primary);
+    text-decoration: none;
   }
 
   .about-text a:hover {
-    text-decoration: underline;
+    opacity: 0.7;
   }
 
   .certificates {
@@ -151,15 +161,34 @@ const siteInfo = await getEntry('site-info', 'main');
     border-radius: 8px;
   }
 
+  .bottom-sidebar {
+    margin-top: 3rem;
+  }
+
+  .bottom-sidebar :global(.sidebar) {
+    flex-direction: row;
+    align-items: start;
+  }
+
+  .bottom-sidebar :global(.sidebar > *) {
+    flex: 1;
+  }
+
   @media (max-width: 968px) {
     .about-content {
       grid-template-columns: 1fr;
     }
-  }
 
-  @media (max-width: 700px) {
     .hero-images {
-      grid-template-columns: 1fr;
+      flex-direction: row;
+    }
+
+    .hero-image {
+      width: 50%;
+    }
+
+    .bottom-sidebar :global(.sidebar) {
+      flex-direction: column;
     }
   }
 </style>
