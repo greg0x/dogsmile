@@ -28,14 +28,13 @@ for (const [path, module] of Object.entries(graduateImages)) {
   <Header
     email={siteInfo.data.email}
     phone={siteInfo.data.phone}
-    instagram={siteInfo.data.instagram}
+
   />
 
   <main class="pride-wall">
     <div class="container">
       <header class="page-header">
-        <h1>Büszkeség Fal</h1>
-        <p>Gazdik és kutyáik, akik sikeresen elvégezték kurzusainkat</p>
+        <h1>Büszkeségfal</h1>
       </header>
 
       <div class="page-content">
@@ -45,20 +44,18 @@ for (const [path, module] of Object.entries(graduateImages)) {
               const gradImage = grad.image ? imageMap[grad.image] : null;
               return (
                 <div class={`graduate-card ${gradImage ? 'has-image' : ''}`}>
+                  <div class="graduate-info">
+                    <h3>{grad.displayName || `${grad.ownerName} és ${grad.dogName}`}</h3>
+                  </div>
                   {gradImage ? (
                     <div class="graduate-image">
-                      <Image src={gradImage} alt={`${grad.dogName} és ${grad.ownerName}`} width={70} height={70} />
+                      <Image src={gradImage} alt={`${grad.dogName} és ${grad.ownerName}`} width={300} height={300} quality={90} />
                     </div>
                   ) : (
                     <div class="graduate-avatar">
                       <span>{grad.dogName.charAt(0)}</span>
                     </div>
                   )}
-                  <div class="graduate-info">
-                    <h3>{grad.dogName}</h3>
-                    <p class="owner">Gazdi: {grad.ownerName}</p>
-                    {grad.course && <span class="course-badge">{grad.course}</span>}
-                  </div>
                 </div>
               );
             })}
@@ -66,7 +63,7 @@ for (const [path, module] of Object.entries(graduateImages)) {
 
           <div class="cta-section">
             <h2>Szeretnéd, ha ti is itt lennétek?</h2>
-            <p>Jelentkezz kurzusainkra és legyél te is a büszkeség falunk része!</p>
+            <p>Jelentkezz bátran és legyél te is a büszkeségfal része!</p>
             <a href="/jelentkezes" class="cta-button">Jelentkezem &raquo;</a>
           </div>
         </div>
@@ -74,7 +71,7 @@ for (const [path, module] of Object.entries(graduateImages)) {
         <Sidebar
           email={siteInfo.data.email}
           phone={siteInfo.data.phone}
-          instagram={siteInfo.data.instagram}
+      
         />
       </div>
     </div>
@@ -83,7 +80,7 @@ for (const [path, module] of Object.entries(graduateImages)) {
   <Footer
     email={siteInfo.data.email}
     phone={siteInfo.data.phone}
-    instagram={siteInfo.data.instagram}
+
   />
 </Layout>
 
@@ -125,19 +122,18 @@ for (const [path, module] of Object.entries(graduateImages)) {
 
   .graduates-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.25rem;
     margin-bottom: 2rem;
   }
 
   .graduate-card {
     display: flex;
-    align-items: center;
-    gap: 1rem;
+    flex-direction: column;
     background: white;
-    padding: 1rem 1.25rem;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
     transition: transform 0.2s, box-shadow 0.2s;
   }
 
@@ -146,26 +142,27 @@ for (const [path, module] of Object.entries(graduateImages)) {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   }
 
+  .graduate-info {
+    padding: 0.75rem 1rem;
+    text-align: center;
+  }
+
   .graduate-avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    width: 100%;
+    aspect-ratio: 1;
     background: var(--color-primary);
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.25rem;
+    font-size: 2rem;
     font-weight: 600;
-    flex-shrink: 0;
   }
 
   .graduate-image {
-    width: 70px;
-    height: 70px;
-    border-radius: 8px;
+    width: 100%;
+    aspect-ratio: 1;
     overflow: hidden;
-    flex-shrink: 0;
   }
 
   .graduate-image img {
@@ -174,31 +171,11 @@ for (const [path, module] of Object.entries(graduateImages)) {
     object-fit: cover;
   }
 
-  .graduate-card.has-image {
-    padding: 0.75rem;
-  }
-
   .graduate-info h3 {
     color: var(--color-primary);
-    margin-bottom: 0.15rem;
-    font-size: 1rem;
-  }
-
-  .owner {
-    color: var(--color-text-light);
-    font-size: 0.85rem;
-    margin: 0;
-  }
-
-  .course-badge {
-    display: inline-block;
-    background: var(--color-secondary);
-    color: var(--color-primary);
-    padding: 0.15rem 0.5rem;
-    border-radius: 8px;
-    font-size: 0.7rem;
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 0.9rem;
     font-weight: 500;
-    margin-top: 0.25rem;
   }
 
   .cta-section {

@@ -42,7 +42,6 @@ const siteInfo = defineCollection({
   schema: z.object({
     email: z.string(),
     phone: z.string(),
-    instagram: z.string(),
     facebook: z.string().optional(),
     address: z.string().optional(),
     methodology: z.object({
@@ -75,6 +74,7 @@ const graduates = defineCollection({
   schema: z.array(z.object({
     ownerName: z.string(),
     dogName: z.string(),
+    displayName: z.string().optional(),
     image: z.string().optional(),
     course: z.string().optional(),
   })),
