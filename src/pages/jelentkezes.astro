@@ -3,7 +3,6 @@ import { getEntry } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import Sidebar from '../components/Sidebar.astro';
 
 const siteInfo = await getEntry('site-info', 'main');
 ---
@@ -122,20 +121,16 @@ const siteInfo = await getEntry('site-info', 'main');
                 <label>Melyik kurzusra jelentkezel? *</label>
                 <div class="radio-group">
                   <label class="radio-label">
-                    <input type="radio" name="kurzus" value="Egyéni Alap kurzus" required />
-                    <span>Egyéni Alap kurzus</span>
+                    <input type="radio" name="kurzus" value="Egyéni alap kurzus" required />
+                    <span>Egyéni alap kurzus</span>
                   </label>
                   <label class="radio-label">
-                    <input type="radio" name="kurzus" value="Csoportos Felnőtt kurzus" />
-                    <span>Csoportos Felnőtt kurzus</span>
+                    <input type="radio" name="kurzus" value="Csoportos alap kurzus" />
+                    <span>Csoportos alap kurzus</span>
                   </label>
                   <label class="radio-label">
-                    <input type="radio" name="kurzus" value="Csoportos Kölyök kurzus" />
-                    <span>Csoportos Kölyök kurzus</span>
-                  </label>
-                  <label class="radio-label">
-                    <input type="radio" name="kurzus" value="Haladó kurzus" />
-                    <span>Haladó kurzus</span>
+                    <input type="radio" name="kurzus" value="Haladó" />
+                    <span>Haladó</span>
                   </label>
                   <label class="radio-label">
                     <input type="radio" name="kurzus" value="Trükkmester" />
@@ -170,16 +165,27 @@ const siteInfo = await getEntry('site-info', 'main');
 
             <button type="submit" class="submit-button">Küldés</button>
           </form>
+
+          <div class="success-message" style="display: none;">
+            <h2>Köszönöm a jelentkezést!</h2>
+            <p>Hamarosan felveszem a kapcsolatot.</p>
+          </div>
         </div>
 
-        <Sidebar
-          email={siteInfo.data.email}
-          phone={siteInfo.data.phone}
-      
-        />
       </div>
     </div>
   </main>
+
+  <script>
+    const form = document.querySelector('.signup-form');
+    const successMessage = document.querySelector('.success-message');
+
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      form.style.display = 'none';
+      successMessage.style.display = 'block';
+    });
+  </script>
 
   <Footer
     email={siteInfo.data.email}
@@ -218,10 +224,8 @@ const siteInfo = await getEntry('site-info', 'main');
   }
 
   .page-content {
-    display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 3rem;
-    align-items: start;
+    max-width: 700px;
+    margin: 0 auto;
   }
 
   .signup-form {
@@ -372,10 +376,23 @@ const siteInfo = await getEntry('site-info', 'main');
     background: var(--color-primary-dark);
   }
 
-  @media (max-width: 968px) {
-    .page-content {
-      grid-template-columns: 1fr;
-    }
+  .success-message {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .success-message h2 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .success-message p {
+    color: var(--color-text-light);
+    font-size: 1.1rem;
   }
 
   @media (max-width: 600px) {
