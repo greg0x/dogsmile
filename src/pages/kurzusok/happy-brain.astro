@@ -1,0 +1,305 @@
+---
+import { getEntry } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const siteInfo = await getEntry('site-info', 'main');
+
+const cards = [
+  {
+    title: 'Mini',
+    duration: '30 perc feladatokkal fűszerezett séta',
+    description: 'Én foglalkozom a kutyusoddal, miközben te pihensz. Kitűnő választás, ha nincs úgy időd tréningezni vagy lebetegedtél.',
+    price: '4 000 Ft / alkalom',
+    berlet: '5 alkalmas bérlet: 15 000 Ft',
+    validity: '6 hétig érvényes',
+  },
+  {
+    title: 'Maxi',
+    duration: '60 perc feladatokkal fűszerezett séta',
+    description: 'Én foglalkozom a kutyusoddal, miközben te pihensz. Kitűnő választás, ha nincs úgy időd tréningezni vagy lebetegedtél.',
+    price: '8 000 Ft / alkalom',
+    berlet: '5 alkalmas bérlet: 35 000 Ft',
+    validity: '6 hétig érvényes',
+  },
+  {
+    title: 'Egyéni',
+    duration: '60 perc feladatokkal fűszerezett séta',
+    description: 'Ismétlő óra, ami remek választás a tréning felfrissítésére és elmélyítésére.',
+    price: '10 000 Ft / alkalom',
+    berlet: '5 alkalmas bérlet: 45 000 Ft',
+    validity: '8 hétig érvényes',
+  },
+  {
+    title: 'Csoportos',
+    duration: 'Heti egyszeri találkozó megadott időpontban, változatos helyszíneken',
+    description: 'Nagyszerű lehetőség ingergazdag környezetben gyakorolni, más kutyák jelenlétében.',
+    price: '5 000 Ft / alkalom',
+    berlet: '5 alkalmas bérlet: 20 000 Ft',
+    validity: '6 hétig érvényes',
+  },
+];
+---
+
+<Layout title="Happy Brain" description="Happy Brain - feladatokkal fűszerezett séták kutyáddal">
+  <Header
+    email={siteInfo.data.email}
+    phone={siteInfo.data.phone}
+  />
+
+  <main class="happy-brain-page">
+    <div class="container">
+      <div class="page-header">
+        <span class="course-subtitle">Szolgáltatás</span>
+        <h1>Happy Brain</h1>
+        <p class="intro">Az alap kurzus után sem engedjük el a kezed! A Happy Brain segít, hogy a közös munkátok ne álljon meg – változatos feladatokkal tartjuk karban és mélyítjük tovább, amit együtt felépítettetek.</p>
+      </div>
+
+      <div class="cards-list">
+        {cards.map((card, i) => (
+          <article class={`hb-card ${i % 2 !== 0 ? 'reversed' : ''}`}>
+            <div class="card-title-area">
+              <h2>{card.title}</h2>
+            </div>
+            <div class="card-content">
+              <p class="card-duration">{card.duration}</p>
+              <p class="card-description">{card.description}</p>
+              <div class="card-pricing">
+                <span class="card-price">{card.price}</span>
+                <span class="card-berlet">{card.berlet}</span>
+                <span class="card-validity">{card.validity}</span>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="notes">
+        <p>Figyelem! Alapvetően Szegeden érhetőek el, a városon kívül az árak változhatnak.</p>
+        <p>Jelentkezés kizárólag emailben.</p>
+      </div>
+
+      <div class="back-link">
+        <a href="/#kurzusok">&larr; Vissza a kurzusokhoz</a>
+      </div>
+    </div>
+  </main>
+
+  <Footer
+    email={siteInfo.data.email}
+    phone={siteInfo.data.phone}
+  />
+</Layout>
+
+<style>
+  .happy-brain-page {
+    padding-top: 10rem;
+    padding-bottom: 4rem;
+  }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .page-header {
+    max-width: 800px;
+    margin-bottom: 2.5rem;
+  }
+
+  .course-subtitle {
+    display: inline-block;
+    background: var(--color-secondary);
+    color: var(--color-primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .page-header h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+
+  .intro {
+    font-size: 1.15rem;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .cards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .hb-card {
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .hb-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  }
+
+  .card-title-area {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 280px;
+    padding: 2rem;
+  }
+
+  .card-title-area h2 {
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 2.5rem;
+    margin: 0;
+  }
+
+  .card-content {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .card-duration {
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .card-pricing {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .card-price {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .card-berlet {
+    font-size: 0.85rem;
+  }
+
+  .card-validity {
+    font-size: 0.8rem;
+  }
+
+  /* Alap kártya (1., 3.) - kék cím, fehér tartalom */
+  .hb-card {
+    background: white;
+  }
+
+  .hb-card .card-title-area {
+    background: var(--color-primary);
+  }
+
+  .hb-card .card-title-area h2 {
+    color: white;
+  }
+
+  .hb-card .card-duration {
+    color: var(--color-text);
+  }
+
+  .hb-card .card-description {
+    color: var(--color-text-light);
+  }
+
+  .hb-card .card-price {
+    color: var(--color-primary);
+  }
+
+  .hb-card .card-berlet {
+    color: var(--color-text);
+  }
+
+  .hb-card .card-validity {
+    color: var(--color-text-light);
+  }
+
+  /* Tükrözött kártya (2., 4.) - fordított irány, világoskék cím háttér */
+  .hb-card.reversed {
+    flex-direction: row-reverse;
+  }
+
+  .hb-card.reversed .card-title-area {
+    background: var(--color-secondary);
+  }
+
+  .hb-card.reversed .card-title-area h2 {
+    color: var(--color-primary);
+  }
+
+  .notes {
+    text-align: center;
+    background: var(--color-primary);
+    color: white;
+    padding: 1.5rem 2.5rem;
+    border-radius: 12px;
+    margin: 0 auto 2rem;
+    max-width: 500px;
+  }
+
+  .notes p {
+    color: white;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.25rem;
+  }
+
+  .notes p:first-child {
+    font-weight: 700;
+  }
+
+  .notes p:last-child {
+    margin-bottom: 0;
+  }
+
+  .back-link {
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-secondary);
+  }
+
+  .back-link a {
+    color: var(--color-primary);
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .back-link a:hover {
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 768px) {
+    .hb-card {
+      flex-direction: column;
+    }
+
+    .card-title-area {
+      min-width: unset;
+      padding: 1.5rem;
+    }
+  }
+</style>
