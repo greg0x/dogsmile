@@ -6,8 +6,6 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Sidebar from '../components/Sidebar.astro';
 
-import rolamPortrait from '../assets/images/about/rolam-portrait.jpg';
-import rolamDog from '../assets/images/about/rolam-dog.jpg';
 import oklevelek from '../assets/images/about/oklevelek.jpg';
 
 const siteInfo = await getEntry('site-info', 'main');
@@ -24,42 +22,31 @@ const siteInfo = await getEntry('site-info', 'main');
     <div class="container">
       <h1>Rólam, avagy a kórházból a kutyák közé</h1>
 
-      <div class="about-content">
-        <div class="about-text">
-          <p class="intro">
-            Nagy-Baranyi Krisztina, kutyaoktató vagyok. Mostmár.
-          </p>
+      <div class="about-text">
+        <p class="intro">
+          Nagy-Baranyi Krisztina, kutyaoktató vagyok. Mostmár.
+        </p>
 
-          <p>
-            Ám ez nem volt mindig így. Lássuk csak: hajdanán, mikor még az ifjúság szele fújta kócosra a hajam, eljött az idő, amikor is be kellett volna tájolni, hogy merre is az arra. Iránytű híján kikötöttem az egészségügyben. Aztán teltek-múltak az évek és én egyre kevésbé éreztem magaménak a dolgot. Mindeközben férjhez mentem és egy csodás napon egy bevásárlóközpontban kigyulladt az a bizonyos lámpa (tudod, mikor akkorát koppan, hogy még a szomszéd városban is hallják). Ugyanis egy kutyust szocializáltak épp, amit én elsőre kiszúrtam. A férjemnek hála (igen kellett, hogy bátrabb legyek) odamentünk információt gyűjteni és hazaérve rögtön a jó öreg Google bácsitól kértem segítséget. Ekkor találtam rá egy fantasztikus képzésre, ami a <a href="https://lathatatlanporaz.hu/" target="_blank" rel="noopener"><strong>Láthatatlan Póráz Módszer & Program (LPM&P)</strong></a>.
-          </p>
+        <p>
+          Ám ez nem volt mindig így. Lássuk csak: hajdanán, mikor még az ifjúság szele fújta kócosra a hajam, eljött az idő, amikor is be kellett volna tájolni, hogy merre is az arra. Iránytű híján kikötöttem az egészségügyben. Aztán teltek-múltak az évek és én egyre kevésbé éreztem magaménak a dolgot. Mindeközben férjhez mentem és egy csodás napon egy bevásárlóközpontban kigyulladt az a bizonyos lámpa (tudod, mikor akkorát koppan, hogy még a szomszéd városban is hallják). Ugyanis egy kutyust szocializáltak épp, amit én elsőre kiszúrtam. A férjemnek hála (igen kellett, hogy bátrabb legyek) odamentünk információt gyűjteni és hazaérve rögtön a jó öreg Google bácsitól kértem segítséget. Ekkor találtam rá egy fantasztikus képzésre, ami a <a href="https://lathatatlanporaz.hu/" target="_blank" rel="noopener"><strong>Láthatatlan Póráz Módszer & Program (LPM&P)</strong></a>.
+        </p>
 
-          <p>
-            Nem kellett sokat gondolkoznom a beiratkozáson. És hipp-hopp eljött a tanfolyam, amely őrült jó hangulatban telt. Csodálatos és hatalmas tudású oktatókkal, sok-sok gyakorlattal egy olyan légkörben, ahol az lehetsz, aki vagy, úgy, ahogy vagy, és csak azért, mert vagy (by Dömötör Júlia). Fantasztikus embereket ismerhettem meg a tanuló társaim személyében is.
-          </p>
+        <p>
+          Nem kellett sokat gondolkoznom a beiratkozáson. És hipp-hopp eljött a tanfolyam, amely őrült jó hangulatban telt. Csodálatos és hatalmas tudású oktatókkal, sok-sok gyakorlattal egy olyan légkörben, ahol az lehetsz, aki vagy, úgy, ahogy vagy, és csak azért, mert vagy (by Dömötör Júlia). Fantasztikus embereket ismerhettem meg a tanuló társaim személyében is.
+        </p>
 
-          <p>
-            Mindezt folytattam a mester tréner képzésen. Az egész egy nagyszerű utazás volt saját magamban, a technikában. Mint minden utazás, ez is tele volt élményekkel. Ezek az élmények támogatják ma is munkámat, hogy gazdi és kutyusa még jobb társak legyenek.
-          </p>
+        <p>
+          Mindezt folytattam a mester tréner képzésen. Az egész egy nagyszerű utazás volt saját magamban, a technikában. Mint minden utazás, ez is tele volt élményekkel. Ezek az élmények támogatják ma is munkámat, hogy gazdi és kutyusa még jobb társak legyenek.
+        </p>
 
-          <p>
-            Az LPM&P segít ebben azzal, hogy kapcsolat és folyamat fókuszú, tehát a legkisebb sikernek is örülünk, valamint hiper sebességgel mélyíti és építi a bizalmat gazdi és kutyusa között.
-          </p>
+        <p>
+          Az LPM&P segít ebben azzal, hogy kapcsolat és folyamat fókuszú, tehát a legkisebb sikernek is örülünk, valamint hiper sebességgel mélyíti és építi a bizalmat gazdi és kutyusa között.
+        </p>
+      </div>
 
-          <div class="certificates">
-            <Image src={oklevelek} alt="LPM&P tanúsítványok" width={1500} height={1000} quality={90} />
-          </div>
-        </div>
-
-        <div class="sidebar-column">
-          <div class="hero-images">
-            <div class="hero-image">
-              <Image src={rolamDog} alt="Nagy-Baranyi Krisztina kutyájával" width={600} height={900} quality={90} />
-            </div>
-            <div class="hero-image">
-              <Image src={rolamPortrait} alt="Nagy-Baranyi Krisztina" width={600} height={900} quality={90} />
-            </div>
-          </div>
+      <div class="image-row">
+        <div class="image-row-item">
+          <Image src={oklevelek} alt="LPM&P tanúsítványok" width={1500} height={1000} quality={90} />
         </div>
       </div>
 
@@ -96,35 +83,31 @@ const siteInfo = await getEntry('site-info', 'main');
     font-size: clamp(1.75rem, 4vw, 2.5rem);
     color: var(--color-primary);
     margin-bottom: 2rem;
+    text-align: center;
   }
 
-  .about-content {
-    display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 3rem;
-    align-items: start;
+  .about-text {
+    max-width: 800px;
+    margin: 0 auto;
   }
 
-  .sidebar-column {
+  .image-row {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     gap: 1.5rem;
+    margin-top: 2rem;
   }
 
-  .hero-images {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .hero-image {
+  .image-row-item {
+    flex: 1;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 12px;
   }
 
-  .hero-image :global(img) {
+  .image-row-item :global(img) {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     display: block;
   }
 
@@ -151,16 +134,6 @@ const siteInfo = await getEntry('site-info', 'main');
     opacity: 0.7;
   }
 
-  .certificates {
-    margin-top: 2rem;
-  }
-
-  .certificates :global(img) {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-  }
-
   .bottom-sidebar {
     margin-top: 3rem;
   }
@@ -174,17 +147,9 @@ const siteInfo = await getEntry('site-info', 'main');
     flex: 1;
   }
 
-  @media (max-width: 968px) {
-    .about-content {
-      grid-template-columns: 1fr;
-    }
-
-    .hero-images {
-      flex-direction: row;
-    }
-
-    .hero-image {
-      width: 50%;
+  @media (max-width: 768px) {
+    .image-row {
+      flex-direction: column;
     }
 
     .bottom-sidebar :global(.sidebar) {

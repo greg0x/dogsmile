@@ -61,18 +61,19 @@ for (const [path, module] of Object.entries(graduateImages)) {
             })}
           </div>
 
-          <div class="cta-section">
-            <h2>Szeretnéd, ha ti is itt lennétek?</h2>
-            <p>Jelentkezz bátran és legyél te is a büszkeségfal része!</p>
-            <a href="/jelentkezes" class="cta-button">Jelentkezem &raquo;</a>
-          </div>
         </div>
 
         <Sidebar
           email={siteInfo.data.email}
           phone={siteInfo.data.phone}
-      
+
         />
+      </div>
+
+      <div class="cta-section">
+        <h2>Szeretnéd, ha ti is itt lennétek?</h2>
+        <p>Jelentkezz bátran és legyél te is a büszkeségfal része!</p>
+        <a href="/jelentkezes" class="cta-button">Jelentkezem &raquo;</a>
       </div>
     </div>
   </main>
@@ -184,6 +185,8 @@ for (const [path, module] of Object.entries(graduateImages)) {
     padding: 2rem;
     border-radius: 16px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    max-width: 500px;
+    margin: 2rem auto 0;
   }
 
   .cta-section h2 {

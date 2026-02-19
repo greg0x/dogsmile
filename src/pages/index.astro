@@ -13,6 +13,7 @@ import Footer from '../components/Footer.astro';
 import alapImage from '../assets/images/courses/alap.jpg';
 import haladoImage from '../assets/images/courses/halado.png';
 import trukkImage from '../assets/images/courses/trukk.jpg';
+import happybrainImage from '../assets/images/happy_nyitóra.jpg';
 import methodologyImage from '../assets/images/methodology.jpg';
 import fokepImage from '../assets/images/főképnek.jpg';
 
@@ -63,6 +64,14 @@ const pricingTiers = pricingData.data.sort((a, b) => a.order - b.order);
               highlighted={course.id === 'alap'}
             />
           ))}
+          <CourseCard
+            title="Happy Brain"
+            subtitle="Szolgáltatás"
+            description="Az alap kurzus után sem maradsz egyedül. Támogató lehetőségekkel segítem a megszerzett tudás fenntartását."
+            image={happybrainImage}
+            href="/kurzusok/happy-brain"
+            reversed={featuredCourses.length % 2 !== 0}
+          />
         </div>
 
       </div>
