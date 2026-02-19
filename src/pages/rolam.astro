@@ -20,7 +20,7 @@ const siteInfo = await getEntry('site-info', 'main');
 
   <main class="about-page">
     <div class="container">
-      <h1>Rólam, avagy a kórházból a kutyák közé</h1>
+      <h1>A kórházból a kutyák közé</h1>
 
       <div class="about-text">
         <p class="intro">
@@ -46,7 +46,7 @@ const siteInfo = await getEntry('site-info', 'main');
 
       <div class="image-row">
         <div class="image-row-item">
-          <Image src={oklevelek} alt="LPM&P tanúsítványok" width={1500} height={1000} quality={100} />
+          <Image src={oklevelek} alt="LPM&P tanúsítványok" width={800} height={533} quality={100} />
         </div>
       </div>
 
@@ -96,6 +96,9 @@ const siteInfo = await getEntry('site-info', 'main');
     justify-content: center;
     gap: 1.5rem;
     margin-top: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .image-row-item {
