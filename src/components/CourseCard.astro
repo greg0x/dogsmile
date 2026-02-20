@@ -16,7 +16,7 @@ const { title, subtitle, description, image, href = "#", reversed = false, highl
 ---
 
 <article class="course-card">
-  <a href={href} class="course-link-wrapper" style={reversed ? 'flex-direction: row-reverse;' : ''}>
+  <a href={href} class={`course-link-wrapper ${reversed ? 'reversed' : ''}`}>
     <div class="course-image">
       <Image
         src={image}

@@ -548,7 +548,7 @@ const { email, phone } = Astro.props;
 
   .mobile-submenu {
     display: none;
-    background: var(--color-secondary);
+    background: white;
   }
 
   .mobile-nav-group.is-open .mobile-submenu {
@@ -558,18 +558,14 @@ const { email, phone } = Astro.props;
   .mobile-submenu a {
     display: block;
     padding: 0.75rem 1.25rem 0.75rem 2rem;
-    color: var(--color-text-light);
+    color: var(--color-text);
     font-weight: 500;
     font-size: 0.95rem;
-    transition: background 0.2s, color 0.2s;
+    transition: background 0.2s;
   }
 
   .mobile-submenu a:hover {
-    background: rgba(0, 0, 0, 0.05);
-    color: var(--color-primary);
-  }
-
-  .mobile-nav-subgroup {
+    background: var(--color-secondary);
   }
 
   .mobile-nav-subtoggle {
@@ -580,7 +576,7 @@ const { email, phone } = Astro.props;
     padding: 0.75rem 1.25rem 0.75rem 2rem;
     background: none;
     border: none;
-    color: var(--color-text-light);
+    color: var(--color-text);
     font-weight: 500;
     font-size: 0.95rem;
     font-family: inherit;
@@ -589,7 +585,7 @@ const { email, phone } = Astro.props;
   }
 
   .mobile-nav-subtoggle:hover {
-    background: rgba(0, 0, 0, 0.05);
+    background: var(--color-secondary);
   }
 
   .mobile-nav-subgroup .toggle-arrow {
@@ -602,7 +598,7 @@ const { email, phone } = Astro.props;
 
   .mobile-sub-submenu {
     display: none;
-    background: rgba(0, 0, 0, 0.03);
+    background: var(--color-primary);
   }
 
   .mobile-nav-subgroup.is-open .mobile-sub-submenu {
@@ -611,6 +607,11 @@ const { email, phone } = Astro.props;
 
   .mobile-sub-submenu a {
     padding-left: 3rem;
+    color: white;
+  }
+
+  .mobile-sub-submenu a:hover {
+    background: rgba(255, 255, 255, 0.15);
   }
 
   .mobile-cta {
@@ -674,11 +675,10 @@ const { email, phone } = Astro.props;
       margin-left: 0;
       flex-shrink: 1;
       min-width: 0;
-      overflow: hidden;
     }
 
     .logo :global(img) {
-      height: 60px;
+      height: 80px;
       max-width: 100%;
     }
   }
