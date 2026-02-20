@@ -179,10 +179,12 @@ const siteInfo = await getEntry('site-info', 'main');
   <script>
     const form = document.querySelector('.signup-form');
     const successMessage = document.querySelector('.success-message');
+    const pageHeader = document.querySelector('.page-header');
 
     form?.addEventListener('submit', (e) => {
       e.preventDefault();
       form.style.display = 'none';
+      pageHeader.style.display = 'none';
       successMessage.style.display = 'block';
     });
   </script>
