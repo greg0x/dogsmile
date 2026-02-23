@@ -36,7 +36,7 @@ const cards = [
   {
     title: 'Csoportos',
     duration: 'Heti egyszeri találkozó megadott időpontban, változatos helyszíneken',
-    description: 'Nagyszerű lehetőség ingergazdag környezetben gyakorolni, más kutyák jelenlétében.',
+    description: 'Nagyszerű lehetőség ingergazdag környezetben gyakorolni más kutyák jelenlétében.',
     price: '5 000 Ft / alkalom',
     berlet: '5 alkalmas bérlet: 20 000 Ft',
     validity: '6 hétig érvényes',
@@ -82,7 +82,7 @@ const cards = [
           <p><strong>Figyelem!</strong> Alapvetően Szegeden érhetőek el, a városon kívül az árak változhatnak.</p>
         </div>
         <div class="note-box">
-          <p>Jelentkezés kizárólag emailben!</p>
+          <p>Jelentkezés kizárólag <a href={`mailto:${siteInfo.data.email}`} class="email-link">emailben</a>!</p>
         </div>
       </div>
 
@@ -300,6 +300,16 @@ const cards = [
     font-size: 1.15rem;
     line-height: 1.6;
     margin: 0;
+  }
+
+  .email-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .email-link:hover {
+    opacity: 0.8;
   }
 
   @media (max-width: 600px) {
