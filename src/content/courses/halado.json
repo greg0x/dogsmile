@@ -8,7 +8,8 @@
   "price": "80 000 Ft",
   "priceNote": "Vagy 2 részletben: 2 x 40 000 Ft",
   "duration": "8 alkalom kiscsoportban",
-  "includes": [
+  "highlightsTitle": "Hogyan kell elképzelni?",
+  "highlights": [
     "Egyéni vagy kiscsoportos foglalkozás (3 gazdi-kutya páros)",
     "Változatos helyszínek",
     "Aktivitásokkal fűszerezve"
@@ -25,12 +26,6 @@
     "Nincs időd a gyakorlásra",
     "Kutyád reaktív más kutyákra/emberre (ez esetben inkább az egyéni képzést javaslom)"
   ],
-  "benefits": [
-    "Megbízható engedelmesség különböző helyszíneken",
-    "Magasabb szintű együttműködés kutyáddal",
-    "Szocializáció más kutyákkal",
-    "Türelmes, következetes szakmai vezetés"
-  ],
   "expectations": {
     "instructor": [
       "Időben érkezek",
@@ -43,7 +38,7 @@
       "Kérlek érkezz 5-10 perccel korábban, hogy kutyusodnak legyen ideje szaglászni, üríteni",
       "Az alkalmakra készítsd össze a szükséges eszközöket",
       "Ha valami oknál fogva nem tudsz megjelenni az alkalmon, akkor kérlek legkésőbb 24 órával az időpont előtt szólj",
-      "Ahhoz, hogy a hatékonyság minél jobb legyen, kérlek, két alkalom között gyakorolj minimum 3x."
+      "Ahhoz, hogy a képzés minél hatékonyabb legyen, kérlek két alkalom között gyakorolj minimum 3x."
     ]
   }
 }

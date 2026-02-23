@@ -123,6 +123,7 @@ if (trainerImagePath) {
 
           {course.data.highlights && (
             <section class="course-section highlights-section">
+              {course.data.highlightsTitle && <h2>{course.data.highlightsTitle}</h2>}
               <ul class="feature-list highlights">
                 {course.data.highlights.map((item: string) => (
                   <li>

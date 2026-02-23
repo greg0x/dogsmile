@@ -17,8 +17,8 @@
     "Szemkontaktus",
     "Helyére küldés",
     "Laza pórázon séta",
-    "Étel/tárgy kontroll",
-    "Ajtó/kapu kontroll"
+    "Ételkontroll",
+    "Kapukontroll"
   ],
   "requirements": [
     "Szeretnéd a kutyád jobban megismerni és megérteni",
@@ -57,7 +57,7 @@
       "Ha külső helyszínen dolgozunk, kérlek érkezz 5-10 perccel korábban, hogy kutyusodnak legyen ideje szaglászni, üríteni",
       "Az alkalmakra készítsd össze a szükséges eszközöket",
       "Ha nem alkalmas az időpont, akkor kérlek legkésőbb 24 órával a megbeszélt időpont előtt szólj",
-      "Ahhoz, hogy a hatékonyság minél jobb legyen, kérlek, két alkalom között gyakorolj minimum 3x."
+      "Ahhoz, hogy a képzés minél hatékonyabb legyen, kérlek két alkalom között gyakorolj minimum 3x."
     ]
   }
 }

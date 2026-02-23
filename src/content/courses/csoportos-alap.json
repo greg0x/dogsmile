@@ -15,13 +15,15 @@
     "Szemkontaktus",
     "Helyére küldés",
     "Laza pórázon séta",
-    "Nincs kényszerítés, büntetés vagy bántalmazás, csak pozitív megerősítés!",
-    "Kiscsoportos foglalkozás (3 gazdi-kutya páros)"
+    "Ételkontroll",
+    "Kapukontroll"
   ],
   "highlights": [
+    "Nincs kényszerítés, büntetés vagy bántalmazás, csak pozitív megerősítés!",
     "Első 4 alkalom Szegeden az Erzsébet ligetben",
     "5. alkalomtól változatos környezetben",
     "8 héten át heti 1x 1-1,5 órás foglalkozás",
+    "Kiscsoportos foglalkozás (3 gazdi-kutya páros)",
     "Ajándék a kezdéshez: síp és klikker",
     "Feladatleírás emailben",
     "Konzultáció, ha elakadsz a gyakorlásban"
@@ -44,12 +46,6 @@
     "Nem tudsz minden alkalmon részt venni",
     "Kutyád reaktív más kutyákkal és/vagy emberekkel (egyéni képzést javaslom)"
   ],
-  "benefits": [
-    "Szocializáció más kutyákkal",
-    "Figyelem zavarók mellett",
-    "Közösségi élmény gazdiknak és kutyáknak",
-    "Stresszmentes séták"
-  ],
   "expectations": {
     "instructor": [
       "Időben érkezek",
@@ -62,7 +58,7 @@
       "Kérlek érkezz 5-10 perccel korábban, hogy kutyusodnak legyen ideje szaglászni, üríteni",
       "Az alkalmakra készítsd össze a szükséges eszközöket",
       "Ha valami oknál fogva nem tudsz megjelenni az alkalmon, akkor kérlek legkésőbb 24 órával az időpont előtt szólj",
-      "Ahhoz, hogy a hatékonyság minél jobb legyen, kérlek, két alkalom között gyakorolj minimum 3x."
+      "Ahhoz, hogy a képzés minél hatékonyabb legyen, kérlek két alkalom között gyakorolj minimum 3x."
     ]
   }
 }
