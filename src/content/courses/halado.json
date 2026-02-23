@@ -1,8 +1,8 @@
 {
   "title": "Haladó kurzus",
   "subtitle": "Következő szint",
-  "description": "Az alap kurzus feladatait továbbfejlesztve, változatos helyszíneken tovább mélyítheted kapcsolatod kutyusoddal.",
-  "fullDescription": "Ha kutyusoddal már elvégeztétek az alap kurzust a láthatatlan póráz módszer szemléletében, de szeretnél még tovább fejlődni, akkor ez a kurzus neked szól.",
+  "description": "Az alapkurzus feladatait továbbfejlesztve, változatos helyszíneken tovább mélyítheted kapcsolatod kutyusoddal.",
+  "fullDescription": "Ha kutyusoddal már elvégeztétek az alapkurzust a láthatatlan póráz módszer szemléletében, de szeretnél még tovább fejlődni, akkor ez a kurzus neked szól.",
   "image": "halado.png",
   "order": 2,
   "price": "80 000 Ft",
@@ -14,7 +14,7 @@
     "Aktivitásokkal fűszerezve"
   ],
   "requirements": [
-    "Szeretnéd az alap kurzus feladatait továbbfejleszteni",
+    "Szeretnéd az alapkurzus feladatait továbbfejleszteni",
     "Szeretnéd, hogy változatos körülmények között is jól együtt tudjatok működni kutyusoddal",
     "Ott tudsz lenni minden alkalmon",
     "Heti gyakorlásokra van időd",

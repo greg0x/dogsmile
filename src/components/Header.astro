@@ -44,7 +44,7 @@ const { email, phone } = Astro.props;
           <a href="/#kurzusok" class="nav-link">Szolgáltatások <span class="arrow arrow-large">▾</span></a>
           <div class="dropdown-menu">
             <div class="dropdown-submenu">
-              <a href="#" class="dropdown-submenu-trigger">Alap kurzus <span class="arrow arrow-large">▸</span></a>
+              <a href="#" class="dropdown-submenu-trigger">Alapkurzus <span class="arrow arrow-large">▸</span></a>
               <div class="dropdown-submenu-menu">
                 <a href="/kurzusok/alap">Egyéni</a>
                 <a href="/kurzusok/csoportos-alap">Csoportos</a>
@@ -94,8 +94,8 @@ const { email, phone } = Astro.props;
         <div class="mobile-submenu">
           <div class="mobile-nav-subgroup">
             <button class="mobile-nav-subtoggle">
-              Alap kurzus
-              <svg class="toggle-arrow" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              Alapkurzus
+              <svg class="sub-toggle-arrow" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
               </svg>
             </button>
@@ -588,11 +588,11 @@ const { email, phone } = Astro.props;
     background: var(--color-secondary);
   }
 
-  .mobile-nav-subgroup .toggle-arrow {
+  .sub-toggle-arrow {
     transition: transform 0.2s;
   }
 
-  .mobile-nav-subgroup.is-open .toggle-arrow {
+  .mobile-nav-subgroup.is-open .sub-toggle-arrow {
     transform: rotate(180deg);
   }
 
