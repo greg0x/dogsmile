@@ -74,14 +74,14 @@ const ADS_CONVERSION_ID = "AW-11033305242";
       ]
     })} />
 
-    <!-- Google Analytics -->
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}></script>
-    <script define:vars={{ GA_MEASUREMENT_ID, ADS_CONVERSION_ID }}>
+    <!-- Google Analytics + Google Ads -->
+    <script is:inline src="https://www.googletagmanager.com/gtag/js?id=GT-K466ZBX" async></script>
+    <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', GA_MEASUREMENT_ID);
-      gtag('config', ADS_CONVERSION_ID);
+      gtag('config', 'GT-K466ZBX');
+      gtag('config', 'AW-11033305242');
     </script>
 
     <!-- Preconnect to external resources -->
