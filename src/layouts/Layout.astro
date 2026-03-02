@@ -7,7 +7,7 @@ interface Props {
   ogImage?: string;
 }
 
-const { title, description = "Kutyakiképzés pozitív megerősítéssel - Láthatatlan Póráz Módszer", ogImage = "/images/og-default.png" } = Astro.props;
+const { title, description = "Kutyakiképzés pozitív megerősítéssel - Láthatatlan Póráz Módszer", ogImage = "/images/og-default.jpg" } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(ogImage, Astro.site);
 const fullTitle = `${title} | DOGSMILE`;
@@ -46,7 +46,7 @@ const ADS_CONVERSION_ID = "AW-11033305242";
           "url": "https://dogsmile.hu",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://dogsmile.hu/images/og-default.png"
+            "url": "https://dogsmile.hu/images/og-default.jpg"
           },
           "sameAs": [
             "https://www.facebook.com/mosolyakutyanakmosolyagazdinak"
