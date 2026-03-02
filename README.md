@@ -1,6 +1,5 @@
 ## Todo
 
-- jelentkezes test
 - analytics + SEO checkin
 - domain
 

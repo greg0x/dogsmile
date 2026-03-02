@@ -4,9 +4,17 @@ import { ViewTransitions } from 'astro:transitions';
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
 }
 
-const { title, description = "Kutyakiképzés pozitív megerősítéssel - Láthatatlan Póráz Módszer" } = Astro.props;
+const { title, description = "Kutyakiképzés pozitív megerősítéssel - Láthatatlan Póráz Módszer", ogImage = "/images/og-default.png" } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(ogImage, Astro.site);
+const fullTitle = `${title} | DOGSMILE`;
+
+// TODO: Replace with your actual IDs
+const GA_MEASUREMENT_ID = "GT-K466ZBX"; // Verify in Google Analytics > Admin > Data streams
+const ADSENSE_PUB_ID = "ca-pub-XXXXXXXXXXXXXXXX"; // Replace with your AdSense Publisher ID
 ---
 
 <!doctype html>
@@ -16,15 +24,70 @@ const { title, description = "Kutyakiképzés pozitív megerősítéssel - Láth
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title} | DOGSMILE</title>
+    <link rel="canonical" href={canonicalURL} />
+    <title>{fullTitle}</title>
 
     <!-- Open Graph / Social -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content={`${title} | DOGSMILE`} />
+    <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:site_name" content="DOGSMILE" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:locale" content="hu_HU" />
 
-    <!-- Preconnect to external resources if needed -->
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://dogsmile.hu/#organization",
+          "name": "DOGSMILE",
+          "url": "https://dogsmile.hu",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://dogsmile.hu/images/og-default.png"
+          },
+          "sameAs": [
+            "https://www.facebook.com/mosolyakutyanakmosolyagazdinak"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://dogsmile.hu/#website",
+          "url": "https://dogsmile.hu",
+          "name": "DOGSMILE",
+          "description": "Kutyakiképzés pozitív megerősítéssel - Láthatatlan Póráz Módszer",
+          "publisher": { "@id": "https://dogsmile.hu/#organization" },
+          "inLanguage": "hu"
+        },
+        {
+          "@type": "WebPage",
+          "@id": canonicalURL.toString(),
+          "url": canonicalURL.toString(),
+          "name": fullTitle,
+          "description": description,
+          "isPartOf": { "@id": "https://dogsmile.hu/#website" },
+          "about": { "@id": "https://dogsmile.hu/#organization" },
+          "inLanguage": "hu"
+        }
+      ]
+    })} />
+
+    <!-- Google Analytics -->
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}></script>
+    <script define:vars={{ GA_MEASUREMENT_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', GA_MEASUREMENT_ID);
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_PUB_ID}`} crossorigin="anonymous"></script>
+
+    <!-- Preconnect to external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@400;700&family=Lexend+Deca:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
