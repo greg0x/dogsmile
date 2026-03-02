@@ -1,6 +1,5 @@
 ## Todo
 
-- analytics + SEO checkin
 - domain
 
 ## Kriszta topics
