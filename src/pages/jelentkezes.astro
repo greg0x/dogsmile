@@ -197,6 +197,14 @@ const siteInfo = await getEntry('site-info', 'main');
         });
 
         if (response.ok) {
+          // Google Ads conversion tracking
+          if (typeof gtag === 'function') {
+            gtag('event', 'conversion', {
+              'send_to': 'AW-11033305242/w18VCPPLq4EcEJrBi4Op',
+              'value': 1.0,
+              'currency': 'HUF'
+            });
+          }
           form.style.display = 'none';
           if (pageHeader) pageHeader.style.display = 'none';
           if (successMessage) successMessage.style.display = 'block';

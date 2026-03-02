@@ -12,9 +12,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(ogImage, Astro.site);
 const fullTitle = `${title} | DOGSMILE`;
 
-// TODO: Replace with your actual IDs
-const GA_MEASUREMENT_ID = "GT-K466ZBX"; // Verify in Google Analytics > Admin > Data streams
-const ADSENSE_PUB_ID = "ca-pub-XXXXXXXXXXXXXXXX"; // Replace with your AdSense Publisher ID
+const GA_MEASUREMENT_ID = "GT-K466ZBX";
+const ADS_CONVERSION_ID = "AW-11033305242";
 ---
 
 <!doctype html>
@@ -77,15 +76,13 @@ const ADSENSE_PUB_ID = "ca-pub-XXXXXXXXXXXXXXXX"; // Replace with your AdSense P
 
     <!-- Google Analytics -->
     <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}></script>
-    <script define:vars={{ GA_MEASUREMENT_ID }}>
+    <script define:vars={{ GA_MEASUREMENT_ID, ADS_CONVERSION_ID }}>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', GA_MEASUREMENT_ID);
+      gtag('config', ADS_CONVERSION_ID);
     </script>
-
-    <!-- Google AdSense -->
-    <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_PUB_ID}`} crossorigin="anonymous"></script>
 
     <!-- Preconnect to external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
