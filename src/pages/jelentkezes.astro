@@ -177,15 +177,39 @@ const siteInfo = await getEntry('site-info', 'main');
   </main>
 
   <script>
-    const form = document.querySelector('.signup-form');
-    const successMessage = document.querySelector('.success-message');
-    const pageHeader = document.querySelector('.page-header');
+    const form = document.querySelector('.signup-form') as HTMLFormElement | null;
+    const successMessage = document.querySelector('.success-message') as HTMLElement | null;
+    const pageHeader = document.querySelector('.page-header') as HTMLElement | null;
 
-    form?.addEventListener('submit', (e) => {
+    form?.addEventListener('submit', async (e) => {
       e.preventDefault();
-      form.style.display = 'none';
-      pageHeader.style.display = 'none';
-      successMessage.style.display = 'block';
+      const submitButton = form.querySelector('.submit-button') as HTMLButtonElement | null;
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = 'Küldés...';
+      }
+
+      try {
+        const response = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(new FormData(form) as any).toString(),
+        });
+
+        if (response.ok) {
+          form.style.display = 'none';
+          if (pageHeader) pageHeader.style.display = 'none';
+          if (successMessage) successMessage.style.display = 'block';
+        } else {
+          throw new Error('Hiba történt');
+        }
+      } catch {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Küldés';
+        }
+        alert('Hiba történt a küldés során. Kérjük, próbálja újra.');
+      }
     });
   </script>
 

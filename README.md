@@ -1,13 +1,8 @@
 ## Todo
 
-- review pages
-  - landing
-  - csoportos alap
-  - csoportos kolyok
-- deploy to netlify + test email send
-- add decap admin
-- SEO optimasation
-- analytics setup
+- jelentkezes test
+- analytics + SEO checkin
+- domain
 
 ## Kriszta topics
 
