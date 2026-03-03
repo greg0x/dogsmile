@@ -1,0 +1,159 @@
+---
+const GA_MEASUREMENT_ID = "GT-K466ZBX";
+const ADS_CONVERSION_ID = "AW-11033305242";
+---
+
+<div id="cookie-consent" class="cookie-banner" role="dialog" aria-label="Cookie beállítások">
+  <div class="cookie-content">
+    <p>
+      Az oldal sütiket (cookie-kat) használ a látogatottság méréséhez és a hirdetések hatékonyságának követéséhez.
+      <a href="/adatkezeles">Adatkezelési tájékoztató</a>
+    </p>
+    <div class="cookie-buttons">
+      <button id="cookie-reject" class="cookie-btn cookie-btn-secondary" type="button">
+        Csak a szükségesek
+      </button>
+      <button id="cookie-accept" class="cookie-btn cookie-btn-primary" type="button">
+        Elfogadom
+      </button>
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ GA_MEASUREMENT_ID, ADS_CONVERSION_ID }}>
+  function loadAnalytics() {
+    if (document.querySelector('script[src*="googletagmanager"]')) return;
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', GA_MEASUREMENT_ID);
+    gtag('config', ADS_CONVERSION_ID);
+  }
+
+  function hideBanner() {
+    const banner = document.getElementById('cookie-consent');
+    if (banner) banner.style.display = 'none';
+  }
+
+  function initCookieConsent() {
+    const consent = localStorage.getItem('cookie-consent');
+
+    if (consent === 'accepted') {
+      hideBanner();
+      loadAnalytics();
+      return;
+    }
+
+    if (consent === 'rejected') {
+      hideBanner();
+      return;
+    }
+
+    const banner = document.getElementById('cookie-consent');
+    if (banner) banner.style.display = 'flex';
+
+    document.getElementById('cookie-accept')?.addEventListener('click', () => {
+      localStorage.setItem('cookie-consent', 'accepted');
+      hideBanner();
+      loadAnalytics();
+    });
+
+    document.getElementById('cookie-reject')?.addEventListener('click', () => {
+      localStorage.setItem('cookie-consent', 'rejected');
+      hideBanner();
+    });
+  }
+
+  initCookieConsent();
+  document.addEventListener('astro:after-swap', initCookieConsent);
+</script>
+
+<style>
+  .cookie-banner {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: var(--color-primary);
+    color: white;
+    padding: 1rem 1.5rem;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .cookie-content {
+    max-width: var(--max-width);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .cookie-content p {
+    flex: 1;
+    margin: 0;
+  }
+
+  .cookie-content a {
+    color: var(--color-primary-light);
+    text-decoration: underline;
+  }
+
+  .cookie-buttons {
+    display: flex;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .cookie-btn {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: opacity 0.2s;
+  }
+
+  .cookie-btn:hover {
+    opacity: 0.85;
+  }
+
+  .cookie-btn-primary {
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+  }
+
+  .cookie-btn-secondary {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+  }
+
+  @media (max-width: 640px) {
+    .cookie-content {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+    }
+
+    .cookie-buttons {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
