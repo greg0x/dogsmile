@@ -1,5 +1,6 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
+import CookieConsent from '../components/CookieConsent.astro';
 
 interface Props {
   title: string;
@@ -11,9 +12,6 @@ const { title, description = "Kutyaoktatás pozitív megerősítéssel - Láthat
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(ogImage, Astro.site);
 const fullTitle = `Dogsmile | ${title}`;
-
-const GA_MEASUREMENT_ID = "GT-K466ZBX";
-const ADS_CONVERSION_ID = "AW-11033305242";
 ---
 
 <!doctype html>
@@ -76,16 +74,6 @@ const ADS_CONVERSION_ID = "AW-11033305242";
       ]
     })} />
 
-    <!-- Google Analytics + Google Ads -->
-    <script is:inline src="https://www.googletagmanager.com/gtag/js?id=GT-K466ZBX" async></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'GT-K466ZBX');
-      gtag('config', 'AW-11033305242');
-    </script>
-
     <!-- Preconnect to external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -95,6 +83,7 @@ const ADS_CONVERSION_ID = "AW-11033305242";
   </head>
   <body>
     <slot />
+    <CookieConsent />
   </body>
 </html>
 
