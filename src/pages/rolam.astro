@@ -142,12 +142,15 @@ const siteInfo = await getEntry('site-info', 'main');
   }
 
   .bottom-sidebar :global(.sidebar) {
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
     align-items: start;
   }
 
-  .bottom-sidebar :global(.sidebar > *) {
-    flex: 1;
+  .bottom-sidebar :global(.sidebar > :first-child),
+  .bottom-sidebar :global(.sidebar > :last-child) {
+    align-self: stretch;
   }
 
   @media (max-width: 768px) {
@@ -156,7 +159,7 @@ const siteInfo = await getEntry('site-info', 'main');
     }
 
     .bottom-sidebar :global(.sidebar) {
-      flex-direction: column;
+      grid-template-columns: 1fr;
     }
   }
 </style>
