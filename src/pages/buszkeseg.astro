@@ -10,6 +10,11 @@ const siteInfo = await getEntry('site-info', 'main');
 const graduatesData = await getEntry('graduates', 'all');
 const graduates = graduatesData.data;
 
+// Split graduates: first batch next to sidebar, rest full-width below
+const sidebarRows = 9;
+const graduatesTop = graduates.slice(0, sidebarRows);
+const graduatesBottom = graduates.slice(sidebarRows);
+
 // Import all graduate images
 const graduateImages = import.meta.glob<{ default: ImageMetadata }>(
   '../assets/images/graduates/*.{jpeg,jpg,png,gif}',
@@ -40,7 +45,7 @@ for (const [path, module] of Object.entries(graduateImages)) {
       <div class="page-content">
         <div class="main-content">
           <div class="graduates-grid">
-            {graduates.map((grad) => {
+            {graduatesTop.map((grad) => {
               const gradImage = grad.image ? imageMap[grad.image] : null;
               return (
                 <div class={`graduate-card ${gradImage ? 'has-image' : ''}`}>
@@ -60,15 +65,37 @@ for (const [path, module] of Object.entries(graduateImages)) {
               );
             })}
           </div>
-
         </div>
 
         <Sidebar
           email={siteInfo.data.email}
           phone={siteInfo.data.phone}
-
         />
       </div>
+
+      {graduatesBottom.length > 0 && (
+        <div class="graduates-grid graduates-grid-full">
+          {graduatesBottom.map((grad) => {
+            const gradImage = grad.image ? imageMap[grad.image] : null;
+            return (
+              <div class={`graduate-card ${gradImage ? 'has-image' : ''}`}>
+                <div class="graduate-info">
+                  <h3>{grad.displayName || `${grad.ownerName} és ${grad.dogName}`}</h3>
+                </div>
+                {gradImage ? (
+                  <div class="graduate-image">
+                    <Image src={gradImage} alt={`${grad.dogName} és ${grad.ownerName}`} width={300} height={300} quality={90} />
+                  </div>
+                ) : (
+                  <div class="graduate-avatar">
+                    <span>{grad.dogName.charAt(0)}</span>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      )}
 
       <div class="cta-section">
         <h2>Szeretnéd, ha ti is itt lennétek?</h2>
@@ -126,6 +153,11 @@ for (const [path, module] of Object.entries(graduateImages)) {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1.25rem;
     margin-bottom: 2rem;
+  }
+
+  .graduates-grid-full {
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 2rem;
   }
 
   .graduate-card {
@@ -217,6 +249,10 @@ for (const [path, module] of Object.entries(graduateImages)) {
   @media (max-width: 968px) {
     .page-content {
       grid-template-columns: 1fr;
+    }
+
+    .graduates-grid-full {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
   }
 </style>
