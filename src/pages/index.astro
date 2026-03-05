@@ -118,13 +118,27 @@ const pricingTiers = pricingData.data.sort((a, b) => a.order - b.order);
         <h2 class="section-title">Vélemények a kurzusokról</h2>
 
 
-        <div class="testimonials-grid">
-          {sortedTestimonials.map((testimonial) => (
-            <Testimonial
-              name={testimonial.data.name}
-              quote={testimonial.data.quote}
-              image={testimonial.data.image}
-            />
+        <div class="testimonials-carousel">
+          <button class="carousel-btn carousel-btn-prev" aria-label="Előző vélemény" data-dir="-1">&#8249;</button>
+          <div class="testimonials-track-wrapper">
+            <div class="testimonials-track">
+              {sortedTestimonials.map((testimonial) => (
+                <div class="testimonial-slide">
+                  <Testimonial
+                    name={testimonial.data.name}
+                    quote={testimonial.data.quote}
+                    image={testimonial.data.image}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+          <button class="carousel-btn carousel-btn-next" aria-label="Következő vélemény" data-dir="1">&#8250;</button>
+        </div>
+
+        <div class="carousel-dots">
+          {sortedTestimonials.map((_, i) => (
+            <button class={`carousel-dot ${i === 0 ? 'active' : ''}`} data-index={i} aria-label={`Vélemény ${i + 1}`}></button>
           ))}
         </div>
 
@@ -254,10 +268,71 @@ const pricingTiers = pricingData.data.sort((a, b) => a.order - b.order);
     background: white;
   }
 
-  .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+  .testimonials-carousel {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+  }
+
+  .testimonials-track-wrapper {
+    overflow: hidden;
+    flex: 1;
+  }
+
+  .testimonials-track {
+    display: flex;
+    transition: transform 0.4s ease;
+  }
+
+  .testimonial-slide {
+    min-width: 100%;
+    padding: 0 0.5rem;
+    box-sizing: border-box;
+  }
+
+  .carousel-btn {
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.2s, transform 0.2s;
+    line-height: 1;
+  }
+
+  .carousel-btn:hover {
+    background: var(--color-primary-dark, #2a5a3a);
+    transform: scale(1.1);
+  }
+
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--color-primary);
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s;
+  }
+
+  .carousel-dot.active {
+    background: var(--color-primary);
   }
 
   .pride-wall-link {
@@ -275,9 +350,93 @@ const pricingTiers = pricingData.data.sort((a, b) => a.order - b.order);
     color: var(--color-accent);
   }
 
+  @media (min-width: 769px) {
+    .testimonial-slide {
+      min-width: 33.333%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .carousel-btn {
+      width: 36px;
+      height: 36px;
+      font-size: 1.2rem;
+    }
+  }
+
   @media (max-width: 768px) {
     .methodology-content {
       grid-template-columns: 1fr;
     }
   }
 </style>
+
+<script>
+  const track = document.querySelector('.testimonials-track') as HTMLElement;
+  const slides = document.querySelectorAll('.testimonial-slide');
+  const dots = document.querySelectorAll('.carousel-dot');
+  const btnPrev = document.querySelector('.carousel-btn-prev') as HTMLButtonElement;
+  const btnNext = document.querySelector('.carousel-btn-next') as HTMLButtonElement;
+
+  if (track && slides.length > 0) {
+    let currentIndex = 0;
+
+    function getSlidesPerView() {
+      return window.innerWidth > 768 ? 3 : 1;
+    }
+
+    function getMaxIndex() {
+      return Math.max(0, slides.length - getSlidesPerView());
+    }
+
+    function updateCarousel() {
+      const slideWidth = 100 / getSlidesPerView();
+      track.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+      });
+    }
+
+    function goTo(index: number) {
+      currentIndex = Math.max(0, Math.min(index, getMaxIndex()));
+      updateCarousel();
+    }
+
+    btnPrev?.addEventListener('click', () => goTo(currentIndex - 1));
+    btnNext?.addEventListener('click', () => goTo(currentIndex + 1));
+
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const index = parseInt((dot as HTMLElement).dataset.index || '0');
+        goTo(index);
+      });
+    });
+
+    // Swipe support
+    let startX = 0;
+    let isDragging = false;
+    const wrapper = document.querySelector('.testimonials-track-wrapper') as HTMLElement;
+
+    wrapper?.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+    }, { passive: true });
+
+    wrapper?.addEventListener('touchend', (e) => {
+      if (!isDragging) return;
+      isDragging = false;
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) {
+        goTo(currentIndex + (diff > 0 ? 1 : -1));
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (currentIndex > getMaxIndex()) {
+        currentIndex = getMaxIndex();
+      }
+      updateCarousel();
+    });
+  }
+</script>
