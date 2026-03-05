@@ -136,11 +136,7 @@ const pricingTiers = pricingData.data.sort((a, b) => a.order - b.order);
           <button class="carousel-btn carousel-btn-next" aria-label="Következő vélemény" data-dir="1">&#8250;</button>
         </div>
 
-        <div class="carousel-dots">
-          {sortedTestimonials.map((_, i) => (
-            <button class={`carousel-dot ${i === 0 ? 'active' : ''}`} data-index={i} aria-label={`Vélemény ${i + 1}`}></button>
-          ))}
-        </div>
+        <div class="carousel-dots"></div>
 
         <div class="pride-wall-link">
           <a href="/buszkeseg">Nézd meg a Büszkeségfalat &rarr;</a>
@@ -282,6 +278,7 @@ const pricingTiers = pricingData.data.sort((a, b) => a.order - b.order);
 
   .testimonials-track {
     display: flex;
+    align-items: flex-start;
     transition: transform 0.4s ease;
   }
 
@@ -320,7 +317,7 @@ const pricingTiers = pricingData.data.sort((a, b) => a.order - b.order);
     margin-top: 1.5rem;
   }
 
-  .carousel-dot {
+  .carousel-dots :global(.carousel-dot) {
     width: 12px;
     height: 12px;
     border-radius: 50%;
@@ -331,7 +328,7 @@ const pricingTiers = pricingData.data.sort((a, b) => a.order - b.order);
     transition: background 0.2s;
   }
 
-  .carousel-dot.active {
+  .carousel-dots :global(.carousel-dot.active) {
     background: var(--color-primary);
   }
 
@@ -374,7 +371,7 @@ const pricingTiers = pricingData.data.sort((a, b) => a.order - b.order);
 <script>
   const track = document.querySelector('.testimonials-track') as HTMLElement;
   const slides = document.querySelectorAll('.testimonial-slide');
-  const dots = document.querySelectorAll('.carousel-dot');
+  const dotsContainer = document.querySelector('.carousel-dots') as HTMLElement;
   const btnPrev = document.querySelector('.carousel-btn-prev') as HTMLButtonElement;
   const btnNext = document.querySelector('.carousel-btn-next') as HTMLButtonElement;
 
@@ -389,11 +386,23 @@ const pricingTiers = pricingData.data.sort((a, b) => a.order - b.order);
       return Math.max(0, slides.length - getSlidesPerView());
     }
 
+    function buildDots() {
+      dotsContainer.innerHTML = '';
+      const count = getMaxIndex() + 1;
+      for (let i = 0; i < count; i++) {
+        const dot = document.createElement('button');
+        dot.className = `carousel-dot${i === currentIndex ? ' active' : ''}`;
+        dot.setAttribute('aria-label', `Vélemény ${i + 1}`);
+        dot.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(dot);
+      }
+    }
+
     function updateCarousel() {
       const slideWidth = 100 / getSlidesPerView();
       track.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
 
-      dots.forEach((dot, i) => {
+      dotsContainer.querySelectorAll('.carousel-dot').forEach((dot, i) => {
         dot.classList.toggle('active', i === currentIndex);
       });
     }
@@ -405,13 +414,6 @@ const pricingTiers = pricingData.data.sort((a, b) => a.order - b.order);
 
     btnPrev?.addEventListener('click', () => goTo(currentIndex - 1));
     btnNext?.addEventListener('click', () => goTo(currentIndex + 1));
-
-    dots.forEach((dot) => {
-      dot.addEventListener('click', () => {
-        const index = parseInt((dot as HTMLElement).dataset.index || '0');
-        goTo(index);
-      });
-    });
 
     // Swipe support
     let startX = 0;
@@ -436,7 +438,10 @@ const pricingTiers = pricingData.data.sort((a, b) => a.order - b.order);
       if (currentIndex > getMaxIndex()) {
         currentIndex = getMaxIndex();
       }
+      buildDots();
       updateCarousel();
     });
+
+    buildDots();
   }
 </script>
