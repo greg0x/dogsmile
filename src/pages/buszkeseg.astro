@@ -46,7 +46,7 @@ for (const [path, module] of Object.entries(graduateImages)) {
                 <h3>{grad.displayName || `${grad.ownerName} és ${grad.dogName}`}</h3>
               </div>
               {gradImage ? (
-                <div class="graduate-image">
+                <div class="graduate-image" data-lightbox>
                   <Image src={gradImage} alt={`${grad.dogName} és ${grad.ownerName}`} width={400} height={400} quality={90} />
                 </div>
               ) : (
@@ -228,4 +228,53 @@ for (const [path, module] of Object.entries(graduateImages)) {
       grid-template-columns: 1fr;
     }
   }
+  .graduate-image[data-lightbox] {
+    cursor: pointer;
+  }
+
+  :global(.lightbox-overlay) {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.85);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  :global(.lightbox-overlay.active) {
+    display: flex;
+  }
+
+  :global(.lightbox-overlay img) {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 8px;
+  }
 </style>
+
+<div class="lightbox-overlay" id="lightbox">
+  <img src="" alt="" id="lightbox-img" />
+</div>
+
+<script>
+  const overlay = document.getElementById('lightbox')!;
+  const lbImg = document.getElementById('lightbox-img') as HTMLImageElement;
+
+  document.querySelectorAll('[data-lightbox]').forEach((el) => {
+    el.addEventListener('click', () => {
+      const img = el.querySelector('img');
+      if (!img) return;
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+      overlay.classList.add('active');
+    });
+  });
+
+  overlay.addEventListener('click', () => overlay.classList.remove('active'));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') overlay.classList.remove('active');
+  });
+</script>
