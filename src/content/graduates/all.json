@@ -65,5 +65,6 @@
   { "ownerName": "Kati", "dogName": "Liza", "image": "Kati és Liza.jpg" },
   { "ownerName": "Adél", "dogName": "Mixi", "image": "Mixi.jpg" },
   { "ownerName": "Kata és Gergő", "dogName": "Brúnó", "displayName": "Kata, Gergő és Brúnó", "image": "Brúnó.jpg" },
-  { "ownerName": "Tilla és Krisztián", "dogName": "Mandula", "displayName": "Tilla, Krisztián és Mandula", "image": "Tilla-Krisztián-és-Mandula.jpg" }
+  { "ownerName": "Tilla és Krisztián", "dogName": "Mandula", "displayName": "Tilla, Krisztián és Mandula", "image": "Tilla-Krisztián-és-Mandula.jpg" },
+  { "ownerName": "Rozi", "dogName": "Tomi", "image": "Rozi és Tomi.jpg" }
 ]
