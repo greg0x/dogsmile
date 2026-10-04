@@ -69,5 +69,9 @@
   { "ownerName": "Rozi", "dogName": "Tomi", "image": "Rozi és Tomi.jpg" },
   { "ownerName": "Jázmin", "dogName": "Mangó", "image": "Jázmin és Mangó.jpg" },
   { "ownerName": "Timi", "dogName": "Rex", "image": "Timi és Rex.jpg" },
-  { "ownerName": "Ági és Dani", "dogName": "Modri", "displayName": "Ági, Dani és Modri", "image": "Ági, Dani és Modri.jpg" }
+  { "ownerName": "Ági és Dani", "dogName": "Modri", "displayName": "Ági, Dani és Modri", "image": "Ági, Dani és Modri.jpg" },
+  { "ownerName": "Szilvi és Máté", "dogName": "Manci", "displayName": "Szilvi, Máté és Manci", "image": "Szilvi, Máté és Manci.jpg" },
+  { "ownerName": "Magdi", "dogName": "Bodza", "image": "Magdi és Bodza.jpg" },
+  { "ownerName": "Niki és Szabi", "dogName": "Pixie", "displayName": "Niki, Szabi és Pixie", "image": "Niki, Szabi és Pixie.jpg" },
+  { "ownerName": "Attila", "dogName": "Rózi", "image": "Attila és Rózi.jpg" }
 ]
