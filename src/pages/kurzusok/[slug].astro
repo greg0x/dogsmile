@@ -6,7 +6,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
 export async function getStaticPaths() {
-  const courses = await getCollection('courses');
+  const courses = (await getCollection('courses')).filter(c => c.data.active !== false);
   return courses.map((course) => ({
     params: { slug: course.id },
     props: { course },

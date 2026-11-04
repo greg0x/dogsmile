@@ -26,7 +26,7 @@ const courseImages: Record<string, ImageMetadata> = {
   'csoportos-kolyok': alapImage,
 };
 
-const allCourses = await getCollection('courses');
+const allCourses = (await getCollection('courses')).filter(c => c.data.active !== false);
 const testimonials = await getCollection('testimonials');
 const siteInfo = await getEntry('site-info', 'main');
 const pricingData = await getEntry('pricing', 'tiers');

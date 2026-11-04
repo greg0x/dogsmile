@@ -43,13 +43,7 @@ const { email, phone } = Astro.props;
         <div class="nav-dropdown">
           <a href="/#kurzusok" class="nav-link">Szolgáltatások <span class="arrow arrow-large">▾</span></a>
           <div class="dropdown-menu">
-            <div class="dropdown-submenu">
-              <a href="#" class="dropdown-submenu-trigger">Alapkurzus <span class="arrow arrow-large">▸</span></a>
-              <div class="dropdown-submenu-menu">
-                <a href="/kurzusok/alap">Egyéni</a>
-                <a href="/kurzusok/csoportos-alap">Csoportos</a>
-              </div>
-            </div>
+            <a href="/kurzusok/alap">Egyéni alapkurzus</a>
             <a href="/kurzusok/halado">Haladó kurzus</a>
             <a href="/kurzusok/trukk">Trükkmester</a>
             <a href="/kurzusok/happy-brain">Happy Brain</a>
@@ -92,18 +86,7 @@ const { email, phone } = Astro.props;
           </svg>
         </button>
         <div class="mobile-submenu">
-          <div class="mobile-nav-subgroup">
-            <button class="mobile-nav-subtoggle">
-              Alapkurzus
-              <svg class="sub-toggle-arrow" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
-              </svg>
-            </button>
-            <div class="mobile-sub-submenu">
-              <a href="/kurzusok/alap">Egyéni</a>
-              <a href="/kurzusok/csoportos-alap">Csoportos</a>
-            </div>
-          </div>
+          <a href="/kurzusok/alap">Egyéni alapkurzus</a>
           <a href="/kurzusok/halado">Haladó kurzus</a>
           <a href="/kurzusok/trukk">Trükkmester</a>
           <a href="/kurzusok/happy-brain">Happy Brain</a>

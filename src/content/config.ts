@@ -8,6 +8,7 @@ const courses = defineCollection({
     description: z.string(),
     fullDescription: z.string().optional(),
     image: z.string(),
+    active: z.boolean().default(true),
     order: z.number(),
     price: z.string().optional(),
     priceNote: z.string().optional(),
