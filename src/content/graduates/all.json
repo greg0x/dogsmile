@@ -75,5 +75,8 @@
   { "ownerName": "Niki és Szabi", "dogName": "Pixie", "displayName": "Niki, Szabi és Pixie", "image": "Niki, Szabi és Pixie.jpg" },
   { "ownerName": "Attila", "dogName": "Rózi", "image": "Attila és Rózi.jpg" },
   { "ownerName": "Ricsi", "dogName": "Momo", "image": "Ricsi és Momo.jpg" },
-  { "ownerName": "Jázmin és Dávid", "dogName": "Lili", "displayName": "Jázmin, Dávid és Lili", "image": "Jázmin, Dávid és Lili.jpg" }
+  { "ownerName": "Jázmin és Dávid", "dogName": "Lili", "displayName": "Jázmin, Dávid és Lili", "image": "Jázmin, Dávid és Lili.jpg" },
+  { "ownerName": "Adri", "dogName": "Cili", "image": "Adri és Cili.jpg" },
+  { "ownerName": "Saci", "dogName": "Lilo", "image": "Saci és Lilo.jpg" },
+  { "ownerName": "Szabolcs", "dogName": "Kókusz", "image": "Szabolcs és Kókusz.jpg" }
 ]
